@@ -1,0 +1,120 @@
+[
+    {
+        "ID": 1,
+        "ProductName": "巧克力泡芙",
+        "Price": 293.8,
+        "Ingredients": [
+            "奶油",
+            "芝士",
+            "抹茶",
+            "抹茶"
+        ],
+        "Description": "食材天然",
+        "ImagePath": "https://www.ihergo.com/photo/product/11/750_11_1500280386113.jpg"
+    },
+    {
+        "ID": 2,
+        "ProductName": "蘋果派",
+        "Price": 293.27,
+        "Ingredients": [
+            "抹茶",
+            "核桃",
+            "雞蛋"
+        ],
+        "Description": "美味可口",
+        "ImagePath": "https://i0.wp.com/brianrecipe.com/wp-content/uploads/2015/08/DSC_2294-1021.jpg"
+    },
+    {
+        "ID": 3,
+        "ProductName": "奶酪",
+        "Price": 75.48,
+        "Ingredients": [
+            "芝士",
+            "核桃",
+            "蜂蜜",
+            "糖"
+        ],
+        "Description": "香氣四溢",
+        "ImagePath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRVS1kEciGpZTKai5oTTDmiHW9uSjNdScbXw&s"
+    },
+    {
+        "ID": 4,
+        "ProductName": "蜜糖吐司",
+        "Price": 363.99,
+        "Ingredients": [
+            "糖",
+            "肉桂"
+        ],
+        "Description": "香氣四溢",
+        "ImagePath": "https://cdn2.ettoday.net/images/1922/e1922710.jpg"
+    },
+    {
+        "ID": 5,
+        "ProductName": "巧克力蛋糕",
+        "Price": 113.52,
+        "Ingredients": [
+            "巧克力",
+            "藍莓"
+        ],
+        "Description": "新鮮出爐",
+        "ImagePath": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/0A475B34-4E78-40D8-9F30-46223B7D77E7/Derivates/E55C7EA4-0E60-403F-B5DC-75EA358197BD.jpg"
+    },
+    {
+        "ID": 6,
+        "ProductName": "提拉米蘇",
+        "Price": 112.33,
+        "Ingredients": [
+            "肉桂",
+            "雞蛋"
+        ],
+        "Description": "健康美味",
+        "ImagePath": "https://i.epochtimes.com/assets/uploads/2021/02/shutterstock_1730616220.jpg"
+    },
+    {
+        "ID": 7,
+        "ProductName": "藍莓鬆餅",
+        "Price": 477.43,
+        "Ingredients": [
+            "麵粉",
+            "香蕉",
+            "藍莓",
+            "香蕉"
+        ],
+        "Description": "香甜鬆軟",
+        "ImagePath": "https://food-safetyws.tycg.gov.tw/001/Upload/4/060632bf-1649-ec11-a1fd-005056b7f485/27e75a5b-017e-4753-b328-49c56c7036b3.jpg"
+    },
+    {
+        "ID": 8,
+        "ProductName": "酥皮點心",
+        "Price": 114.97,
+        "Ingredients": [
+            "麵粉",
+            "巧克力"
+        ],
+        "Description": "美味可口",
+        "ImagePath": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHM_3QBL5ONcqAqyB9WCZq-R2CsNpldN5IICC2MwZ0-dJG9VP1wEGGmz6btiqiOfhy_q1cdQ-sgEHdwx1YGOknWnHaPOvHtmC82CzkpYvP9BgcEWclhb1ZTI2bFRmr_pxtugWqiDahxhQ/s1600/IMG_3836.jpg"
+    },
+    {
+        "ID": 9,
+        "ProductName": "抹茶蛋糕",
+        "Price": 294.14,
+        "Ingredients": [
+            "雞蛋",
+            "草莓"
+        ],
+        "Description": "食材天然",
+        "ImagePath": "https://shoplineimg.com/64002462f205dd00a4574887/64888ece05dd74360928144c/800x.jpg?"
+    },
+    {
+        "ID": 10,
+        "ProductName": "巧克力蛋糕",
+        "Price": 444.14,
+        "Ingredients": [
+            "草莓",
+            "草莓",
+            "奶油"
+        ],
+        "Description": "健康美味",
+        "ImagePath": "https://img.shoplineapp.com/media/image_clips/64080698c1d1260014158dd9/original.jpg?1678247576"
+    }
+]

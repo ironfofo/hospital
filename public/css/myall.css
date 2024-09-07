@@ -1,0 +1,278 @@
+/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;600;700&display=swap'); */
+
+body {
+    font-family: "IBM Plex Sans JP";
+    font-optical-sizing: auto;
+}
+.fw-100{
+    font-weight: 100;
+}
+.fw-200{
+    font-weight: 200;
+}
+.fw-300{
+    font-weight: 300;
+}
+.fw-400{
+    font-weight: 400;
+}
+.fw-500{
+    font-weight: 500;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-700{
+    font-weight: 700;
+}
+.fw-800{
+    font-weight: 800;
+}
+.fw-900{
+    font-weight: 900;
+}
+h3{
+    color: #B4CAA7;
+    font-size: 1.1rem;
+    margin-bottom: 1em;
+    font-weight: 700;
+}
+.footer {
+    border-top: 5px solid #B4CAA7;
+    padding-top: 2.5em;
+    position: relative;
+}
+:root {
+    --mycolor01: #f3f4f5;
+    --mycolor02: #e14444;
+    --mycolor03: #401743;
+    --mycolor04: #680951;
+    --mycolor05: #9c719f;
+    --mycolor06: #ff9a1d;
+    --mycolor07: #c12331;
+    --mycolor08: #353e41;
+    --mycolor09: #fbe0c3;
+    --mycolor10: #ffbb98;
+    --mycolor11: #7d8e95;
+    --mycolor12: #344648;
+    --mycolor13: #edefee;
+    --mycolor14: #d08856;
+    --mycolor15: #aa210f;
+    --mycolor16: #41403c;
+    --mytextcolor01: #fff8fc;
+    --mytextcolor02: #1b1433;
+    --mytextcolor03: #343d0d;
+    --mytextcolor04: #300707;
+}
+
+.bg-01 {
+    background-color: var(--mycolor01);
+}
+
+.bg-02 {
+    background-color: var(--mycolor02);
+}
+
+.bg-03 {
+    background-color: var(--mycolor03);
+}
+
+.bg-04 {
+    background-color: var(--mycolor04);
+}
+
+.bg-05 {
+    background-color: var(--mycolor05);
+}
+
+.bg-06 {
+    background-color: var(--mycolor06);
+}
+
+.bg-07 {
+    background-color: var(--mycolor07);
+}
+
+.bg-08 {
+    background-color: var(--mycolor08);
+}
+
+.bg-09 {
+    background-color: var(--mycolor08);
+}
+
+.bg-09 {
+    background-color: var(--mycolor09);
+}
+
+.bg-10 {
+    background-color: var(--mycolor10);
+}
+
+.bg-11 {
+    background-color: var(--mycolor11);
+}
+
+.bg-12 {
+    background-color: var(--mycolor12);
+}
+
+.bg-13 {
+    background-color: var(--mycolor13);
+}
+
+.bg-14 {
+    background-color: var(--mycolor14);
+}
+
+.bg-15 {
+    background-color: var(--mycolor15);
+}
+
+.bg-16 {
+    background-color: var(--mycolor16);
+}
+
+.bg-btn01 {
+    background-color: var(--mycolor06);
+    color: var(--mycolor08);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px var(--mycolor08);
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.bg-btn01:hover {
+    background-color: var(--mycolor03);
+    color: var(--mytextcolor01);
+    box-shadow: 2px 2px 2px 2px var(--mycolor01);
+    text-decoration: none;
+}
+
+.bg-btn02 {
+    background-color: var(--mycolor05);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px var(--mycolor08);
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.bg-btn03 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    color: var(--mytextcolor02);
+    text-decoration: none;
+    font-size: 15px;
+    background-color: var(--mycolor07);
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px var(--mycolor03);
+    /* margin-right:5px ; */
+
+}
+
+.bg-btn04 {
+    width: 200px;
+    height: 200px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    color: var(--mytextcolor01);
+    text-decoration: none;
+    font-size: 15px;
+    background-color: var(--mycolor06);
+    border-radius: 100%;
+    box-shadow: 2px 2px 2px 2px var(--mycolor03);
+    /* margin-right:5px ; */
+
+}
+
+.text-color01 {
+    color: var(--mytextcolor01);
+}
+
+.text-color02 {
+    color: var(--mytextcolor02);
+}
+
+.text-color03 {
+    color: var(--mytextcolor03);
+}
+
+.text-color04 {
+    color: var(--mytextcolor04);
+}
+
+.myborder01 {
+
+    border: 5px solid var(--mycolor05);
+}
+
+.bg-cover {
+    background-position: center center;
+    background-size: cover;
+}
+
+/* 卷軸特效 */
+.box_roller {
+    width: 100%;
+    height: auto;
+    background-color: var(--mycolor06);
+    position: relative;
+    overflow: hidden;
+}
+
+.roller {
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_roller:hover .roller {
+    top: 0;
+    transition:top 1s;
+}
+
+/* table-rwd */
+@media screen and (max-width:768px) {
+    .table-rwd thead{
+        display: none;
+    }
+
+    .table-rwd tbody tr{
+        display:block;
+        border: 10px solid var(--mycolor03);
+        margin-top:20px ;
+    }
+
+    .table-rwd tbody tr td{
+        display:block;
+        overflow:hidden;
+    }      
+
+    .table-rwd tbody tr td::before{
+        content:attr(data-th)":";
+        color:var(--mycolor04);
+        font-weight: bolder;
+        display: block;
+        float:left;
+        width:6em;
+        text-align: right;
+        padding-right: 1em;
+    }
+
+    .table-rwd tbody tr td span.table-col{
+        display: block;
+        float:left;
+        width:calc(100% - 6em);
+    }
+}
