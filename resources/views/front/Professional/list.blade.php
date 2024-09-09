@@ -17,7 +17,7 @@
             float: left;
             border: 1px solid #ccc;
             background-color: #f1f1f1;
-            width: 30%;
+            width: 20%;
             height: 500px;
         }
 
@@ -78,8 +78,160 @@
         </div>
 
         <div id="InternalMedicine" class="tabcontent">
-            <h3>內科</h3>
-            <p>London is the capital city of England.</p>
+
+            <div class="mt-5">
+                <div class="row ">
+                    <div class="col-sm-4">
+                        <div class="container">
+                            <div class="row d-flex flex-column align-items-center ">
+                                <div class="box_doctor_name">
+                                    <img class="doctor_img" src="images/doctor/doctor1.jpg">
+                                    <div class="doctor_name">名字</div>
+                                </div>
+                                <a class="btn01 mt-3 me-auto" id="intro" href='#'><i class="fa fa-user"></i>醫師簡介</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-8 d_calender">
+                        <div class="row">
+
+                            <div class="col-sm-1 col-xs-1 text-03">
+                                2024/9/7<br>
+                                星期六
+                            </div>
+
+                            <div class="col-sm-1 col-xs-1 text-03">
+                                2024/9/8<br>
+                                星期日
+                            </div>
+
+                            <div class="col-sm-1 col-xs-1 text-03">
+                                2024/9/9<br>
+                                星期一
+                            </div>
+
+                            <div class="col-sm-1 col-xs-1 text-03">
+                                2024/9/10<br>
+                                星期二
+                            </div>
+
+                            <div class="col-sm-1 col-xs-1 text-03">
+                                2024/9/11<br>
+                                星期三
+                            </div>
+
+                            <div class="col-sm-1 col-xs-1 text-03">
+                                2024/9/12<br>
+                                星期四
+                            </div>
+
+                            <div class="col-sm-1 col-xs-1 text-03">
+                                2024/9/13<br>
+                                星期五
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240907/1">早
+                                    <div class='room_info'><span class='people_num'>(26)</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="" data-stop="" href="">早</a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240909/1">早<div
+                                        class='room_info'> <span class='people_num'>(11)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240910/1">早<div
+                                        class='room_info'> <span class='people_num'>(13)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240911/1">早<div
+                                        class='room_info'> <span class='people_num'>(10)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240912/1">早<div
+                                        class='room_info'> <span class='people_num'>(22)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240913/1">早<div
+                                        class='room_info'> <span class='people_num'>(11)</span></div></a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn " data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240907/1">中
+                                    <div class='room_info'> <span class='people_num'>(26)</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="" data-stop="" href="">中</a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240909/1">中<div
+                                        class='room_info'> <span class='people_num'>(11)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240910/1">中<div
+                                        class='room_info'> <span class='people_num'>(13)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240911/1">中<div
+                                        class='room_info'> <span class='people_num'>(10)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240912/1">中<div
+                                        class='room_info'> <span class='people_num'>(22)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240913/1">中<div
+                                        class='room_info'> <span class='people_num'>(11)</span></div></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn " data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240907/1">晚
+                                    <div class='room_info'> <span class='people_num'>(26)</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="" data-stop="" href="">晚</a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240909/1">晚<div
+                                        class='room_info'> <span class='people_num'>(11)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240910/1">晚<div
+                                        class='room_info'> <span class='people_num'>(13)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240911/1">晚<div
+                                        class='room_info'> <span class='people_num'>(10)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240912/1">晚<div
+                                        class='room_info'> <span class='people_num'>(22)</span></div></a>
+                            </div>
+                            <div class="col-sm-1 col-xs-1 col-1">
+                                <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240913/1">晚<div
+                                        class='room_info'> <span class='people_num'>(11)</span></div></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
         <div id="Adjective" class="tabcontent">

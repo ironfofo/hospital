@@ -5,12 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PetHospital</title>
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/myall.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/slick-theme.css">
   <link rel="stylesheet" href="/css/slick.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/slick.css?v=1.01">
+  <link rel="stylesheet" href="/css/sweetalert2.min.css">
+  <script src="/js/sweetalert2.all.min.js"></script>
+  <script src="/js/jquery.js"></script>
 
   <style type="text/css">
     @import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
@@ -74,10 +77,14 @@
 
 
 <body>
-
+  @if(Session::has("message"))
+  <script>
+    swal.fire("{{Session::get('message')}}");
+  </script>
+  @endif
   <nav class="navbar navbar-default sticky-lg-top navbar-expand-lg">
 
-    <a class="navbar-brand" href="index"><img src="images/LOGO/LOGO.png" alt="LOGO" class="img-fluid"></a>
+    <a class="navbar-brand" href="index"><img src="/images/LOGO/LOGO.png" alt="LOGO" class="img-fluid"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -140,7 +147,7 @@
                   <img src="/images/footer/insgram.png" class="img-fluid" alt="instagram">
                 </a>
               </li>
-              <li><a href="https://line.me/tw/" target="_blank" title="X"><img src="images/footer/X.png" class="img-fluid" alt="X"></a></li>
+              <li><a href="https://line.me/tw/" target="_blank" title="X"><img src="/images/footer/X.png" class="img-fluid" alt="X"></a></li>
               <li>
                 <a href="https://open.firstory.me/user/cl0rv6tyk006g0hzl2u3xdnrn/platforms?fbclid=IwAR3dpMeqkDWIwFJuCVFhrg3cSGnXtXQfCsvOzIQYWEsn5oZx4sD7bxZ18jM" target="_blank" rel="noopener" title="podcast">
                 </a>

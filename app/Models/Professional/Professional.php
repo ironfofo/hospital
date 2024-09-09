@@ -9,14 +9,14 @@ class Professional extends Model
 {
     public $timestamps=false;
     protected $table="professional";
-    protected $primaryKey="id";
+    protected $primaryKey="typeId";
     protected $fillable=[
-        "id",
+        "typeId",
         "department",
         "createTime",
     ];
 
-    public function list($id)
+    public function getlist($id)
     {
         $list = DB::table("professional AS a")
             ->selectRaw("a.*,b.title as types")

@@ -10,7 +10,9 @@ class FrontProfessionalController extends Controller
 {
     public function list()
     {
-        $list=new Professional()->get();
+        $pr=Professional::get();
+
+        return view("front.Professional.list",compact("pr"));
     }
 
 }

@@ -6,5 +6,5 @@ require "admin/index.php";
 require "front/index.php";
 
 // Route::get('/', function () {
-//     return view("front.Professional.list");
+//     return view("front.Professional.pr");
 // });

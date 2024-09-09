@@ -1,47 +1,59 @@
 /* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@100;200;300;400;500;600;700&display=swap'); */
 
-body {
+/* body {
     font-family: "IBM Plex Sans JP";
     font-optical-sizing: auto;
-}
-.fw-100{
+} */
+
+.fw-100 {
     font-weight: 100;
 }
-.fw-200{
+
+.fw-200 {
     font-weight: 200;
 }
-.fw-300{
+
+.fw-300 {
     font-weight: 300;
 }
-.fw-400{
+
+.fw-400 {
     font-weight: 400;
 }
-.fw-500{
+
+.fw-500 {
     font-weight: 500;
 }
-.fw-600{
+
+.fw-600 {
     font-weight: 600;
 }
-.fw-700{
+
+.fw-700 {
     font-weight: 700;
 }
-.fw-800{
+
+.fw-800 {
     font-weight: 800;
 }
-.fw-900{
+
+.fw-900 {
     font-weight: 900;
 }
-h3{
+
+h3 {
     color: #B4CAA7;
     font-size: 1.1rem;
     margin-bottom: 1em;
     font-weight: 700;
 }
+
 .footer {
     border-top: 5px solid #B4CAA7;
     padding-top: 2.5em;
     position: relative;
 }
+
 :root {
     --mycolor01: #f3f4f5;
     --mycolor02: #e14444;
@@ -133,6 +145,253 @@ h3{
     background-color: var(--mycolor16);
 }
 
+/* calendar */
+.d_calender a {
+    min-width: 60px;
+    background-color: #EFF2F9;
+    color: #333;
+    display: block;
+    margin: 10px auto;
+}
+
+.d_calender a:hover {
+    background-color: #578b26;
+    color: #fff;
+}
+
+.d_calender .btn {
+    padding: 6px;
+    height: 70px;
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    /* 控制文字大小寫 */
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.d_calender a div.room_info span.people_num {
+    color: #d93232;
+    line-height: 16px;
+}
+
+.doctor_img {
+    display: block;
+    width:200px;
+    border-radius: 10px;
+}
+
+/* 卷軸特效 */
+.box_roller {
+    width: 50%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+.roller {
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(209, 8, 8, 0.849);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box_roller:hover .roller {
+    top: 0;
+    transition: top 1s;
+}
+
+a{
+    text-decoration: none;
+}
+
+.box_doctor_name{
+    position: relative;
+    color: #868686;
+    font-weight: 700;
+}
+.doctor_name{
+    position:absolute;
+    bottom: 1px;
+}
+
+
+
+.InputContainer {
+    width: 210px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom,rgb(227, 213, 255),rgb(255, 231, 231));
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+  }
+  .input0 {
+    width: 200px;
+    height: 40px;
+    border: none;
+    outline: none;
+    caret-color: rgb(255, 81, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding-left: 15px;
+    letter-spacing: 0.8px;
+    color: rgb(19, 19, 19);
+    font-size: 13.4px;
+  }
+  
+
+.input01 {
+    border-radius: 10px;
+    outline: 2px solid #FEBF00;
+    border: 0;
+    background-color: #e2e2e2;
+    outline-offset: 3px;
+    padding: 10px 1rem;
+    transition: 0.25s;
+  }
+  .input01:focus {
+    outline-offset: 5px;
+    background-color: #fff
+  }
+
+
+  /* From Uiverse.io by satyamchaudharydev */ 
+.card01 {
+    --bg: #f7f7f8;
+    --hover-bg: #FFE5F4;
+    --hover-text: #E50087;
+    max-width: 23ch;
+    text-align: center;
+    background: var(--bg);
+    padding: 1.5em;
+    padding-block: 1.8em;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: .3s cubic-bezier(.6,.4,0,1),transform .15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+    .card__body {
+    color: #464853;
+    line-height: 1.5em;
+    font-size: 1em;
+  }
+    .card01 > :not(span) {
+    transition: .3s cubic-bezier(.6,.4,0,1);
+  }
+    .card01 > strong {
+    display: block;
+    font-size: 1.4rem;
+    letter-spacing: -.035em;
+  }
+    .card01 span {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--hover-text);
+    border-radius: 5px;
+    font-weight: bold;
+    top: 100%;
+    transition: all .3s cubic-bezier(.6,.4,0,1);
+  }
+    .card01:hover span {
+    top: 0;
+    font-size: 1.2em;
+  }
+    .card01:hover {
+    background: var(--hover-bg);
+  }
+  .card01:hover>div,.card:hover>strong {
+    opacity: 0;
+  }
+
+
+  .btn01 {
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #EFF2F9;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    color: #658172;
+    border: none;
+    cursor: pointer;
+    transition: transform 150ms,
+        font-size 150ms, color 150ms;
+}
+.btn01:hover{
+}
+.btn01:active {
+    background-color: #EFF2F9;
+    font-size: 16px;
+    transform: scale(1.4);
+    box-shadow: 5px 5px 10px rgb(119, 119, 119);
+}
+
+
+/* btn02 */ 
+.btn02 {
+    align-items: center;
+    background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #ffffff;
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 140px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn02:active,
+  .btn02:hover {
+    outline: 0;
+  }
+  .btn02 span {
+    background-color: rgb(5, 6, 45);
+    padding: 16px 24px;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    transition: 300ms;
+  }
+  .btn02:hover span {
+    background: none;
+  }
+  .btn02:active {
+    transform: scale(0.9);
+  }
+
+
+
 .bg-btn01 {
     background-color: var(--mycolor06);
     color: var(--mycolor08);
@@ -141,7 +400,6 @@ h3{
     margin-right: 5px;
     text-decoration: none;
 }
-
 .bg-btn01:hover {
     background-color: var(--mycolor03);
     color: var(--mytextcolor01);
@@ -191,19 +449,22 @@ h3{
 
 }
 
-.text-color01 {
+.text-01 {
     color: var(--mytextcolor01);
 }
 
-.text-color02 {
+.text-02 {
     color: var(--mytextcolor02);
 }
 
-.text-color03 {
+.text-03 {
     color: var(--mytextcolor03);
+    font-size: 13px;
+    font-weight: 500;
+
 }
 
-.text-color04 {
+.text-04 {
     color: var(--mytextcolor04);
 }
 
@@ -217,62 +478,39 @@ h3{
     background-size: cover;
 }
 
-/* 卷軸特效 */
-.box_roller {
-    width: 100%;
-    height: auto;
-    background-color: var(--mycolor06);
-    position: relative;
-    overflow: hidden;
-}
 
-.roller {
-    position: absolute;
-    top: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.box_roller:hover .roller {
-    top: 0;
-    transition:top 1s;
-}
 
 /* table-rwd */
 @media screen and (max-width:768px) {
-    .table-rwd thead{
+    .table-rwd thead {
         display: none;
     }
 
-    .table-rwd tbody tr{
-        display:block;
+    .table-rwd tbody tr {
+        display: block;
         border: 10px solid var(--mycolor03);
-        margin-top:20px ;
+        margin-top: 20px;
     }
 
-    .table-rwd tbody tr td{
-        display:block;
-        overflow:hidden;
-    }      
+    .table-rwd tbody tr td {
+        display: block;
+        overflow: hidden;
+    }
 
-    .table-rwd tbody tr td::before{
-        content:attr(data-th)":";
-        color:var(--mycolor04);
+    .table-rwd tbody tr td::before {
+        content: attr(data-th)":";
+        color: var(--mycolor04);
         font-weight: bolder;
         display: block;
-        float:left;
-        width:6em;
+        float: left;
+        width: 6em;
         text-align: right;
         padding-right: 1em;
     }
 
-    .table-rwd tbody tr td span.table-col{
+    .table-rwd tbody tr td span.table-col {
         display: block;
-        float:left;
-        width:calc(100% - 6em);
+        float: left;
+        width: calc(100% - 6em);
     }
 }
