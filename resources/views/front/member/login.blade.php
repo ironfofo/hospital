@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>會員登入</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <script src="/js/jquery.js"></script>
-</head>
-
-<body>
+@extends("front.comm")
+@section("content")
     <div class="container">
         <div class="card mt-5">
             <form action="/member/doLogin" method="post">
@@ -56,6 +47,4 @@
             </form>
         </div>
     </div>
-</body>
-
-</html>
+@endsection

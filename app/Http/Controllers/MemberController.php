@@ -47,7 +47,7 @@ class MemberController extends Controller
     public function register()
     {
         $list=Member::get();
-        return view("register",compact("list"));
+        return view("front.member.register",compact("list"));
     }
 
     public function doRegister(Request $req)
@@ -67,25 +67,18 @@ class MemberController extends Controller
         return redirect("front/index");
     }
 
-    public function list()
+    public function checkUser(Request $req)
     {
-        //$list變數名稱
-        //Member:Model
-        //get:取回資料，也可用all取全部資料
-        //$list=Member::取得所有資料() paginate資料幾筆，10是十筆資料為一頁;
-        $list=(new Member())->getList();
-        
-        
-        //member.list:member是資料夾，list是檔名
-        //view的附檔名為:.blade.php
-        //compact將取得的資料打包傳置網頁
-        //compact中用引號，沒有$
-        return view("member.list", compact("list"));
+        $member=(new Member())->checkUser($req->userId);
+        if(!empty($member))
+        {
+            echo("exist");
+        }
     }
 
     public function add()
     {
-        $list=City::get();
+        $list=Member::get();
         return view("member.add",compact("list"));
     }
     //Request接收資料 定義為$req
@@ -144,12 +137,5 @@ class MemberController extends Controller
         echo("ok");
 
     }
-    public function checkUser(Request $req)
-    {
-        $member=(new Member())->checkUser($req->userId);
-        if(!empty($member))
-        {
-            echo("exist");
-        }
-    }
+
 }

@@ -25,6 +25,14 @@ class Member extends Model
         "createTime",
     ];
 
+        public function checkUser($userId)
+    {
+        //self:資料本身，在Member這個class的資
+        //first:取締一筆資料
+        $member=self::where("userId",$userId)->first();
+        return $member;
+    }
+
     public function getList()
     {
         $list=DB::table("member")->paginate(15);

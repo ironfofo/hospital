@@ -10,6 +10,7 @@ Route::group(["prefix" => "member/"], function () {
     Route::post("doLogin", [MemberController::class, "doLogin"]);
     Route::get("register", [MemberController::class, "register"]);
     Route::post("doRegister", [MemberController::class, "doRegister"]);
+    Route::post("checkUser", [MemberController::class, "checkUser"]);
 });
 
 // Route::get("login", [MemberController::class, "login"]);
