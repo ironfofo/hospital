@@ -14,8 +14,8 @@
     });
 </script>
 <div class="container mt-5 mb-5">
-    <div class="row">
-        <div class="col-12">
+    <div class="row mt-5">
+        <div class="col-12 mt-5">
             <a href="Professional" class="btn btn-secondary mt-3">回上頁</a>
             <div class="card mt-3">
                 <h3 class="card-title text-center mt-3">預約</h3>

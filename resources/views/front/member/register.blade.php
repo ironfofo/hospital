@@ -1,7 +1,7 @@
 @extends("front.comm")
 @section("content")
 
-<script src="/js/jquery.js"></script>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script>
@@ -35,117 +35,244 @@
     }
 </script>
 
-</head>
 
 <body>
-    <div class="container">
-        <div class="row mt-5">
-            <div class="card mt-5">
-                <form action="/member/doRegister" method="post">
-                    {{csrf_field()}}
-                    <div class="row mt-3">
-                        <div class="col-2 text-center">姓名</div>
-                        <div class="col-4">
-                            <!-- old:意思是原始資料 -->
-                            <input type="text" name="userName" class="form-control is-invalid" required value="{{old('pwd')}}">
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback">填寫姓名</div>
+    <div class="container mb-5">
+        <div class="card mt-5">
+            <div class="row">
+                <div class="col-6">
+                    <img src="https://fakeimg.pl/700x750/724" class="img-fluid">
+                </div>
+                <div class="col-6 mt-4">
+                    <form action="/member/doRegister" method="post">
+                        {{csrf_field()}}
+                        <div class="row mt-3">
+                            <div class="col-3 text-end">姓名</div>
+                            <div class="col-6">
+                                <!-- old:意思是原始資料 -->
+                                <input type="text" name="userName" id="userName" class="form-control is-invalid" required value="{{old('pwd')}}">
+                                <div class="valid-feedback">ok</div>
+                                <div class="invalid-feedback">填寫姓名</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 text-center">信箱</div>
-                        <div class="col-4">
-                            <input type="email" name="email" class="form-control is-invalid" required value="{{old('email')}}">
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback">填寫信箱</div>
+                        <div class="row mt-3">
+                            <div class="col-3 text-end">信箱</div>
+                            <div class="col-6">
+                                <input type="email" name="email" id="email" class="form-control is-invalid" required value="{{old('email')}}">
+                                <div class="valid-feedback">ok</div>
+                                <div class="invalid-feedback">填寫信箱</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 text-center">地址</div>
-                        <div class="col-4">
-                            <input type="text" name="adr" class="form-control is-invalid" required value="{{old('adr')}}">
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback">填寫底址</div>
+                        <div class="row mt-3">
+                            <div class="col-3 text-end">電話</div>
+                            <div class="col-6">
+                                <input type="phone" name="phone" id="phone" class="form-control is-invalid" required value="{{old('phone')}}">
+                                <div class="valid-feedback">ok</div>
+                                <div class="invalid-feedback">請寫電話</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 text-center">電話</div>
-                        <div class="col-4">
-                            <input type="phone" name="phone" class="form-control is-invalid" required value="{{old('phone')}}">
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback">請寫電話</div>
+                        <div class="row mt-3">
+                            <div class="col-3 text-end">地址</div>
+                            <div class="col-6">
+                                <input type="text" name="adr" id="adr" class="form-control is-invalid" minlength="15" required value="{{old('adr')}}">
+                                <div class="valid-feedback">ok</div>
+                                <div class="invalid-feedback">填寫地址</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 text-center">生日</div>
-                        <div class="col-4">
-                            <input type="date" name="bir" class="form-control is-invalid" required value="{{old('bir')}}">
-                            <div class="valid-feedback"></div>
-                            <div class="invalid-feedback">填寫生日</div>
+                        <div class="row mt-3">
+                            <div class="col-3 text-end">生日</div>
+                            <div class="col-6">
+                                <input type="date" name="bir" id="bir" class="form-control is-invalid" required value="{{old('bir')}}">
+                                <div class="valid-feedback">ok</div>
+                                <div class="invalid-feedback">填寫生日</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 text-center">帳號</div>
-                        <div class="col-4">
-                            <input type="text" name="userId" class="form-control is-invalid" minlength="8" maxlength="15" placeholder="字數8~15" required value="{{old('userId')}}" onblur="doCheck(this.value)">
+                        <div class="row mt-3">
+                            <div class="col-3 text-end">帳號</div>
+                            <div class="col-6">
+                                <input type="text" name="userId" id="userId" class="form-control is-invalid" placeholder="字數4~15" required value="{{old('userId')}}" onblur="doCheck(this.value)">
+                                <span id="msg"></span>
+                                <div class="valid-feedback">ok</div>
+                                <div class="invalid-feedback">填寫帳號</div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="row mt-3">
+                            <div class="col-3 text-end">密碼</div>
+                            <div class="col-6">
+                                <!-- old:意思是原始資料 -->
+                                <input type="password" name="pwd1" id="pwd1" class="form-control is-invalid" placeholder="字數3~15" required value="{{old('pwd')}}">
+                                <div class="valid-feedback">ok</div>
+                                <div class="invalid-feedback">填寫密碼</div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-3 text-end">確認密碼</div>
+                            <div class="col-6">
+                                <input type="password" name="pwd2" id="pwd2" class="form-control is-invalid" placeholder="字數3~15">
+                                <span id="checkpwd"></span>
+                                <div class="valid-feedback">OK</div>
+                                <div class="invalid-feedback">密碼需相同</div>
+                            </div>
+                        </div>
 
-                    <div class="row">
-                        <div class="col-8 text-danger text-center"></div>
-                    </div>
 
-                    <div class="row mt-3">
-                        <div class="col-2 text-center">密碼</div>
-                        <div class="col-4">
-                            <!-- old:意思是原始資料 -->
-                            <input type="password" name="pwd1" id="pwd1" class="form-control is-invalid" minlength="8" maxlength="15" placeholder="字數8~15" required value="{{old('pwd')}}">
+                        <div class="row mt-3 text-center mb-3 justify-content-center">
+                            <div class="col-4 col-sm-2">
+                                <button type="submit" class="btn01">確認</button>
+                            </div>
+                            <div class="col-4 col-sm-2">
+                                <a href="index.php" style="text-decoration: none;">
+                                    <button type="submit" class="btn01 btn-primary btn-lg">取消</button>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-2 text-center">確認密碼</div>
-                        <div class="col-4">
-                            <input type="password" name="pwd2" id="pwd2" class="form-control is-invalid">
-                            <div class="valid-feedback">OK</div>
-                            <div class="invalid-feedback">密碼需相同</div>
-                        </div>
-                    </div>
-
-
-                    <div class="row mt-3 text-end mb-3 justify-content-center">
-                        <div class="col-2 col-sm-1">
-                            <button type="submit" class="btn01">確認</button>
-                        </div>
-                        <div class="col-2 col-sm-1">
-                            <a href="index.php" style="text-decoration: none;">
-                                <button type="submit" class="btn01 btn-primary btn-lg">取消</button>
-                            </a>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
-        var f_pwd = false;
+        var f_userName = false;
+        var f_email = false;
+        var f_phone = false;
+        var f_adr = false;
+        var f_bir = false;
+        var f_userId = false;
+        var f_pwd1 = false;
+        var f_pwd2 = false;
         $(function() {
-            $("#pwd2").bind("input propertychange", function() {
-                if ($(this).val() == $("#pwd1").val()) {
+
+            // 初始禁用提交按鈕
+            $('button[type="submit"]').prop('disabled', true)
+
+            $("#userName").bind("input propertychange", function() {
+                if ($(this).val() != "") {
                     //符合規定
                     $(this).removeClass("is-invalid");
                     $(this).addClass("is-valid");
-                    f_pwd = true;
+                    f_userName = true;
 
                 } else {
                     //不符合規定
                     $(this).removeClass("is-valid");
                     $(this).addClass("is-invalid");
-                    f_pwd = false;
+                    f_userName = false;
                 }
             });
+            $("#email").bind("input propertychange", function() {
+                if ($(this).val().includes('@')) {
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    f_email = true;
+
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    f_email = false;
+                }
+            });
+            $("#phone").bind("input propertychange", function() {
+                if ($(this).val() > 8) {
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    f_phone = true;
+
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    f_phone = false;
+                }
+            });
+            $("#adr").bind("input propertychange", function() {
+                if ($(this).val().length > 15) {
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    f_adr = true;
+
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    f_adr = false;
+                }
+            });
+            $("#bir").bind("input propertychange", function() {
+                if ($(this).val() != "") {
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    f_bir = true;
+
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    f_bir = false;
+                }
+            });
+            $("#userId").bind("input propertychange", function() {
+                if ($(this).val().length > 3 && $(this).val().length < 16) {
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    f_userId = true;
+
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    f_userId = false;
+                }
+            });
+            $("#pwd1").bind("input propertychange", function() {
+                if ($(this).val().length > 3 && $(this).val().length < 16) {
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    f_pwd1 = true;
+
+                } else {
+                    //不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    f_pwd1 = false;
+                }
+            });
+            $("#pwd2").bind("input propertychange", function() {
+                if ($(this).val() == $("#pwd1").val()) {
+                    //符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    f_pwd2 = true;
+
+                } else {
+                    //不符合規定
+                    //密碼如何相同時才送出
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    $(this).focus();
+                    $("#checkpwd").txt("<font color='red'>密碼需相同</font>");
+                    f_pwd2 = false;
+
+                }
+            });
+            checkFormValidity();
         })
+
+        function checkFormValidity() {
+            if (f_userName && f_email && f_phone && f_adr && f_bir && f_userId && f_pwd1 && f_pwd2) {
+                $('button[type="submit"]').prop('disabled', false);
+            } else {
+                $('button[type="submit"]').prop('disabled', true);
+            }
+        }
     </script>
 </body>
 

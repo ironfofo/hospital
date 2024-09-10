@@ -1,7 +1,8 @@
 @extends("front.comm")
 @section("content")
-    <div class="container">
-        <div class="card mt-5">
+<div class="container">
+    <div class="row mt-5">
+        <div class="card">
             <form action="/member/doLogin" method="post">
                 {{csrf_field()}}
                 <div class="row mt-3">
@@ -9,7 +10,7 @@
                     <div class="col-4">
                         <input type="text" name="userId" class="form-control" required value="{{old('userId')}}">
                     </div>
-                </div> 
+                </div>
                 @if ($errors->has("msg"))
                 <div class="row">
                     <div class="col-8 text-danger text-center">{{$errors->first("msg")}}</div>
@@ -47,4 +48,5 @@
             </form>
         </div>
     </div>
+</div>
 @endsection

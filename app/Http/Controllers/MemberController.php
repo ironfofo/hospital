@@ -60,7 +60,6 @@ class MemberController extends Controller
         $member->adr=$req->adr;
         $member->bir=$req->bir;
         $member->userId=$req->userId;
-        //*記得blade要寫function()，確認密碼兩次
         $member->pwd=$req->pwd1;
         $member->save();
         Session::flash("message","註冊成功");

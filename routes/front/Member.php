@@ -13,5 +13,3 @@ Route::group(["prefix" => "member/"], function () {
     Route::post("checkUser", [MemberController::class, "checkUser"]);
 });
 
-// Route::get("login", [MemberController::class, "login"]);
-// Route::post("doLogin", [MemberController::class, "doLogin"]);

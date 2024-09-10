@@ -25,7 +25,7 @@
         .tab button {
             display: block;
             background-color: inherit;
-            color: black;
+            /* color: black; */
             padding: 22px 16px;
             width: 100%;
             border: none;
