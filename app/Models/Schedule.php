@@ -13,21 +13,16 @@ class Schedule extends Model
     protected $primaryKey = "id";
     protected $fillable = [
         "id",
-        "doctorId",
-        "dates",
+        "date",
         "timeId",
-        "full",
     ];
 
     public function getList()
     {
         $list = DB::table('schedule AS a')
-            ->selectRaw('a.*, b.times')
-            ->join('timelist AS b', 'b.id', 'a.timeId')
+            ->selectRaw('a.*, b.time_period')
+            ->join('times AS b', 'b.time_id', 'a.time_id')
             ->get();
-
-
-
         return $list;
     }
 }

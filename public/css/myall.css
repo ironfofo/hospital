@@ -147,11 +147,16 @@ h3 {
 
 /* calendar */
 .d_calender a {
-    min-width: 60px;
+    min-width: 10px;
     background-color: #EFF2F9;
     color: #333;
     display: block;
     margin: 10px auto;
+
+}
+
+col{
+    margin: 0px;
 }
 
 .d_calender a:hover {

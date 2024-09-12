@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class TimeList extends Model
 {
     public $timestamps=false;
-    protected $table="timelist";
+    protected $table="times";
     protected $primaryKey="id";
     protected $fillable=[
-        "id",
-        "times",
+        "time_id",
+        "time_period",
     ];
 }

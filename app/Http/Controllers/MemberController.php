@@ -53,7 +53,6 @@ class MemberController extends Controller
     public function doRegister(Request $req)
     {
         $member=new Member();
-
         $member->userName=$req->userName;
         $member->email=$req->email;
         $member->phone=$req->phone;
@@ -80,38 +79,7 @@ class MemberController extends Controller
         $list=Member::get();
         return view("member.add",compact("list"));
     }
-    //Request接收資料 定義為$req
-    public function insert(Request $req)
-    {
-        $member=new Member();
-        $member->userId=$req->userId;
-        $member->pwd=$req->pwd;
-        $member->userName=$req->userName;
-        $member->mobile=$req->mobile;
-        $member->city=$req->city;
 
-        $member->save();
-        
-        //.ajax是邊打邊存
-        //google的cookie是將資料留在個人電腦
-        //暫存網頁伺服器一段時間，時間一到歸0 ，congfig/seension有設定時間
-        //flash快閃儲存一次
-        Session::flash("message","已新增");
-        //redirect轉址
-        return redirect("/member/list");
-        
-    }
-
-    public function edit(Request $req)
-    {   
-        //$req->id的id自己輸入的值
-        //如果路由參數為ABC 就要更改$req->ABC
-        //find:尋找
-        $member=Member::find($req->id);
-        $list=City::get();
-
-        return view("member.edit",compact("member","list"));
-    }
 
     public function update(Request $req)
     {

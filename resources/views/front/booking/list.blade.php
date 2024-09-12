@@ -2,17 +2,7 @@
 @section("content")
 <script src="/js/html2canvas.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
-<script>
-    $(function() {
-        $("#dates").datepicker(
-            {
-                dateFormat: 'yy-mm-dd',
-                changeYear:true,
-                changeMonth:true,
-                yearRange:"-30:+1",
-            });
-    });
-</script>
+
 <div class="container mt-5 mb-5">
     <div class="row mt-5">
         <div class="col-12 mt-5">
