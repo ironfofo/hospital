@@ -105,9 +105,9 @@
                         </div>
 
                         <div class="row row-cols-7 ">
-                            @foreach(rang(1,7) $Sch as $data)
+                        @foreach($dates as $date)
                                 <div class="col">
-                                    <a class="btn" data-full="1" data-stop="N" href="/booking/list/{{$data->date}}/{{$data->time_id}}">{{$data->time_period}}
+                                    <a class="btn" name="{{$date->$date}}" href="/booking/list/{{$date->date}}/{{$sch->time_id}}">早
                                         <div class='room_info'><span class='people_num'>(?)</span>
                                         </div>
                                     </a>
