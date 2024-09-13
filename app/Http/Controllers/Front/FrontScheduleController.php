@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
+use App\Models\Doctor;
 use App\Models\Schedule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class FrontScheduleController extends Controller
 {
@@ -17,21 +20,37 @@ class FrontScheduleController extends Controller
         for ($i = 0; $i < 7; $i++) {
             $date = $startDate->copy()->addDays($i);
             $dates[] = [
-                'date' => $date->format('Y-m-d'),
-                'weekday' => $date->locale('zh_TW')->dayName, // 獲取星期幾的中文名稱
+                'date' => $date->format("Y-m-d'"),
+                'weekday' => $date->locale("zh_TW")->dayName, // 獲取星期幾的中文名稱
             ];
         }
+        return view("front.schedule.list", compact("dates"));
+    }
 
+    public function booking() 
+    {
+        $doctor = Doctor::get();
+        $booking = (new Booking())->getBooking();
+        return view("front.booking.list", compact("doctor", "booking"));
+    }
 
-        $sch=Schedule::get();
-        for ($i = 0; $i < 7; $i++) {
-            $date = $startDate->copy()->addDays($i);
-            $dates[] = [
-                'date' => $date->format('Y-m-d'),
-                'weekday' => $date->locale('zh_TW')->dayName, // 獲取星期幾的中文名稱
-            ];
-        }
- 
-        return view("front.Schedule.list", compact("dates","sch"));
+    public function doBooking(Request $req)
+    {
+        $booking = new Booking();
+
+        $times = explode(" ", microtime());
+        $bookingId = $times[1];
+        $booking->bookingId = $bookingId;
+
+        // $booking->userId=Auth::user()->id;
+        // $booking->userId=$req->userId;
+        $booking->doctorId = $req->doctorId;
+        $booking->dates = $req->dates;
+        $booking->timeId = $req->timeId;
+        $booking->petName = $req->petName;
+        $booking->save();
+
+        Session::flash("message", "預定成功");
+        return redirect("/schedule/list");
     }
 }

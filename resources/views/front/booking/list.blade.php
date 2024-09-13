@@ -10,7 +10,7 @@
             <div class="card mt-3">
                 <h3 class="card-title text-center mt-3">預約</h3>
                 <div class="card-body">
-                    <form action="/booking/booking" method="POST" name="list" id="list">
+                    <form action="schedule/booking/insert" method="POST" name="list" id="list">
                         {{csrf_field()}}
                         <input type="hidden" name="bookingId">
                         <div class="row">

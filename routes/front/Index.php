@@ -1,5 +1,4 @@
 <?php
 
-require "Member.php";
-require "Professional.php";
-require "Schedule.php";
+require "member.php";
+require "booking.php";

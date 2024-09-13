@@ -18,7 +18,7 @@ class Booking extends Model
         "createTime",
     ];
 
-    public function bookingList()
+    public function doBooking()
     {
         $list = DB::table('booking AS a')
         ->selectRaw('a.*,b.doctorName')
@@ -29,6 +29,12 @@ class Booking extends Model
         ->get();
 
         return $list;
+    }
+
+    public function bookingList($date,$time_id)
+    {
+        $booking=self::where("date",$date)->where("time_id",$time_id)->get();
+        return $booking;
     }
 }
 

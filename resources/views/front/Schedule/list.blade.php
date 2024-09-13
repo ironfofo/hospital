@@ -79,64 +79,98 @@
 
         <div id="InternalMedicine" class="tabcontent">
 
-        <div class="container">
-            <div class="mt-5">
-                <div class="row ">
-                    <div class="col-4">
-                        <div class="container">
-                            <div class="row d-flex flex-column align-items-center ">
-                                <div class="box_roller" style="display: block;width:200px;  border-radius: 10px;">
-                                    <div class="roller"><span class="fw-900">豪斯</span></div>
-                                    <img class="doctor_img" src="/images/doctor/doctor1.jpg">
+            <div class="container">
+                <div class="mt-5">
+                    <div class="row ">
+                        <div class="col-4">
+                            <div class="container">
+                                <div class="row d-flex flex-column align-items-center ">
+                                    <div class="box_roller" style="display: block;width:200px;  border-radius: 10px;">
+                                        <div class="roller"><span class="fw-900">豪斯</span></div>
+                                        <img class="doctor_img" src="/images/doctor/doctor1.jpg">
+                                    </div>
+                                    <a class="btn01 mt-3 me-auto" id="intro" href="#"><i class="fa fa-user"></i>醫師簡介</a>
                                 </div>
-                                <a class="btn01 mt-3 me-auto" id="intro" href='#'><i class="fa fa-user"></i>醫師簡介</a>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-8 d_calender">
-                        <div class="row row-cols-7">
-                            @foreach($dates as $date)
-                            <div class="col text-03 mt-4">
-                                {{ $date['date'] }}<br>
-                                {{ $date['weekday'] }}
+                        <div class="col-8 d_calender">
+                            <div class="row row-cols-7">
+                                @foreach($dates as $date)
+                                <div class="col text-03 mt-4">
+                                    {{ $date['date'] }}<br>
+                                    {{ $date['weekday'] }}
+                                </div>
+                                @endforeach
                             </div>
-                            @endforeach
-                        </div>
 
-                        <div class="row row-cols-7 ">
-                        @foreach($dates as $date)
+
+                            <div>
+                                <span class="h5 text-success fw-500 d-none" id="s02_login_username01">會員:</span> <span
+                                    class="h5 text-danger fw-500 d-none" id="s02_login_username02">xxx</span>
+                                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginModal"
+                                    id="s02_login_btn">登入</button>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal"
+                                    id="s02_register_btn">註冊</button>
+                                <button class="btn btn-primary d-none" id="s02_logout_btn">登出</button>
+                            </div>
+
+
+                            <div class="row row-cols-7 ">
+                                @foreach($dates as $date)
                                 <div class="col">
-                                    <a class="btn" name="{{$date->$date}}" href="/booking/list/{{$date->date}}/{{$sch->time_id}}">早
-                                        <div class='room_info'><span class='people_num'>(?)</span>
+                                    <a class="btn" name="{{$date['date']}}1">早
+                                        <div class="room_info">
+                                            <form action="/schedule/booking/{$date->date}" method="post">
+                                                {{csrf_field()}}
+                                                <input type="hidden" name="date" value="{{$date['date']}}">
+                                                <input type="hidden" name="time_id" value="1">
+                                                <input type="hidden" name="userId" value="{{session()::get("member",$memberId->userId)}}">
+                                                @if(!empty($doctor as $doc))
+                                                <input type="hidden" name="doctorId" value="{{$doc->doctorId}}">
+                                                <span class="people_num">(?)</span>
+                                            </form>
                                         </div>
                                     </a>
                                 </div>
-                            @endforeach
-                        </div>
-                        <div class="row row-cols-7 ">
-                            @foreach($Sch as $data)
+                                @endforeach
+                            </div>
+
+                            <div class="row row-cols-7 ">
+                                @foreach($dates as $date)
                                 <div class="col">
-                                    <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240907/1">中
-                                        <div class='room_info'><span class='people_num'>(?)</span>
+                                    <a class="btn" name="{{$date['date']}}1">早
+                                        <div class="room_info">
+                                            <span class="people_num">(?)</span>
                                         </div>
                                     </a>
                                 </div>
-                            @endforeach
+                                @endforeach
                             </div>
                             <div class="row row-cols-7 ">
-                            @for($i=1;$i<=7;$i++)
+                                @foreach($dates as $date)
                                 <div class="col">
-                                    <a class="btn" data-full="1" data-stop="N" href="/service/regist/02/RA8/03/20240907/1">晚
-                                        <div class='room_info'><span class='people_num'>(?)</span>
+                                    <a class="btn" name="{{$date['date']}}2">中
+                                        <div class="room_info">
+                                            <span class="people_num">(?)</span>
                                         </div>
                                     </a>
                                 </div>
-                             @endfor
+                                @endforeach
+                            </div>
+                            <div class="row row-cols-7 ">
+                                @foreach($dates as $date)
+                                <div class="col">
+                                    <a class="btn" name="{{$date['date']}}3">晚
+                                        <div class="room_info"><span class="people_num">(?)</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
