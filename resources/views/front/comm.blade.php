@@ -8,71 +8,19 @@
   <link rel="stylesheet" href="/css/myall.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/slick-theme.css">
+  <link rel="stylesheet" href="/css/all.min.css">
   <link rel="stylesheet" href="/css/slick.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/slick.css?v=1.01">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/slick.css?v=1.01">
   <link rel="stylesheet" href="/css/sweetalert2.min.css">
-  <script src="/js/sweetalert2.all.min.js"></script>
-  <script src="/js/jquery.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+
 
   <style type="text/css">
     @import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
   </style>
-  <style>
-    .navbar-default {
-      -webkit-transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
-      transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
-      background-color: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-      padding: 0 2em;
-      position: fixed;
-      left: 0;
-      z-index: 999;
-      border-radius: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
 
-    }
-
-    .footer .footer_box ul li {
-      /* -webkit-transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
-    transition: all .3s cubic-bezier(0.42, 0, 0.58, 1); */
-      display: inline-block;
-      vertical-align: middle;
-      border-radius: 100%;
-      margin-left: .5em;
-      position: relative;
-      z-index: 1;
-    }
-
-
-    .footer_box2 {
-      border-top: 1px solid #dcdcdc;
-      width: 100%;
-      text-align: center;
-    }
-
-    .footer_box3 ul li {
-      display: inline-block;
-      vertical-align: middle;
-      margin: 0 .2em;
-    }
-
-    .footer .footer_box p {
-      font-size: .92rem;
-      color: #363433;
-      line-height: 26px;
-    }
-
-    @media (max-width: 1280px) {
-      .footer .top {
-        right: 1em;
-        top: 1em;
-      }
-    }
-  </style>
 </head>
 
 
@@ -82,42 +30,50 @@
     swal.fire("{{Session::get('message')}}");
   </script>
   @endif
-  <nav class="navbar navbar-default sticky-lg-top navbar-expand-lg">
+  <section id="s01">
+    <nav class="navbar navbar-default sticky-lg-top navbar-expand-lg">
+      <a class="navbar-brand" href="index"><img src="/images/LOGO/LOGO.png" alt="LOGO" class="img-fluid"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">專業分科</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about">關於SUSU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="news">環境介紹</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="doctor">醫師介紹</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="news">最新消息</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="schedule">門診時間</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact">聯絡我們</a>
+          </li>
 
-    <a class="navbar-brand" href="index"><img src="/images/LOGO/LOGO.png" alt="LOGO" class="img-fluid"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">專業分科</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            關於SUSU
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">環境介紹</a></li>
-            <li><a class="dropdown-item" href="#">醫師介紹</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">最新消息</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">門診時間</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">聯絡我們</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">會員系統</a>
+          </li>
+        </ul>
+        <div>
+          <span class="h5 text-success fw-500 d-none" id="s02_login_username01">會員:</span> <span
+            class="h5 text-danger fw-500 d-none" id="s02_login_username02">xxx</span>
+          <a href="/member/login" class="btn btn01">登入</a>
+          <a href="/member/register" class="btn btn01">註冊</a>
+        </div>
+      </div>
+    </nav>
+  </section>
 
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">會員系統</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
 
   @yield("content")
 
@@ -147,7 +103,7 @@
                   <img src="/images/footer/insgram.png" class="img-fluid" alt="instagram">
                 </a>
               </li>
-              <li><a href="https://line.me/tw/" target="_blank" title="X"><img src="/images/footer/X.png" class="img-fluid" alt="X"></a></li>
+              <li><a href="https://x.com/i/flow/login?lang=en" target="_blank" title="X"><img src="/images/footer/X.png" class="img-fluid" alt="X"></a></li>
               <li>
                 <a href="https://open.firstory.me/user/cl0rv6tyk006g0hzl2u3xdnrn/platforms?fbclid=IwAR3dpMeqkDWIwFJuCVFhrg3cSGnXtXQfCsvOzIQYWEsn5oZx4sD7bxZ18jM" target="_blank" rel="noopener" title="podcast">
                 </a>
@@ -166,12 +122,12 @@
       </div>
     </div>
   </footer>
-  <script src="/js/jquery-3.7.1.min.js">
-  </script>
   <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+  <script src="/js/wow.min.js"></script>
   <script src="/js/sweetalert2@11.js"></script>
-
-
+  <script src="/js/jquery-ui.min.js"></script>
 
 </body>
 

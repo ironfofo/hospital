@@ -74,22 +74,65 @@ class MemberController extends Controller
         }
     }
 
+
+    public function list()
+    {
+        $list=(new Member())->getList();
+        return view("admin.member.list",compact("list"));
+    }
+    
+
     public function add()
     {
         $list=Member::get();
-        return view("member.add",compact("list"));
+        return view("admin.member.add",compact("list"));
     }
 
+    //Request接收資料 定義為$req
+    public function insert(Request $req)
+    {
+        $member=new Member();
+        $member->userName=$req->userName;
+        $member->email=$req->email;
+        $member->phone=$req->phone;
+        $member->adr=$req->adr;
+        $member->bir=$req->bir;
+        $member->userId=$req->userId;
+        $member->pwd=$req->pwd;
+
+        $member->save();
+        
+        //.ajax是邊打邊存
+        //google的cookie是將資料留在個人電腦
+        //暫存網頁伺服器一段時間，時間一到歸0 ，congfig/seension有設定時間
+        //flash快閃儲存一次
+        Session::flash("message","已新增");
+        //redirect轉址
+        return redirect("/member/list");
+        
+    }
+
+    public function edit(Request $req)
+    {   
+        //$req->id的id自己輸入的值
+        //如果路由參數為ABC 就要更改$req->ABC
+        //find:尋找
+        $member=Member::find($req->id);
+
+        return view("admin.member.edit",compact("member"));
+    }
 
     public function update(Request $req)
     {
         //find找尋相對應資料
         $member=Member::find($req->id);
+        $member->userName=$req->userName;
+        $member->email=$req->email;
+        $member->phone=$req->phone;
+        $member->adr=$req->adr;
+        $member->bir=$req->bir;
         $member->userId=$req->userId;
         $member->pwd=$req->pwd;
-        $member->userName=$req->userName;
-        $member->mobile=$req->mobile;
-        $member->city=$req->city;
 
         //也可以用$member->update
         $member->save();

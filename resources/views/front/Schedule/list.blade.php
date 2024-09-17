@@ -68,13 +68,13 @@
         <h2 class="mt-3">看診科別</h2>
 
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'InternalMedicine')" id="defaultOpen">內科</button>
-            <button class="tablinks" onclick="openCity(event, 'Adjective')">外科</button>
-            <button class="tablinks" onclick="openCity(event, 'Dental')">牙科</button>
-            <button class="tablinks" onclick="openCity(event, 'orthopedics')">骨科</button>
-            <button class="tablinks" onclick="openCity(event, 'dermatology')">皮膚科</button>
-            <button class="tablinks" onclick="openCity(event, 'FelineDisease')">貓病科</button>
-            <button class="tablinks" onclick="openCity(event, 'Inpatient')">住院部</button>
+            <button class="tablinks" onclick="openPr(event, 'InternalMedicine')" id="defaultOpen">內科</button>
+            <button class="tablinks" onclick="openPr(event, 'Adjective')">外科</button>
+            <button class="tablinks" onclick="openPr(event, 'Dental')">牙科</button>
+            <button class="tablinks" onclick="openPr(event, 'orthopedics')">骨科</button>
+            <button class="tablinks" onclick="openPr(event, 'dermatology')">皮膚科</button>
+            <button class="tablinks" onclick="openPr(event, 'FelineDisease')">貓病科</button>
+            <button class="tablinks" onclick="openPr(event, 'Inpatient')">住院部</button>
         </div>
 
         <div id="InternalMedicine" class="tabcontent">
@@ -105,15 +105,6 @@
                             </div>
 
 
-                            <div>
-                                <span class="h5 text-success fw-500 d-none" id="s02_login_username01">會員:</span> <span
-                                    class="h5 text-danger fw-500 d-none" id="s02_login_username02">xxx</span>
-                                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginModal"
-                                    id="s02_login_btn">登入</button>
-                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal"
-                                    id="s02_register_btn">註冊</button>
-                                <button class="btn btn-primary d-none" id="s02_logout_btn">登出</button>
-                            </div>
 
 
                             <div class="row row-cols-7 ">
@@ -125,9 +116,8 @@
                                                 {{csrf_field()}}
                                                 <input type="hidden" name="date" value="{{$date['date']}}">
                                                 <input type="hidden" name="time_id" value="1">
-                                                <input type="hidden" name="userId" value="{{session()::get("member",$memberId->userId)}}">
-                                                @if(!empty($doctor as $doc))
-                                                <input type="hidden" name="doctorId" value="{{$doc->doctorId}}">
+
+                                                <input type="hidden" name="doctorId" value="1">
                                                 <span class="people_num">(?)</span>
                                             </form>
                                         </div>
@@ -201,7 +191,7 @@
 
 
     <script>
-        function openCity(evt, professional) {
+        function openPr(evt, professional) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {

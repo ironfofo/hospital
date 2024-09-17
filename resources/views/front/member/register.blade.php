@@ -66,7 +66,7 @@
                         <div class="row mt-3">
                             <div class="col-3 text-end">電話</div>
                             <div class="col-6">
-                                <input type="phone" name="phone" id="phone" class="form-control is-invalid" required value="{{old('phone')}}">
+                                <input type="text" name="phone" id="phone" class="form-control is-invalid" required value="{{old('phone')}}">
                                 <div class="valid-feedback">ok</div>
                                 <div class="invalid-feedback">請寫電話</div>
                             </div>
@@ -122,7 +122,7 @@
                             </div>
                             <div class="col-4 col-sm-2">
                                 <a href="index.php" style="text-decoration: none;">
-                                    <button type="submit" class="btn01 btn-primary btn-lg">取消</button>
+                                    <button type="button" class="btn01">取消</button>
                                 </a>
                             </div>
                         </div>
@@ -257,22 +257,25 @@
                     //密碼如何相同時才送出
                     $(this).removeClass("is-valid");
                     $(this).addClass("is-invalid");
-                    $(this).focus();
-                    $("#checkpwd").txt("<font color='red'>密碼需相同</font>");
                     f_pwd2 = false;
 
                 }
             });
-            checkFormValidity();
+
         })
 
-        function checkFormValidity() {
-            if (f_userName && f_email && f_phone && f_adr && f_bir && f_userId && f_pwd1 && f_pwd2) {
-                $('button[type="submit"]').prop('disabled', false);
-            } else {
-                $('button[type="submit"]').prop('disabled', true);
-            }
+        function validateForm() {
+            var isValid = f_userName && f_email && f_phone && f_adr && f_bir && f_userId && f_pwd1 && f_pwd2;
+            $('button[type="submit"]').prop('disabled', !isValid);
         }
+
+        $(function() {
+            validateForm();
+
+            $("#userName, #email, #phone, #adr, #bir, #userId, #pwd1, #pwd2").on("input propertychange", function() {
+                validateForm();
+            });
+        });
     </script>
 </body>
 

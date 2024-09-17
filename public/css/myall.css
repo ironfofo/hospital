@@ -145,6 +145,63 @@ h3 {
     background-color: var(--mycolor16);
 }
 
+
+
+
+.navbar-default {
+    -webkit-transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 0 2em;
+    position: fixed;
+    left: 0;
+    z-index: 999;
+    border-radius: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .footer .footer_box ul li {
+    /* -webkit-transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all .3s cubic-bezier(0.42, 0, 0.58, 1); */
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 100%;
+    margin-left: .5em;
+    position: relative;
+    z-index: 1;
+  }
+
+
+  .footer_box2 {
+    border-top: 1px solid #dcdcdc;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer_box3 ul li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 .2em;
+  }
+
+  .footer .footer_box p {
+    font-size: .92rem;
+    color: #363433;
+    line-height: 26px;
+  }
+
+  @media (max-width: 1280px) {
+    .footer .top {
+      right: 1em;
+      top: 1em;
+    }
+  }
+
 /* calendar */
 .d_calender a {
     min-width: 10px;
