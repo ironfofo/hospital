@@ -54,7 +54,7 @@
             <a class="nav-link" href="news">最新消息</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="schedule">門診時間</a>
+            <a class="nav-link" href="/schedule/list">門診時間</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contact">聯絡我們</a>

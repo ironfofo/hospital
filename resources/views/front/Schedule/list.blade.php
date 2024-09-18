@@ -53,7 +53,7 @@
             border: 1px solid #ccc;
             width: 70%;
             border-left: none;
-            height: 500px;
+
         }
     </style>
 </head>
@@ -82,7 +82,7 @@
             <div class="container">
                 <div class="mt-5">
                     <div class="row ">
-                        <div class="col-4">
+                        <div class="col-12 col-lg-4">
                             <div class="container">
                                 <div class="row d-flex flex-column align-items-center ">
                                     <div class="box_roller" style="display: block;width:200px;  border-radius: 10px;">
@@ -94,7 +94,7 @@
                             </div>
                         </div>
 
-                        <div class="col-8 d_calender">
+                        <div class="col-12 col-lg-8 d_calender ">
                             <div class="row row-cols-7">
                                 @foreach($dates as $date)
                                 <div class="col text-03 mt-4">
@@ -104,21 +104,62 @@
                                 @endforeach
                             </div>
 
-
-
-
+                            <div class="row row-cols-7 ">
+                                @foreach($dates as $date)
+                                <div class="col" >
+                                    @foreach($rest as $rests)
+                                        @if($date['date']==$rests->dates)
+                                            @if($rests->timeId==1)
+                                            <a class="btn disabled" name="date">
+                                            @else
+                                            <a class="btn" name="date">早
+                                                <div class="room_info">
+                                                    <form action="/schedule/booking/insert" method="post">
+                                                        {{csrf_field()}}
+                                                        <input type="hidden" name="dates" value="{{$date['date']}}">
+                                                        <input type="hidden" name="timeId" value="1">
+                                                        <input type="hidden" name="doctorId" value="1">
+                                                        <span class="people_num">(?)</span>
+                                                        <button type="submit" class="btn03">預約</button>
+                                                    </form>
+                                                </div>
+                                            </a>
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                </div>
+                                @endforeach
+                            </div>
                             <div class="row row-cols-7 ">
                                 @foreach($dates as $date)
                                 <div class="col">
-                                    <a class="btn" name="{{$date['date']}}1">早
+                                    <a class="btn" name="date">午
                                         <div class="room_info">
-                                            <form action="/schedule/booking/{$date->date}" method="post">
+                                            <form action="/schedule/booking/insert" method="post">
                                                 {{csrf_field()}}
-                                                <input type="hidden" name="date" value="{{$date['date']}}">
-                                                <input type="hidden" name="time_id" value="1">
-
+                                                <input type="hidden" name="dates" value="{{$date['date']}}">
+                                                <input type="hidden" name="timeId" value="2">
                                                 <input type="hidden" name="doctorId" value="1">
                                                 <span class="people_num">(?)</span>
+                                                <button type="submit" class="btn03">預約</button>
+                                            </form>
+                                        </div>
+                                    </a>
+                                </div>
+                                @endforeach
+                            </div>
+                            <div class="row row-cols-7 ">
+                                @foreach($dates as $date)
+                                <div class="col">
+                                    <a class="btn" name="date">晚
+                                        <div class="room_info">
+                                            <form action="/schedule/booking/insert" method="post">
+                                                {{csrf_field()}}
+                                                <input type="hidden" name="dates" value="{{$date['date']}}">
+                                                <input type="hidden" name="timeId" value="3">
+                                                <input type="hidden" name="doctorId" value="3">
+                                                <span class="people_num">(?)</span>
+                                                <button type="submit" class="btn03">預約</button>
                                             </form>
                                         </div>
                                     </a>
@@ -126,65 +167,34 @@
                                 @endforeach
                             </div>
 
-                            <div class="row row-cols-7 ">
-                                @foreach($dates as $date)
-                                <div class="col">
-                                    <a class="btn" name="{{$date['date']}}1">早
-                                        <div class="room_info">
-                                            <span class="people_num">(?)</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                @endforeach
-                            </div>
-                            <div class="row row-cols-7 ">
-                                @foreach($dates as $date)
-                                <div class="col">
-                                    <a class="btn" name="{{$date['date']}}2">中
-                                        <div class="room_info">
-                                            <span class="people_num">(?)</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                @endforeach
-                            </div>
-                            <div class="row row-cols-7 ">
-                                @foreach($dates as $date)
-                                <div class="col">
-                                    <a class="btn" name="{{$date['date']}}3">晚
-                                        <div class="room_info"><span class="people_num">(?)</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                @endforeach
-                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="Adjective" class="tabcontent">
-        <h3>外科</h3>
-        <p>Paris is the capital of France.</p>
-    </div>
-    <div id="Dental" class="tabcontent">
-        <h3>牙科</h3>
-        <p>Paris is the capital of France.</p>
-    </div>
-    <div id="orthopedics" class="tabcontent">
-        <h3>骨科</h3>
-        <p>Paris is the capital of France.</p>
-    </div>
-    <div id="dermatology" class="tabcontent">
-        <h3>皮膚科</h3>
-        <p>Paris is tal of France.</p>
-    </div>
-    <div id="FelineDisease" class="tabcontent">
-        <h3>貓病科</h3>
-        <p>Paris is the capital of France.</p>
-    </div>
+
+        <div id="Adjective" class="tabcontent">
+            <h3>外科</h3>
+            <p>Paris is the capital of France.</p>
+        </div>
+        <div id="Dental" class="tabcontent">
+            <h3>牙科</h3>
+            <p>Paris is the capital of France.</p>
+        </div>
+        <div id="orthopedics" class="tabcontent">
+            <h3>骨科</h3>
+            <p>Paris is the capital of France.</p>
+        </div>
+        <div id="dermatology" class="tabcontent">
+            <h3>皮膚科</h3>
+            <p>Paris is tal of France.</p>
+        </div>
+        <div id="FelineDisease" class="tabcontent">
+            <h3>貓病科</h3>
+            <p>Paris is the capital of France.</p>
+        </div>
     </div>
 
 
@@ -209,5 +219,14 @@
         document.getElementById("defaultOpen").click();
     </script>
 
+    <script>
+        function rest(doctorId,$dates,$timeId)
+        {
+            $.ajax()
+            {
+                url
+            }
+        }
+    </script>
 </body>
 @endsection
