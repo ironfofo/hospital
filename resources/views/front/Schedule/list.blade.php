@@ -109,9 +109,10 @@
                                 <div class="col" >
                                     @foreach($rest as $rests)
                                         @if($date['date']==$rests->dates)
-                                            @if($rests->timeId==1)
-                                            <a class="btn disabled" name="date">
-                                            @else
+                                            @if($rests->timeId==2)
+                                            <a class="btn disabled" name="date"></a>
+                                            @endif
+                                        @else                                            
                                             <a class="btn" name="date">早
                                                 <div class="room_info">
                                                     <form action="/schedule/booking/insert" method="post">
@@ -124,7 +125,6 @@
                                                     </form>
                                                 </div>
                                             </a>
-                                            @endif
                                         @endif
                                     @endforeach
                                 </div>
