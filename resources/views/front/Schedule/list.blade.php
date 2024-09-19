@@ -59,7 +59,7 @@
 </head>
 
 <body>
-    <div class="row" style="background-image: url(images/banner/lukasz-szmigiel-2ShvY8Lf6l0-unsplash.jpg);background-size:cover;background-position:center center;background-attachment: fixed; height:50vh" alt="BANNER">
+    <div class="row" style="background-image: url(/images/banner/lukasz-szmigiel-2ShvY8Lf6l0-unsplash.jpg);background-size:cover;background-position:center center;background-attachment: fixed; height:40vh" alt="BANNER">
     </div>
 
 
@@ -78,7 +78,7 @@
         </div>
 
         <div id="InternalMedicine" class="tabcontent">
-        <h3>內科</h3>
+            <h3>內科</h3>
             <div class="container">
                 <div class="mt-5">
                     <div class="row ">

@@ -163,9 +163,9 @@ h3 {
     align-items: center;
     justify-content: space-between;
 
-  }
+}
 
-  .footer .footer_box ul li {
+.footer .footer_box ul li {
     /* -webkit-transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
   transition: all .3s cubic-bezier(0.42, 0, 0.58, 1); */
     display: inline-block;
@@ -174,33 +174,44 @@ h3 {
     margin-left: .5em;
     position: relative;
     z-index: 1;
-  }
+}
 
 
-  .footer_box2 {
+.footer_box2 {
     border-top: 1px solid #dcdcdc;
     width: 100%;
     text-align: center;
-  }
+}
 
-  .footer_box3 ul li {
+.footer_box3 ul li {
     display: inline-block;
     vertical-align: middle;
     margin: 0 .2em;
-  }
+}
 
-  .footer .footer_box p {
+.footer .footer_box p {
     font-size: .92rem;
     color: #363433;
     line-height: 26px;
-  }
+}
 
-  @media (max-width: 1280px) {
+@media (max-width: 1280px) {
     .footer .top {
-      right: 1em;
-      top: 1em;
+        right: 1em;
+        top: 1em;
     }
-  }
+}
+
+.bg-yellow-option {
+    background-color: #e4eeab;
+    /* Bootstrap的紅色 */
+    color: white;
+    /* 文字顏色 */
+}
+
+ul li {
+    list-style-type: none;
+}
 
 /* calendar */
 .d_calender a {
@@ -212,7 +223,7 @@ h3 {
 
 }
 
-col{
+col {
     margin: 0px;
 }
 
@@ -242,7 +253,7 @@ col{
 
 .doctor_img {
     display: block;
-    width:200px;
+    width: 200px;
     border-radius: 10px;
 }
 
@@ -253,6 +264,7 @@ col{
     position: relative;
     overflow: hidden;
 }
+
 .roller {
     position: absolute;
     top: 100%;
@@ -263,23 +275,25 @@ col{
     justify-content: center;
     align-items: center;
 }
+
 .box_roller:hover .roller {
     top: 0;
     transition: top 1s;
     transform: translateY(0);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.box_doctor_name{
+.box_doctor_name {
     position: relative;
     color: #868686;
     font-weight: 700;
 }
-.doctor_name{
-    position:absolute;
+
+.doctor_name {
+    position: absolute;
     bottom: 1px;
 }
 
@@ -291,13 +305,14 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom,rgb(227, 213, 255),rgb(255, 231, 231));
+    background: linear-gradient(to bottom, rgb(227, 213, 255), rgb(255, 231, 231));
     border-radius: 30px;
     overflow: hidden;
     cursor: pointer;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
-  }
-  .input0 {
+}
+
+.input0 {
     width: 200px;
     height: 40px;
     border: none;
@@ -309,8 +324,8 @@ a{
     letter-spacing: 0.8px;
     color: rgb(19, 19, 19);
     font-size: 13.4px;
-  }
-  
+}
+
 
 .input01 {
     border-radius: 10px;
@@ -320,14 +335,15 @@ a{
     outline-offset: 3px;
     padding: 10px 1rem;
     transition: 0.25s;
-  }
-  .input01:focus {
+}
+
+.input01:focus {
     outline-offset: 5px;
     background-color: #fff
-  }
+}
 
 
-  /* From Uiverse.io by satyamchaudharydev */ 
+/* From Uiverse.io by satyamchaudharydev */
 .card01 {
     --bg: #f7f7f8;
     --hover-bg: #FFE5F4;
@@ -340,27 +356,31 @@ a{
     border-radius: 5px;
     position: relative;
     overflow: hidden;
-    transition: .3s cubic-bezier(.6,.4,0,1),transform .15s ease;
+    transition: .3s cubic-bezier(.6, .4, 0, 1), transform .15s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
-  }
-    .card__body {
+}
+
+.card__body {
     color: #464853;
     line-height: 1.5em;
     font-size: 1em;
-  }
-    .card01 > :not(span) {
-    transition: .3s cubic-bezier(.6,.4,0,1);
-  }
-    .card01 > strong {
+}
+
+.card01> :not(span) {
+    transition: .3s cubic-bezier(.6, .4, 0, 1);
+}
+
+.card01>strong {
     display: block;
     font-size: 1.4rem;
     letter-spacing: -.035em;
-  }
-    .card01 span {
+}
+
+.card01 span {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -372,21 +392,25 @@ a{
     border-radius: 5px;
     font-weight: bold;
     top: 100%;
-    transition: all .3s cubic-bezier(.6,.4,0,1);
-  }
-    .card01:hover span {
+    transition: all .3s cubic-bezier(.6, .4, 0, 1);
+}
+
+.card01:hover span {
     top: 0;
     font-size: 1.2em;
-  }
-    .card01:hover {
+}
+
+.card01:hover {
     background: var(--hover-bg);
-  }
-  .card01:hover>div,.card:hover>strong {
+}
+
+.card01:hover>div,
+.card:hover>strong {
     opacity: 0;
-  }
+}
 
 
-  .btn01 {
+.btn01 {
     width: 80px;
     height: 40px;
     display: flex;
@@ -402,8 +426,9 @@ a{
     transition: transform 150ms,
         font-size 150ms, color 150ms;
 }
-.btn01:hover{
-}
+
+.btn01:hover {}
+
 .btn01:active {
     background-color: #EFF2F9;
     font-size: 16px;
@@ -412,7 +437,7 @@ a{
 }
 
 
-/* btn02 */ 
+/* btn02 */
 .btn02 {
     align-items: center;
     background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
@@ -435,25 +460,29 @@ a{
     white-space: nowrap;
     cursor: pointer;
     transition: all 0.3s;
-  }
-  .btn02:active,
-  .btn02:hover {
+}
+
+.btn02:active,
+.btn02:hover {
     outline: 0;
-  }
-  .btn02 span {
+}
+
+.btn02 span {
     background-color: rgb(5, 6, 45);
     padding: 16px 24px;
     border-radius: 6px;
     width: 100%;
     height: 100%;
     transition: 300ms;
-  }
-  .btn02:hover span {
+}
+
+.btn02:hover span {
     background: none;
-  }
-  .btn02:active {
+}
+
+.btn02:active {
     transform: scale(0.9);
-  }
+}
 
 
 
@@ -465,6 +494,7 @@ a{
     margin-right: 5px;
     text-decoration: none;
 }
+
 .bg-btn01:hover {
     background-color: var(--mycolor03);
     color: var(--mytextcolor01);

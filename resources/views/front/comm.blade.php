@@ -25,14 +25,14 @@
 
 
 <body>
-  @if(Session::has("message"))
+  @if(session()->has("message"))
   <script>
     swal.fire("{{Session::get('message')}}");
   </script>
   @endif
   <section id="s01">
     <nav class="navbar navbar-default sticky-lg-top navbar-expand-lg">
-      <a class="navbar-brand" href="index"><img src="/images/LOGO/LOGO.png" alt="LOGO" class="img-fluid"></a>
+      <a class="navbar-brand" href="/"><img src="/images/LOGO/LOGO.png" alt="LOGO" class="img-fluid"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -57,7 +57,7 @@
             <a class="nav-link" href="/schedule/list">門診時間</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact">聯絡我們</a>
+            <a class="nav-link" href="/contact/list">聯絡我們</a>
           </li>
 
           <li class="nav-item">
@@ -65,20 +65,20 @@
           </li>
         </ul>
         <div>
-          <span class="h5 text-success fw-500 d-none" id="s02_login_username01">會員:</span> <span
-            class="h5 text-danger fw-500 d-none" id="s02_login_username02">xxx</span>
-          <a href="/member/login" id="login" class="btn btn01" onclick="doLogin()">登入</a>
+          @if(Session()->has("userId"))
+          <span class="text-success fw-700" id="login_username01">會員:</span>
+          <span class="text-danger fw-700" id="login_username02">{{session()->get("userId")}}</span>
+          <button class="btn btn01" type="button" onclick="logOut()">登出</button>
+          @else
+          <a href="/member/login" class="btn btn01">登入</a>
           <a href="/member/register" class="btn btn01">註冊</a>
+          @endif
         </div>
       </div>
     </nav>
   </section>
 
-
   @yield("content")
-
-
-
 
   <footer class="footer mt-0">
     <div class="box" style="width: 1920px;height:2px color"></div>
@@ -138,13 +138,42 @@
 
           _token: "{{ csrf_token() }}"
         },
-        success:function(data){
-          if(data=="Y"){
+        success: function(data) {
+          if (data == "Y") {
             $("#login").attr("disabled");
-          }else if(data=="N"){
+          } else if (data == "N") {
             $("#login").addClass("is-valid");
           }
         },
+      });
+    }
+
+    function logOut() {
+      Swal.fire({
+        title: "確定登出嗎?",
+        text: "",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "確定登出",
+        cancelButtonText: "不登出",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: "/member/logOut",
+            type: "post",
+            data: {
+              _token: "{{csrf_token()}}"
+            },
+            success: function() {
+              Swal.fire("已登出").then(() => {
+                location.reload(); // 刷新頁面
+              });
+            },
+
+          });
+        }
       });
     }
   </script>

@@ -47,5 +47,13 @@ class Member extends Model
 
         return $member;
     }
+    public function chartJs()
+    {
+        $list = DB::table('member')
+        ->select(DB::raw('COUNT(prm) as prmcount'), 'prm as level')
+        ->groupBy('prm')
+        ->get();
+        return $list;
+    }
 }
 

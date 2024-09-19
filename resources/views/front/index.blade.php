@@ -17,7 +17,8 @@
 
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item bg-cover active" style="background-image: url(/images/banner/Veterinarian-03.jpg.webp);height: 60vh;">
+        <div class="carousel-item bg-cover active wow animate__pulse" style="background-image: url(/images/banner/Veterinarian-03.jpg.webp);height: 60vh;" data-wow-duration="1s" data-wow-delay="0s"
+        data-wow-iteration="1">
             <div class="carousel-caption d-none d-md-block mb-5 wow animate__flipInX"
                 data-wow-duration="5s" data-wow-delay="0s" data-wow-iteration="1">
                 <h5>定期健康檢查</h5>
@@ -59,28 +60,34 @@
 </div>
 
 <div class="bg-01">
-    <div class="container pt-4 pt-3 ">
+    <div class="container pt-4 pt-5 ">
         <div class="row">
             <div class="col-md-4 text-center mt-4 mb-3">
-                <i class="fa-brands fa-pagelines fa-6x text-success mb-3"></i>
+                <i class="wow animate__shakeY fa-solid fa-address-card fa-6x text-success mb-3" data-wow-duration="4s" data-wow-delay="0s"
+                data-wow-iteration="1"></i>
                 <h5 class="fw-900 mb-3">專業資格</h5>
-                <p class="fs-5">
-                    我們的獸醫團隊均畢業於知名獸醫學院，並持有國際認可的專業資格證書
-                </p>
+                <ul>
+                    <li>獸醫團隊均畢業於知名獸醫學院</li>
+                    <li>並持有國際認可的專業資格證</li>
+                </ul>
             </div>
             <div class="col-md-4 text-center mt-4 mb-3">
-                <i class="fa-solid fa-battery-three-quarters fa-6x text-success mb-3"></i>
+                <i class="wow animate__shakeY fa-solid fa-user-doctor fa-6x text-success mb-3"  data-wow-duration="4s" data-wow-delay="0s"
+                data-wow-iteration="1"></i>
                 <h5 class="fw-900 mb-3">臨床經驗</h5>
-                <p class="fs-5">
-                    每位獸醫都擁有多年臨床經驗，處理過各類複雜的寵物健康問題
-                </p>
+                <ul>
+                    <li>每位獸醫都擁有多年臨床經驗</li>
+                    <li>處理過各類複雜的寵物健康問題</li>
+                </ul>
             </div>
             <div class="col-md-4 text-center mt-4 mb-3">
-                <i class="fa-solid fa-tree-city fa-6x text-success mb-3"></i>
+                <i class="wow animate__shakeY fa-solid fa-book-open-reader fa-6x text-success mb-3"  data-wow-duration="4s" data-wow-delay="0s"
+                data-wow-iteration="1"></i>
                 <h5 class="fw-900 mb-3">持續學習</h5>
-                <p class="fs-5">
-                    我們的團隊不斷參加國內外的專業培訓和研討會，確保掌握最新的醫療技術和知識
-                </p>
+                <ul>
+                    <li>不斷參加國內外的專業培訓和研討會</li>
+                    <li>確保掌握最新的醫療技術和知識</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -89,9 +96,9 @@
 
 <div class="container-fluid">
     <div class="row align-items-center">
-        <div class="col-md-4 bg-cover wow animate__fadeInLeftBig" data-wow-duration="3s" data-wow-delay="0s"
+        <div class="col-md-4 bg-cover wow animate__fadeInDown" data-wow-duration="3s" data-wow-delay="0s"
             data-wow-iteration="1"
-            style="background-image: url(images/banner/dog.jpg);height: 70vh; background-attachment: local;">
+            style="background-image: url(images/banner/dog.jpg);height: 70vh; background-attachment: local;" >
         </div>
         <div class="col-md-8 p-5  wow animate__fadeInRight" data-wow-duration="5s" data-wow-delay="0s"
             data-wow-iteration="1">

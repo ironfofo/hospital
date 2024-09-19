@@ -3,11 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>會員管理</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css" rel="stylesheet">
-    <title>會員管理</title>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="/css/myall.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/slick-theme.css">
+    <link rel="stylesheet" href="/css/all.min.css">
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/slick.css?v=1.01">
+    <link rel="stylesheet" href="/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
     <script>
         function doDelete(id, userName) {
             Swal.fire({
@@ -58,46 +68,83 @@
     </script>
     @endif
     <div class="container">
-        <div class="col-12 mt-4 mb-3">
-            <a class="btn btn-primary" href="add">新增</a>
+        <div class="row">
+            <div class="col-12 mt-4 mb-3">
+                <a class="btn btn-primary" href="add">新增</a>
+            </div>
+            <table class="table table-bordered border-dark">
+                <tr></i>
+                    <th class="text-center">姓名</th>
+                    <th class="text-center">信箱</th>
+                    <th class="text-center">電話</th>
+                    <th class="text-center">地址</ th>
+                    <th class="text-center">生日</th>
+                    <th class="text-center">帳號</th>
+                    <th class="text-center">密碼</th>
+                    <th class="text-center">等級</th>
+                    <th class="text-center">修改</th>
+                    <th class="text-center">刪除</th>
+                </tr>
+                @foreach($list as $data)
+                <tr id="user{{$data->id}}" name="user{{$data->id}}">
+                    <td class="text-center">{{ $data->userName }}</td>
+                    <td class="text-center">{{ $data->email }}</td>
+                    <td class="text-center">{{ $data->phone }}</td>
+                    <td class="text-center">{{ $data->adr }}</td>
+                    <td class="text-center">{{ $data->bir }}</td>
+                    <td class="text-center">{{ $data->userId }}</td>
+                    <td class="text-center">{{ $data->pwd }}</td>
+                    <td>
+                        <select name="prm[]" id="prm[]" class="form-select">
+                            <option value="10" {{ $data->prm == 10 ? "selected" : "" }}>一般會員</option>
+                            <option value="20" class="bg-yellow-option" {{ $data->prm == 20 ? "selected" : "" }}>VIP01</option>
+                        </select>
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-info" href="edit/{{$data->id}}">修改</a>
+                    </td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-danger" onclick="doDelete('{{$data->id}}','{{$data->userName}}')">刪除</a>
+                    </td>
+                </tr>
+                @endforeach
+            </table>
+            {{$list->links()}}
         </div>
-        <table class="table table-bordered border-dark">
-            <tr>
-                <th class="col-1 text-center">姓名</th>
-                <th class="col-1 text-center">信箱</th>
-                <th class="col-1 text-center">電話</th>
-                <th class="col-2 text-center">地址</th>
-                <th class="col-2 text-center">生日</th>
-                <th class="col-2 text-center">帳號</th>
-                <th class="col-1 text-center">密碼</th>
-                <th class="col-1 text-center">修改</th>
-                <th class="col-1 text-center">刪除</th>
-            </tr>
-            {{-- $list是資料庫MemberController.php的$list --}}
-            @foreach($list as $data)
-            <tr class="user{{$data->id}}">
-                <td class="text-center">{{ $data->userName }}</td>
-                <td class="text-center">{{ $data->email }}</td>
-                <td class="text-center">{{ $data->phone }}</td>
-                <td class="text-center">{{ $data->adr }}</td>
-                <td class="text-center">{{ $data->bir }}</td>
-                <td class="text-center">{{ $data->userId }}</td>
-                <td class="text-center">{{ $data->pwd }}</td>
-                <td class="text-center">
-                    <a class="btn btn-info" href="edit/{{$data->id}}">修改</a>
-                </td>
-                <td class="text-center">
-                    <a href="#" class="btn btn-danger" onclick="doDelete('{{$data->id}}','{{$data->userName}}')">刪除</a>
-                </td>
-            </tr>
-            {{-- @endforeach相當於php的結束 --}}
-            @endforeach
-        </table>
-        <!--根據傳過來名稱連結-->
-        {{$list->links()}}
     </div>
-    </div>
-    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+  <script src="/js/wow.min.js"></script>
+  <script src="/js/sweetalert2@11.js"></script>
+  <script src="/js/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 為所有的下拉選單綁定 change 事件
+            $(".form-select").change(function() {
+                // 獲取選中的值
+                const prm = $(this).val(); // 使用 this 獲取當前選擇的元素
+                const userId = $(this).closest('tr').find('td:nth-child(6)').text(); // 獲取用戶 ID，假設是第六個單元格
+
+                // 傳遞至後端API，更新帳號狀態
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/member/prmUpdate",
+                    data: {
+                        prm: prm,
+                        userId: userId, // 傳遞用戶 ID
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function(msg) {
+                        Swal.fire("已修改會員等級");
+                    },
+                    error: function() {
+                        alert("error-/admin/member/prmUpdate");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
