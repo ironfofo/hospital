@@ -22,7 +22,6 @@ class MemberController extends Controller
         {
             return back()->withInput()->withErrors(["code"=>"驗證碼錯誤"]);
             exit;
-            
         }
 
 
@@ -38,10 +37,22 @@ class MemberController extends Controller
             // 另外寫在CheckManager
             
             echo '{"message","成功"}';
-            session()->put("managerId",$req->userId);
+            session()->put("userId",$req->userId);
             //帳密符合，轉址
             // return redirect("/booking/list");
         }
+
+        if(!empty($member)){
+            return "N";
+        }else{
+            return "Y";
+        }
+    }
+
+    public function logOut()
+    {
+        session()->flush("userId");
+        return redirect("/");
     }
 
     public function register()

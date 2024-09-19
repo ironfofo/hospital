@@ -67,7 +67,7 @@
         <div>
           <span class="h5 text-success fw-500 d-none" id="s02_login_username01">會員:</span> <span
             class="h5 text-danger fw-500 d-none" id="s02_login_username02">xxx</span>
-          <a href="/member/login" class="btn btn01">登入</a>
+          <a href="/member/login" id="login" class="btn btn01" onclick="doLogin()">登入</a>
           <a href="/member/register" class="btn btn01">註冊</a>
         </div>
       </div>
@@ -128,6 +128,26 @@
   <script src="/js/wow.min.js"></script>
   <script src="/js/sweetalert2@11.js"></script>
   <script src="/js/jquery-ui.min.js"></script>
+
+  <script>
+    function doLogin() {
+      $.ajax({
+        url: "/member/doLogin",
+        type: "post",
+        data: {
+
+          _token: "{{ csrf_token() }}"
+        },
+        success:function(data){
+          if(data=="Y"){
+            $("#login").attr("disabled");
+          }else if(data=="N"){
+            $("#login").addClass("is-valid");
+          }
+        },
+      });
+    }
+  </script>
 
 </body>
 

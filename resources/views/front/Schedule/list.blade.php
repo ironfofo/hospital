@@ -78,7 +78,7 @@
         </div>
 
         <div id="InternalMedicine" class="tabcontent">
-
+        <h3>內科</h3>
             <div class="container">
                 <div class="mt-5">
                     <div class="row ">
@@ -106,26 +106,40 @@
 
                             <div class="row row-cols-7 ">
                                 @foreach($dates as $date)
-                                <div class="col" >
+                                <div class="col">
                                     @foreach($rest as $rests)
-                                        @if($date['date']==$rests->dates)
-                                            @if($rests->timeId==2)
-                                            <a class="btn disabled" name="date"></a>
-                                            @endif
-                                        @else                                            
-                                            <a class="btn" name="date">早
-                                                <div class="room_info">
-                                                    <form action="/schedule/booking/insert" method="post">
-                                                        {{csrf_field()}}
-                                                        <input type="hidden" name="dates" value="{{$date['date']}}">
-                                                        <input type="hidden" name="timeId" value="1">
-                                                        <input type="hidden" name="doctorId" value="1">
-                                                        <span class="people_num">(?)</span>
-                                                        <button type="submit" class="btn03">預約</button>
-                                                    </form>
-                                                </div>
-                                            </a>
-                                        @endif
+                                    @if($date['date']==$rests->dates)
+                                    @if($rests->timeId==1)
+                                    <a class="btn disabled" name="date"></a>
+                                    @else
+                                    <a class="btn" name="date">早
+                                        <div class="room_info">
+                                            <form action="/schedule/booking/insert" method="post">
+                                                {{csrf_field()}}
+                                                <input type="hidden" name="userId">
+                                                <input type="hidden" name="dates" value="{{$date['date']}}">
+                                                <input type="hidden" name="timeId" value="1">
+                                                <input type="hidden" name="doctorId" value="1">
+                                                <span class="people_num">(?)</span>
+                                                <button type="submit" class="btn03">預約</button>
+                                            </form>
+                                        </div>
+                                    </a>
+                                    @endif
+                                    @else
+                                    <a class="btn" name="date">早
+                                        <div class="room_info">
+                                            <form action="/schedule/booking/insert" method="post">
+                                                {{csrf_field()}}
+                                                <input type="hidden" name="dates" value="{{$date['date']}}">
+                                                <input type="hidden" name="timeId" value="1">
+                                                <input type="hidden" name="doctorId" value="1">
+                                                <span class="people_num">(?)</span>
+                                                <button type="submit" class="btn03">預約</button>
+                                            </form>
+                                        </div>
+                                    </a>
+                                    @endif
                                     @endforeach
                                 </div>
                                 @endforeach
@@ -133,24 +147,50 @@
                             <div class="row row-cols-7 ">
                                 @foreach($dates as $date)
                                 <div class="col">
-                                    <a class="btn" name="date">午
+                                    @foreach($rest as $rests)
+                                    @if($date['date']==$rests->dates)
+                                    @if($rests->timeId==2)
+                                    <a class="btn disabled" name="date"></a>
+                                    @else
+                                    <a class="btn" name="date">中
                                         <div class="room_info">
                                             <form action="/schedule/booking/insert" method="post">
                                                 {{csrf_field()}}
                                                 <input type="hidden" name="dates" value="{{$date['date']}}">
                                                 <input type="hidden" name="timeId" value="2">
-                                                <input type="hidden" name="doctorId" value="1">
+                                                <input type="hidden" name="doctorId" value="2">
                                                 <span class="people_num">(?)</span>
                                                 <button type="submit" class="btn03">預約</button>
                                             </form>
                                         </div>
                                     </a>
+                                    @endif
+                                    @else
+                                    <a class="btn" name="date">中
+                                        <div class="room_info">
+                                            <form action="/schedule/booking/insert" method="post">
+                                                {{csrf_field()}}
+                                                <input type="hidden" name="dates" value="{{$date['date']}}">
+                                                <input type="hidden" name="timeId" value="2">
+                                                <input type="hidden" name="doctorId" value="2">
+                                                <span class="people_num">(?)</span>
+                                                <button type="submit" class="btn03">預約</button>
+                                            </form>
+                                        </div>
+                                    </a>
+                                    @endif
+                                    @endforeach
                                 </div>
                                 @endforeach
                             </div>
                             <div class="row row-cols-7 ">
                                 @foreach($dates as $date)
                                 <div class="col">
+                                    @foreach($rest as $rests)
+                                    @if($date['date']==$rests->dates)
+                                    @if($rests->timeId==3)
+                                    <a class="btn disabled" name="date"></a>
+                                    @else
                                     <a class="btn" name="date">晚
                                         <div class="room_info">
                                             <form action="/schedule/booking/insert" method="post">
@@ -163,16 +203,31 @@
                                             </form>
                                         </div>
                                     </a>
+                                    @endif
+                                    @else
+                                    <a class="btn" name="date">晚
+                                        <div class="room_info">
+                                            <form action="/schedule/booking/insert" method="post">
+                                                {{csrf_field()}}
+                                                <input type="hidden" name="dates" value="{{$date['date']}}">
+                                                <input type="hidden" name="timeId" value="3">
+                                                <input type="hidden" name="doctorId" value="3">
+                                                <span class="people_num">(?)</span>
+                                                <button type="submit" class="btn03">預約</button>
+                                            </form>
+                                        </div>
+                                    </a>
+                                    @endif
+                                    @endforeach
                                 </div>
                                 @endforeach
                             </div>
-
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
 
 
         <div id="Adjective" class="tabcontent">
@@ -220,13 +275,7 @@
     </script>
 
     <script>
-        function rest(doctorId,$dates,$timeId)
-        {
-            $.ajax()
-            {
-                url
-            }
-        }
+
     </script>
 </body>
 @endsection

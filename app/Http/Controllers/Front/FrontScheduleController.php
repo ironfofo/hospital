@@ -27,12 +27,12 @@ class FrontScheduleController extends Controller
         };
 
         $rest=DoctorRest::get();
+        $booking=new Booking();
         
-
-
         
 
         return view("front.schedule.list", compact("dates","rest"));
+        
     }
 
     // public function booking() 
@@ -50,8 +50,9 @@ class FrontScheduleController extends Controller
         // $bookingId = $times[1];
         // $booking->bookingId = $bookingId;
 
-        // $booking->userId=Auth::user()->id;
-        // $booking->userId=$req->userId;
+        
+      
+        $booking->userId = session()->get("userId");
         $booking->dates = $req->dates;
         $booking->timeId = $req->timeId;
         $booking->doctorId = $req->doctorId;
@@ -59,17 +60,5 @@ class FrontScheduleController extends Controller
 
         Session::flash("message", "預定成功");
         return redirect("/schedule/list");
-    }
-
-    public function rest(Request $req)
-    {
-        $rest=(new DoctorRest())->rest($req->doctorId,$req->dates,$req->timeId);
-        if($rest==="null")
-        {
-            $restt="N";
-        }else{
-            $restt="Y";
-        }
-        return $restt;
     }
 }

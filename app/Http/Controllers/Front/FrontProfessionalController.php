@@ -15,4 +15,6 @@ class FrontProfessionalController extends Controller
         return view("front.Professional.list",compact("pr"));
     }
 
+    
+
 }

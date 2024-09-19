@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-require "member.php";
+require "Member.php";
 require "booking.php";
 
 Route::get('/', function () {

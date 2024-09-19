@@ -22,6 +22,7 @@ class Member extends Model
         "pwd",
         "petId",
         "prtId",
+        "prm",
         "createTime",
     ];
 

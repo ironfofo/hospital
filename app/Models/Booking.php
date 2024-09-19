@@ -15,26 +15,27 @@ class Booking extends Model
         "id",
         "userId",
         "doctorId",
+        "dates",
+        "timeId",
+        "petName",
         "createTime",
     ];
 
-    public function doBooking()
+    public function BookingList()
     {
         $list = DB::table('booking AS a')
-        ->selectRaw('a.*,b.doctorName')
-        ->join('doctor AS b', 'b.doctorId', 'a.doctorId')
-        ->join('member AS c', 'c.userId', 'a.userId')
-        ->join('schedule AS d', 'd.dates', 'a.dates')
-        ->join('timelist AS e', 'e.times', 'a.times')
-        ->get();
+        ->selectRaw('a.*,b.doctorName,c.userName,d.time_period')
+        ->leftJoin('doctor AS b', 'b.doctorId', 'a.doctorId')
+        ->leftJoin('member AS c', 'c.userId', 'a.userId')
+        ->leftJoin('times AS d', 'd.timeId', 'a.timeId')
+        ->paginate(10);
 
         return $list;
     }
 
-    public function bookingList($date,$time_id)
-    {
-        $booking=self::where("date",$date)->where("time_id",$time_id)->get();
-        return $booking;
-    }
+    // public function count()
+    // {
+    //     return $count;
+    // }
 }
 

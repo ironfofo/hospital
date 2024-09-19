@@ -9,9 +9,9 @@ class TimeList extends Model
 {
     public $timestamps=false;
     protected $table="times";
-    protected $primaryKey="id";
+    protected $primaryKey="timeId";
     protected $fillable=[
-        "time_id",
+        "timeId",
         "time_period",
     ];
 }
