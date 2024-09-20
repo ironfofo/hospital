@@ -16,7 +16,7 @@
         -->
         <div class="mt-5">
 
-            <form action="/member/update" method="post">
+            <form action="/admin/member/update" method="post">
                 <input type="hidden" name="id" value="{{$member->id}}">
                 {{csrf_field()}}
 
@@ -25,8 +25,8 @@
                         col-2:一列有12格網路 col-2為2/12
                         text-center:置中
                     -->
-                    <div class="col-1 text-center">姓名</div>
-                    <div class="col-1">
+                    <div class="col-2 text-center">姓名</div>
+                    <div class="col-2">
                         <!--border border-dark:有黑色邊框-->
                         <input type="text" class="form-control border-dark" id="userName" name="userName" value="{{$member->userName}}" required autofocus onblur="doCheck(this.value)">
                         <span id="msg"></span>

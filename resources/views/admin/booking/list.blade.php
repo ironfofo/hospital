@@ -27,7 +27,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             $.ajax({
-                                url: "/member/delete/",
+                                url: "/admin/booking/delete/",
                                 type: "post",
                                 //dataType:"json",資料傳回方法一種這裡不是這種
                                 data: {
@@ -57,10 +57,7 @@
         Swal.fire("{{Session::get('message')}}")
     </script>
     @endif
-    <div class="container">
-        <div class="col-12 mt-4 mb-3">
-            <a class="btn btn-primary" href="add">新增</a>
-        </div>
+    <div class="container mt-5">
         <div class="row">
             <div class="col-12">
                 <div class="card shadow-lg">
@@ -75,7 +72,6 @@
                                     <th class="text-center">日期</th>
                                     <th class="text-center">時間</th>
                                     <th class="text-center">-</th>
-
                                 </tr>
                             </thead>
                             @foreach($list as $data)
@@ -87,7 +83,6 @@
                                 <td class="text-center">{{ $data->dates }}</td>
                                 <td class="text-center">{{ $data->time_period }}</td>
                                 <td class="text-center">
-                                    <a class="btn btn-info" href="edit/{{$data->id}}">修改</a>
                                     <a href="#" class="btn btn-danger" onclick="doDelete('{{$data->id}}','{{$data->userName}}')">刪除</a>
                                 </td>
                             </tr>

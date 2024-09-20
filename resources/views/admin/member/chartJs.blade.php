@@ -50,13 +50,14 @@
             });
 
             $.ajax({
-                type: "GET",
-                url: "/admin/chartJs/list", // 确保这里是正确的 URL
+                type: "get",
+                url: "/admin/chartJs/getList", // 确保这里是正确的 URL
                 success: function(data) {
                     showdata_chart_level(data);
+                    
                 },
                 error: function() {
-                    alert("Error fetching data from /admin/chartJs/list");
+                    alert("Error fetching data from /admin/chartJs/getList");
                 }
             });
         });

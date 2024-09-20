@@ -18,4 +18,5 @@ Route::group(["prefix" => "/admin/member"], function () {
 
 Route::group(["prefix" => "/admin/chartJs"], function () {
     Route::get("list", [AdminChartJsController::class, "list"]);
+    Route::get("getList", [AdminChartJsController::class, "getList"]);
 });

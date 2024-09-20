@@ -110,7 +110,7 @@ class MemberController extends Controller
         //flash快閃儲存一次
         Session::flash("message", "已新增");
         //redirect轉址
-        return redirect("/member/list");
+        return redirect("/admin/member/list");
     }
 
     public function edit(Request $req)
@@ -140,7 +140,7 @@ class MemberController extends Controller
 
         Session::flash("message", "已修改");
         //redirect轉址
-        return redirect("/member/list");
+        return redirect("/admin/member/list");
     }
 
     public function prmUpdate(Request $req)

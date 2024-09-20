@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="/css/slick-theme.css">
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/slick.css">
-    <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="/css/slick.css?v=1.01">
     <link rel="stylesheet" href="/css/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -37,7 +36,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             $.ajax({
-                                url: "/member/delete/",
+                                url: "/admin/member/delete",
                                 type: "post",
                                 //dataType:"json",資料傳回方法一種這裡不是這種
                                 data: {
@@ -97,7 +96,7 @@
                     <td>
                         <select name="prm[]" id="prm[]" class="form-select">
                             <option value="10" {{ $data->prm == 10 ? "selected" : "" }}>一般會員</option>
-                            <option value="20" class="bg-yellow-option" {{ $data->prm == 20 ? "selected" : "" }}>VIP01</option>
+                            <option value="20" class="bg-danger" {{ $data->prm == 20 ? "selected" : "" }}>VIP01</option>
                         </select>
                     </td>
                     <td class="text-center">

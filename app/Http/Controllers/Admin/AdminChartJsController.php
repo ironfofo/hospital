@@ -13,4 +13,9 @@ class AdminChartJsController extends Controller
         $list=(new Member())->chartJs();
         return view("admin/member/chartJs",compact("list"));
     }
+    public function getList()
+    {
+        $getList=(new Member())->chartJs();
+        return $getList;
+    }
 }

@@ -49,7 +49,7 @@
                 action:傳送到哪一個(哪一個持程式)
                 method:主要get及post，另二個put及patch比較少見，put及patch主要用來更新資料
             -->
-            <form action="../insert" method="POST">
+            <form action="../member/insert" method="POST">
                 <!--
                     csrf_field: 表單加上token，代表由自己網站所發出訊息，不是由遠端發送
                     自動轉換為頁面<input type="hidden" name=_"token" value="xxxxxxx">
