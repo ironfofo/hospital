@@ -130,23 +130,7 @@
   <script src="/js/jquery-ui.min.js"></script>
 
   <script>
-    function doLogin() {
-      $.ajax({
-        url: "/member/doLogin",
-        type: "post",
-        data: {
 
-          _token: "{{ csrf_token() }}"
-        },
-        success: function(data) {
-          if (data == "Y") {
-            $("#login").attr("disabled");
-          } else if (data == "N") {
-            $("#login").addClass("is-valid");
-          }
-        },
-      });
-    }
 
     function logOut() {
       Swal.fire({

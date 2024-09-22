@@ -27,18 +27,8 @@ class FrontScheduleController extends Controller
         };
 
         $rest=DoctorRest::get();
-        $booking=new Booking();
-        // if($rest->timeId==1)
-        // {
-        //     return $ret1="Y";
-        // }else{
-        //     return $ret1="N";
-        // }
-
-
+        $booking=new Booking();    
         
-        
-
         return view("front.schedule.list", compact("dates","rest"));
         
     }
