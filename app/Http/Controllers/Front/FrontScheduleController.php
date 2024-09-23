@@ -17,28 +17,41 @@ class FrontScheduleController extends Controller
     {
         $startDate = Carbon::now(); // 當前日期
         $dates = [];
-
+        $rest = DoctorRest::get();
+    
+        $count1 = [];
+        $count2 = [];
+        $count3 = [];
+    
         for ($i = 0; $i < 7; $i++) {
             $date = $startDate->copy()->addDays($i);
+            $formattedDate = $date->format("Y-m-d"); // 取得日期格式
+    
+            // 建立日期和星期幾的陣列
             $dates[] = [
-                'date' => $date->format("Y-m-d"),
+                'date' => $formattedDate,
                 'weekday' => $date->locale("zh_TW")->dayName, // 獲取星期幾的中文名稱
             ];
-        };
+    
+            // 根據每個日期來計算 count1, count2, count3
+            $count1[$formattedDate] = $this->getCount($formattedDate, 1);
+            $count2[$formattedDate] = $this->getCount($formattedDate, 2);
+            $count3[$formattedDate] = $this->getCount($formattedDate, 3);
+        }
 
-        $rest=DoctorRest::get();
-        $booking=new Booking();    
+        dd($count1); // 這樣會輸出並停止程式
         
-        return view("front.schedule.list", compact("dates","rest"));
-        
+
+        return view("front.schedule.list", compact("dates", "rest", "count1", "count2", "count3"));
     }
+    
 
-    // public function booking() 
-    // {
-    //     $doctor = Doctor::get();
-    //     $booking = (new Booking())->getBooking();
-    //     return view("front.booking.list", compact("doctor", "booking"));
-    // }
+    private function getCount($date,$timeId) 
+    {
+        $count=(new Booking())->bookingCount($date,$timeId);     
+
+        return $count;
+    }
 
     public function doBooking(Request $req)
     {

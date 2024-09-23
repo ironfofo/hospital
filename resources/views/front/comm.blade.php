@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="/css/slick-theme.css">
   <link rel="stylesheet" href="/css/all.min.css">
   <link rel="stylesheet" href="/css/slick.css">
-  <link rel="stylesheet" href="/css/animate.css">
   <link rel="stylesheet" href="/css/slick.css?v=1.01">
   <link rel="stylesheet" href="/css/sweetalert2.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -161,6 +160,8 @@
       });
     }
   </script>
+
+  
 
 </body>
 

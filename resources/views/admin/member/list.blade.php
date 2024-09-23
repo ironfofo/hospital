@@ -94,7 +94,7 @@
                     <td class="text-center">{{ $data->userId }}</td>
                     <td class="text-center">{{ $data->pwd }}</td>
                     <td>
-                        <select name="prm[]" id="prm[]" class="form-select">
+                        <select name="prm[]" id="prm[]" class="form-select ">
                             <option value="10" {{ $data->prm == 10 ? "selected" : "" }}>一般會員</option>
                             <option value="20" class="bg-danger" {{ $data->prm == 20 ? "selected" : "" }}>VIP01</option>
                         </select>

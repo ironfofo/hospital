@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -33,9 +34,12 @@ class Booking extends Model
         return $list;
     }
 
-    // public function count()
-    // {
-    //     return $count;
-    // }
+    public function bookingCount($date, $timeId)
+    {
+
+            return self::where('dates', $date)
+                ->where('timeId', $timeId)
+                ->count();
+    }
 }
 

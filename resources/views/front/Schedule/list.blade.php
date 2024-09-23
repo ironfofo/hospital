@@ -104,6 +104,7 @@
                                 @endforeach
                             </div>
 
+
                             <div class="row row-cols-7">
                             @foreach($dates as $date)
                                 <div class="col">
@@ -118,7 +119,7 @@
                                     @endphp
 
                                     @if($isRest)
-                                        <a class="btn disabled" name="date">早</a>
+                                        <a class="btn disabled" name="date">休</a>
                                     @else
                                         <a class="btn" name="date">早
                                             <div>
@@ -128,7 +129,8 @@
                                                     <input type="hidden" name="dates" value="{{ $date['date'] }}">
                                                     <input type="hidden" name="timeId" value="1">
                                                     <input type="hidden" name="doctorId" value="1">
-                                                    <span class="people_num">(?)</span>
+                                                    <span class="people_num text-danger fw-100" >({{ $count1[$date['date']] ?? 0 }}人)
+                                                    </span>
                                                     <button type="submit" class="btn03" onclick="">
                                                     </button>
                                                 </form>
@@ -154,7 +156,7 @@
                                     @endphp
 
                                     @if($isRest)
-                                        <a class="btn disabled" name="date">午</a>
+                                        <a class="btn disabled" name="date">休</a>
                                     @else
                                         <a class="btn" name="date">午
                                             <div>
@@ -162,10 +164,12 @@
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="userId">
                                                     <input type="hidden" name="dates" value="{{ $date['date'] }}">
-                                                    <input type="hidden" name="timeId" value="1">
-                                                    <input type="hidden" name="doctorId" value="1">
-                                                    <span class="people_num">(?)</span>
-                                                    <button type="submit" class="btn03"></button>
+                                                    <input type="hidden" name="timeId" value="2">
+                                                    <input type="hidden" name="doctorId" value="2">
+                                                    <span class="people_num text-danger fw-100" >({{ $count2[$date['date']] ?? 0 }}人)
+                                                    </span>
+                                                    <button type="submit" class="btn03" onclick="">
+                                                    </button>
                                                 </form>
                                             </div>
                                         </a>
@@ -173,7 +177,6 @@
                                 </div>
                             @endforeach
                             </div>
-
 
                             <div class="row row-cols-7">
                             @foreach($dates as $date)
@@ -189,7 +192,7 @@
                                     @endphp
 
                                     @if($isRest)
-                                        <a class="btn disabled" name="date">晚</a>
+                                        <a class="btn disabled" name="date">休</a>
                                     @else
                                         <a class="btn" name="date">晚
                                             <div>
@@ -197,10 +200,13 @@
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="userId">
                                                     <input type="hidden" name="dates" value="{{ $date['date'] }}">
-                                                    <input type="hidden" name="timeId" value="1">
-                                                    <input type="hidden" name="doctorId" value="1">
-                                                    <span class="people_num">(?)</span>
-                                                    <button type="submit" class="btn03"></button>
+                                                    <input type="hidden" name="timeId" value="3">
+                                                    <input type="hidden" name="doctorId" value="3">
+                                              
+                                                    <span class="people_num text-danger fw-100" >({{ $count3[$date['date']] ?? 0 }}人)
+                                                    </span>
+                                                    <button type="submit" class="btn03" onclick="">
+                                                    </button>
                                                 </form>
                                             </div>
                                         </a>
@@ -208,6 +214,9 @@
                                 </div>
                             @endforeach
                             </div>
+
+
+
 
 
                         </div>
