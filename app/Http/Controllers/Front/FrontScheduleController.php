@@ -39,7 +39,7 @@ class FrontScheduleController extends Controller
             $count3[$formattedDate] = $this->getCount($formattedDate, 3);
         }
 
-        dd($count1); // 這樣會輸出並停止程式
+        // dd($count1); // 這樣會輸出並停止程式
         
 
         return view("front.schedule.list", compact("dates", "rest", "count1", "count2", "count3"));

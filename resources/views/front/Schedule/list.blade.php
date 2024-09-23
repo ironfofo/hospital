@@ -121,9 +121,9 @@
                                     @if($isRest)
                                         <a class="btn disabled" name="date">休</a>
                                     @else
-                                        <a class="btn" name="date">早
+                                        <a class="btn" name="date" onclick="doBooking(event, this)">早
                                             <div>
-                                                <form action="/schedule/booking/insert" method="post">
+                                                <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="userId">
                                                     <input type="hidden" name="dates" value="{{ $date['date'] }}">
@@ -131,8 +131,7 @@
                                                     <input type="hidden" name="doctorId" value="1">
                                                     <span class="people_num text-danger fw-100" >({{ $count1[$date['date']] ?? 0 }}人)
                                                     </span>
-                                                    <button type="submit" class="btn03" onclick="">
-                                                    </button>
+                                                    <input type="hidden" name="submitType" value="早">
                                                 </form>
                                             </div>
                                         </a>
@@ -158,9 +157,9 @@
                                     @if($isRest)
                                         <a class="btn disabled" name="date">休</a>
                                     @else
-                                        <a class="btn" name="date">午
+                                        <a class="btn" name="date" onclick="doBooking(event, this)">午
                                             <div>
-                                                <form action="/schedule/booking/insert" method="post">
+                                                <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="userId">
                                                     <input type="hidden" name="dates" value="{{ $date['date'] }}">
@@ -168,8 +167,6 @@
                                                     <input type="hidden" name="doctorId" value="2">
                                                     <span class="people_num text-danger fw-100" >({{ $count2[$date['date']] ?? 0 }}人)
                                                     </span>
-                                                    <button type="submit" class="btn03" onclick="">
-                                                    </button>
                                                 </form>
                                             </div>
                                         </a>
@@ -194,9 +191,9 @@
                                     @if($isRest)
                                         <a class="btn disabled" name="date">休</a>
                                     @else
-                                        <a class="btn" name="date">晚
+                                        <a class="btn" name="date" onclick="doBooking(event, this)">晚
                                             <div>
-                                                <form action="/schedule/booking/insert" method="post">
+                                                <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="userId">
                                                     <input type="hidden" name="dates" value="{{ $date['date'] }}">
@@ -205,8 +202,6 @@
                                               
                                                     <span class="people_num text-danger fw-100" >({{ $count3[$date['date']] ?? 0 }}人)
                                                     </span>
-                                                    <button type="submit" class="btn03" onclick="">
-                                                    </button>
                                                 </form>
                                             </div>
                                         </a>
@@ -272,7 +267,9 @@
     </script>
 
     <script>
-        function doBooking() {
+        function doBooking(event,element) {
+            event.preventDefault(); //防止默認行為，與onsubmit="return false"類似
+            const form=element.querySelector("form");//獲取當前表單
       Swal.fire({
         title: "確定要預約嗎?",
         text: "",
@@ -284,19 +281,11 @@
         cancelButtonText: "不登預約",
       }).then((result) => {
         if (result.isConfirmed) {
-          $.ajax({
-            url: "/schedule/booking/insert",
-            type: "post",
-            data: {
-              _token: "{{csrf_token()}}"
-            },
-            success: function() {
-              Swal.fire("已預約").then(() => {
+            // 確定預約，提交表單
+            form.submit();
+            Swal.fire("已預約").then(() => {
                 location.reload(); // 刷新頁面
-              });
-            },
-
-          });
+            });
         }
       });
     }
