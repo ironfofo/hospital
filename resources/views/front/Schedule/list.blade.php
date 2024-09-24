@@ -69,7 +69,7 @@
 
         <div class="tab">
             <button class="tablinks" onclick="openPr(event, 'InternalMedicine')" id="defaultOpen">內科</button>
-            <button class="tablinks" onclick="openPr(event, 'Adjective')">外科</button>
+            <button class="tablinks" onclick="openPr(event, 'Surgery')">外科</button>
             <button class="tablinks" onclick="openPr(event, 'Dental')">牙科</button>
             <button class="tablinks" onclick="openPr(event, 'orthopedics')">骨科</button>
             <button class="tablinks" onclick="openPr(event, 'dermatology')">皮膚科</button>
@@ -196,8 +196,8 @@
                                                 <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
                                                     {{ csrf_field() }}
                                                     <input type="hidden" name="userId">
-                                                    <input type="hidden" name="dates" value="{{ $date['date'] }}">
-                                                    <input type="hidden" name="timeId" value="3">
+                                                    <input type="hidden" name="dates" id="dates" value="{{ $date['date'] }}">
+                                                    <input type="hidden" name="timeId" id="timeId" value="3">
                                                     <input type="hidden" name="doctorId" value="3">
                                               
                                                     <span class="people_num text-danger fw-100" >({{ $count3[$date['date']] ?? 0 }}人)
@@ -209,11 +209,6 @@
                                 </div>
                             @endforeach
                             </div>
-
-
-
-
-
                         </div>
                     </div>
                 </div>
@@ -222,7 +217,7 @@
 
 
 
-        <div id="Adjective" class="tabcontent">
+        <div id="Surgery" class="tabcontent">
             <h3>外科</h3>
             <p>Paris is the capital of France.</p>
         </div>
@@ -270,25 +265,27 @@
         function doBooking(event,element) {
             event.preventDefault(); //防止默認行為，與onsubmit="return false"類似
             const form=element.querySelector("form");//獲取當前表單
-      Swal.fire({
-        title: "確定要預約嗎?",
-        text: "",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "確定預約",
-        cancelButtonText: "不登預約",
-      }).then((result) => {
-        if (result.isConfirmed) {
-            // 確定預約，提交表單
-            form.submit();
-            Swal.fire("已預約").then(() => {
-                location.reload(); // 刷新頁面
+            const date=element.querySelector('input[name="dates"]').value;//獲取當前日期
+            const timeId=element.querySelector('input[name="timeId"]').value;//獲取當前時段
+            Swal.fire({
+                title: '確定要預約'+date+'的'+timeId+'的時段?',
+                text: "",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "確定預約",
+                cancelButtonText: "不登預約",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // 確定預約，提交表單
+                    form.submit();
+                    Swal.fire("已預約").then(() => {
+                        location.reload(); // 刷新頁面
+                    });
+                }
             });
         }
-      });
-    }
     </script>
 </body>
 @endsection
