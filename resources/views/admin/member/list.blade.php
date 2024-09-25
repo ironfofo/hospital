@@ -1,5 +1,5 @@
 @extends("admin.app")
-@section("title","商品管理")
+@section("title","會員管理")
 @section("content")
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js"></script>

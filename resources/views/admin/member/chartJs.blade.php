@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chart.js Example</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-</head>
-
-<body>
+@extends("admin.app")
+@section("title","會員數具")
+@section("content")
     <div class="container my-4">
         <div class="row justify-content-center mt-4">
             <div class="col-12">
@@ -75,6 +67,4 @@
             mychart.update();
         }
     </script>
-</body>
-
-</html>
+@endsection
