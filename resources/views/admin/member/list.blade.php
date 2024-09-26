@@ -66,43 +66,47 @@
             <div class="col-12 mt-4 mb-3">
                 <a class="btn btn-primary" href="add">新增</a>
             </div>
-            <table class="table table-bordered border-dark">
-                <tr></i>
-                    <th class="text-center">姓名</th>
-                    <th class="text-center">信箱</th>
-                    <th class="text-center">電話</th>
-                    <th class="text-center">地址</ th>
-                    <th class="text-center">生日</th>
-                    <th class="text-center">帳號</th>
-                    <th class="text-center">密碼</th>
-                    <th class="text-center">等級</th>
-                    <th class="text-center">修改</th>
-                    <th class="text-center">刪除</th>
-                </tr>
-                @foreach($list as $data)
-                <tr id="user{{$data->id}}" name="user{{$data->id}}">
-                    <td class="text-center">{{ $data->userName }}</td>
-                    <td class="text-center">{{ $data->email }}</td>
-                    <td class="text-center">{{ $data->phone }}</td>
-                    <td class="text-center">{{ $data->adr }}</td>
-                    <td class="text-center">{{ $data->bir }}</td>
-                    <td class="text-center">{{ $data->userId }}</td>
-                    <td class="text-center">{{ $data->pwd }}</td>
-                    <td>
-                        <select name="prm[]" id="prm[]" class="form-select ">
-                            <option value="10" {{ $data->prm == 10 ? "selected" : "" }}>一般會員</option>
-                            <option value="20" class="bg-danger" {{ $data->prm == 20 ? "selected" : "" }}>VIP01</option>
-                        </select>
-                    </td>
-                    <td class="text-center">
-                        <a class="btn btn-info" href="edit/{{$data->id}}">修改</a>
-                    </td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-danger" onclick="doDelete('{{$data->id}}','{{$data->userName}}')">刪除</a>
-                    </td>
-                </tr>
-                @endforeach
-            </table>
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th class="text-center">姓名</th>
+                            <th class="text-center">信箱</th>
+                            <th class="text-center">電話</th>
+                            <th class="text-center">地址</ th>
+                            <th class="text-center">生日</th>
+                            <th class="text-center">帳號</th>
+                            <th class="text-center">密碼</th>
+                            <th class="text-center">等級</th>
+                            <th class="text-center">修改</th>
+                            <th class="text-center">刪除</th>
+                        </tr>
+                        @foreach($list as $data)
+                        <tr id="user{{$data->id}}" name="user{{$data->id}}">
+                            <td class="text-center">{{ $data->userName }}</td>
+                            <td class="text-center">{{ $data->email }}</td>
+                            <td class="text-center">{{ $data->phone }}</td>
+                            <td class="text-center">{{ $data->adr }}</td>
+                            <td class="text-center">{{ $data->bir }}</td>
+                            <td class="text-center">{{ $data->userId }}</td>
+                            <td class="text-center">{{ $data->pwd }}</td>
+                            <td>
+                                <select name="prm[]" id="prm[]" class="form-select ">
+                                    <option value="10" {{ $data->prm == 10 ? "selected" : "" }}>一般會員</option>
+                                    <option value="20" class="bg-danger" {{ $data->prm == 20 ? "selected" : "" }}>VIP01</option>
+                                </select>
+                            </td>
+                            <td class="text-center">
+                                <a class="btn btn-info" href="edit/{{$data->id}}">修改</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="#" class="btn btn-danger" onclick="doDelete('{{$data->id}}','{{$data->userName}}')">刪除</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
+            </div>
             {{$list->links()}}
         </div>
     </div>

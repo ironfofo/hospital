@@ -7,9 +7,9 @@
     <title>會員管理</title>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script>
-        function doDelete(id, userName) {
+        function doDelete(id, userName,dates,time_period) {
             Swal.fire({
-                title: "確定刪除[" + userName + "]?",
+                title: "[" + userName +"]預約["+ dates + time_period + "] 確定刪除嗎?",
                 showDenyButton: true,
                 showCancelButton: false,
                 confirmButtonText: "確定",
@@ -17,7 +17,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
-                        title: "請再次確認[" + userName + "]?",
+                        title: "[" + userName +"]預約["+ dates + time_period + "] 請再次確認要刪除?",
                         showDenyButton: true,
                         showCancelButton: false,
                         confirmButtonText: "確定要刪除",
@@ -81,7 +81,7 @@
                                 <td class="text-center">{{ $data->dates }}</td>
                                 <td class="text-center">{{ $data->time_period }}</td>
                                 <td class="text-center">
-                                    <a href="#" class="btn btn-danger" onclick="doDelete('{{$data->id}}','{{$data->userName}}')">刪除</a>
+                                    <a href="#" class="btn btn-danger" onclick="doDelete('{{$data->id}}','{{$data->userName}}','{{$data->dates}}','{{$data->time_period}}')">刪除</a>
                                 </td>
                             </tr>
                             @endforeach
