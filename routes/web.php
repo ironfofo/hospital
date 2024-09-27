@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-require "admin/index.php";
-require "front/index.php";
+require "admin/Index.php";
+require "front/Index.php";
 require "front/contact.php";
 
 // Route::get('/', function () {
