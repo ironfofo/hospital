@@ -25,7 +25,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             $.ajax({
-                                url: "/admin/booking/delete/",
+                                url: "/admin/booking/delete",
                                 type: "post",
                                 //dataType:"json",資料傳回方法一種這裡不是這種
                                 data: {
