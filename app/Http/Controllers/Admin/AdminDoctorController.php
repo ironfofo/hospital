@@ -79,20 +79,15 @@ class AdminDoctorController extends Controller
 
     public function delete(Request $req)
     {
-        $id = $req->id;
-        if (!empty($id) && sizeof($id) > 0) {
-            foreach ($id as $ids) {
-                $doctor = Doctor::find($ids);
-                if (!empty($doctor->photo)) {
-                    @unlink("images/doctor/" . $doctor->photo);
-                    @unlink("images/doctor/S/" . $doctor->photo);
-                    if (file_exists("images/doctor/M/" . $doctor->photo)) {
-                        @unlink("images/doctor/M/" . $doctor->photo);
-                    }
-                }
-                $doctor->delete();
+        $ids = $req->id;
+        foreach ($ids as $id) {
+            $doctor = Doctor::find($id);
+            if (!empty($doctor->photo)) {
+                @unlink("images/doctor/" . $doctor->photo);
             }
+            $doctor->delete();
         }
+
         Session::flash("message", "已刪除");
         return redirect("/admin/doctor/list");
     }

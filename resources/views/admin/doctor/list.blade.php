@@ -46,7 +46,7 @@
                                 @foreach($list as $data)
                                 <tr>
                                     <td class="text-center">
-                                        <input type="checkbox" class="chk form-check-input border border-secondary" value="{{ $data->id }}">
+                                        <input type="checkbox" class="chk form-check-input border border-secondary" name="id[]" value="{{ $data->id }}">
                                     </td>
                                     <td class="text-center">{{ $data->doctorName }}</td>
                                     <td class="text-center">{{ $data->doctorId }}</td>

@@ -5,7 +5,7 @@
 
 
     <li class="nav-item{{ Request::is('admin/member/*') ?" menu-open " : "" }}">
-      <a href="#" class="nav-link{{ Request::is('admin/member/') ?" active " : "" }}">
+      <a href="#" class="nav-link{{ Request::is('admin/member/*') ?" active " : "" }}">
         <i class="nav-icon fas fa-copy"></i>
         <p>
           Member
@@ -24,7 +24,7 @@
 
 
     <li class="nav-item{{ Request::is('admin/chartJs/*') ?" menu-open " : "" }}">
-      <a href="#" class="nav-link{{ Request::is('admin/chartJs/') ?" active " : "" }}">
+      <a href="#" class="nav-link{{ Request::is('admin/chartJs/*') ?" active " : "" }}">
         <i class="nav-icon fas fa-copy"></i>
         <p>
           數據分析
@@ -43,7 +43,7 @@
 
 
     
-    <li class="nav-item{{ Request::is('admin/booking*') ?" menu-open " : "" }}">
+    <li class="nav-item{{ Request::is('admin/booking/*') ?" menu-open " : "" }}">
       <a href="#" class="nav-link{{ Request::is('admin/booking/*') ?" active " : "" }}">
         <i class="nav-icon fas fa-copy"></i>
         <p>
@@ -56,6 +56,25 @@
           <a href="/admin/booking/list" class="nav-link{{ Request::is("admin/booking/list") ?" active " : "" }}">
             <i class="far fa-circle nav-icon"></i>
             <p>預約名單</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+
+    <li class="nav-item{{ Request::is('admin/doctor/*') ?" menu-open " : "" }}">
+      <a href="#" class="nav-link{{ Request::is('admin/doctor/*') ?" active " : "" }}">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+          醫師資料管理
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="/admin/doctor/list" class="nav-link{{ Request::is("admin/doctor/list") ?" active " : "" }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>醫師基本資料</p>
           </a>
         </li>
       </ul>
