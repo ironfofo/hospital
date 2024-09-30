@@ -19,6 +19,7 @@ class Doctor extends Model
         "edu",
         "typeId",
         "photo",
+        "content",
         "createTime",
     ];
 }

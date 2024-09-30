@@ -47,8 +47,6 @@
         }
     </script>
 
-
-
     <!--如果有有message就顯示出來-->
     @if(Session::has("message"))
     <script>
