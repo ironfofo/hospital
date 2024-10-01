@@ -1,7 +1,7 @@
 # 寵物醫院管理系統
 
 <div>
-    <img src="https://github.com/user-attachments/assets/6be205d8-8de7-48a5-933c-eeda719b9e45" alt="寵物醫院標誌" />    
+    <img src="https://github.com/user-attachments/assets/6be205d8-8de7-48a5-933c-eeda719b9e45" style="width:200px" alt="寵物醫院標誌" />    
 </div>
 
 
@@ -35,4 +35,3 @@
 
 - 使用 Laravel 的 Middleware 進行身份驗證和授權控制。
 
-## 安裝與設定
