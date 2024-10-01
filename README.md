@@ -43,14 +43,14 @@
 自動更新日期：系統會自動在每天00:00時更新網頁中的第一天日期為當前日期，並生成接下來一週的日期，避免手動更改時間的麻煩。
 後端控制醫生休假：醫生的休假時間由後端管理，並在前端動態排除這些休息時間。用戶只能選擇醫生可用的預約時段，這保證了時間管理的準確性和靈活性。
 
-<div>
+<div style="display: inline-block; margin-right: 10px">
     <img src="https://github.com/user-attachments/assets/aa89ff67-44e8-4fc6-98ea-b53e734433c9" style="width:600px" alt="寵物醫院標誌" />    
 </div>
 
-<div>
-    <img src="(https://github.com/user-attachments/assets/078fac91-11a4-41ff-ba33-0f0f89ec458e" style="width:600px" alt="寵物醫院標誌" />    
+<div style="display: inline-block; margin-right: 10px">
+    <img src="https://github.com/user-attachments/assets/078fac91-11a4-41ff-ba33-0f0f89ec458e" style="width:600px" alt="寵物醫院標誌" />    
 </div>
 
-<div>
+<div style="display: inline-block; margin-right: 10px">
     <img src="https://github.com/user-attachments/assets/4dcf3e2d-5805-44b5-a7f2-1b3bba65e6d7" style="width:600px" alt="寵物醫院標誌" />    
 </div>
