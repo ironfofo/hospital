@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>寵物醫院管理系統 - README</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -72,4 +67,3 @@
     </ul>
 
 </body>
-</html>
