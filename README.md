@@ -1,9 +1,8 @@
 # 寵物醫院管理系統
 
 <div>
-    <img src="https://i.imgur.com/example.png" alt="寵物醫院標誌" />    
+    <img src="https://github.com/user-attachments/assets/6be205d8-8de7-48a5-933c-eeda719b9e45" alt="寵物醫院標誌" />    
 </div>
-
 
 
 本專案是一個專為寵物醫院設計的管理系統，旨在幫助寵物醫院有效地管理預約、客戶資料及醫療記錄，並提供良好的用戶體驗。
