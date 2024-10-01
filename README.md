@@ -1,5 +1,8 @@
 # 寵物醫院管理系統
 
+https://imgur.com/a/WSOFT89
+
+
 本專案是一個專為寵物醫院設計的管理系統，旨在幫助寵物醫院有效地管理預約、客戶資料及醫療記錄，並提供良好的用戶體驗。
 
 ## 功能特色
@@ -31,7 +34,3 @@
 - 使用 Laravel 的 Middleware 進行身份驗證和授權控制。
 
 ## 安裝與設定
-
-1. **克隆專案**：
-   ```bash
-   git clone https://github.com/your-repo/pet-hospital.git
