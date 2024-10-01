@@ -1,7 +1,7 @@
 # 寵物醫院管理系統
 
 <div>
-    <img src="https://github.com/user-attachments/assets/6be205d8-8de7-48a5-933c-eeda719b9e45" style="width:200px" alt="寵物醫院標誌" />    
+    <img src="https://github.com/user-attachments/assets/6be205d8-8de7-48a5-933c-eeda719b9e45" style="width:1000px" alt="寵物醫院標誌" />    
 </div>
 
 
