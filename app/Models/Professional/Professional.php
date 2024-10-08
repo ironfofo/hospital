@@ -16,14 +16,4 @@ class Professional extends Model
         "createTime",
     ];
 
-    public function getlist($id)
-    {
-        $list = DB::table("professional AS a")
-            ->selectRaw("a.*,b.title as types")
-            ->join("news_type AS b", "a.typeId", "b.id")
-            ->where("a.id",$id)
-            ->first();
-
-        return $list;
-    }
 }

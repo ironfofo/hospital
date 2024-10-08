@@ -1,5 +1,5 @@
 @extends("admin.app")
-@section("title","醫師基本資料")
+@section("title","專業分科資料")
 @section("content")
 <link rel="stylesheet" href="/css/lightbox.min.css">
 <script src="/js/lightbox.min.js"></script>
@@ -30,35 +30,18 @@
                                     <td class="col-1 text-center">
                                         <input type="checkbox" name="all" id="all" class=" form-check-input">
                                     </td>
-                                    <td class="text-center">編號</td>
-                                    <td class="text-center">姓名</td>
-                                    <td class="text-center">職位</td>
-                                    <td class="text-center">學歷</td>
                                     <td class="text-center">科別</td>
-                                    <td class="text-center">圖檔</td>
                                     <td class="text-center">修改</td>
-                                </tr>
                             </thead>
                             <tbody>
                                 @foreach($list as $data)
                                 <tr>
                                     <td class="text-center">
-                                        <input type="checkbox" class="chk form-check-input border border-secondary" name="doctorId[]" value="{{ $data->doctorId }}">
+                                        <input type="checkbox" class="chk form-check-input border border-secondary" name="typeId[]" value="{{ $data->typeId }}">
                                     </td>
-                                    <td class="text-center">{{ $data->doctorId }}</td>
-                                    <td class="text-center">{{ $data->doctorName }}</td>
-                                    <td class="text-center">{{ $data->position }}</td>
-                                    <td class="text-center">{{ $data->edu }}</td>
                                     <td class="text-center">{{ $data->department }}</td>
                                     <td class="text-center">
-                                        @if(!empty($data->photo))
-                                            <a href="/images/doctor/{{ $data->photo }}" data-lightbox="photo">
-                                                <img src="/images/doctor/{{ $data->photo }}" width="100">
-                                            </a>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="edit/{{ $data->doctorId }}" class="btn btn-success">修改</a>  
+                                        <a href="edit/{{ $data->typeId }}" class="btn btn-success">修改</a>  
                                     </td>
                                 </tr>
                                 @endforeach

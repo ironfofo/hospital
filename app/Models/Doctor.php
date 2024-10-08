@@ -10,16 +10,25 @@ class Doctor extends Model
 {
     public $timestamps = false;
     protected $table = "doctor";
-    protected $primaryKey = "id";
+    protected $primaryKey = "doctorId";
     protected $fillable = [
-        "id",
-        "doctorName",
         "doctorId",
+        "doctorName",
         "position",
         "edu",
         "typeId",
-        "photo",
         "content",
+        "photo",
         "createTime",
     ];
+
+    public function getList()
+    {
+        $list = DB::table('doctor AS a')
+        ->selectRaw('a.*,b.department')
+        ->leftJoin('professional AS b', 'b.typeId', 'a.typeId')
+        ->paginate(10);
+
+        return $list;
+    }
 }

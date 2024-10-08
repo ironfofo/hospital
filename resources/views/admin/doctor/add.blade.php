@@ -15,15 +15,15 @@
                     <form method="post" action="insert" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="row mt-3">
-                            <div class="col-2 text-end">姓名</div>
-                            <div class="col-10">
-                                <input type="text" class="form-control" name="doctorName" required>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
                             <div class="col-2 text-end">編號</div>
                             <div class="col-10">
                                 <input type="text" class="form-control" name="doctorId" required>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2 text-end">姓名</div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" name="doctorName" required>
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -38,10 +38,16 @@
                                 <input type="text" class="form-control" name="edu" required>
                             </div>
                         </div>
+
                         <div class="row mt-3">
                             <div class="col-2 text-end">科別</div>
                             <div class="col-10">
-                                <input type="text" class="form-control" name="typeId" required>
+                                <select name="typeId" id="typeId" class="form-select">
+                                    <option value="">請選擇類別</option>
+                                    @foreach($list as $data)
+                                        <option value="{{$data->typeId}}">{{$data->department}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -67,6 +73,4 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/super-build/ckeditor.js"></script>
-<script src="/js/admin/editor.js"></script>
 @endsection

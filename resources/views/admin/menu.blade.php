@@ -62,6 +62,23 @@
     </li>
 
 
+    <li class="nav-item{{ Request::is('admin/professional/*') ?" menu-open " : "" }}">
+      <a href="#" class="nav-link{{ Request::is('admin/professional/*') ?" active " : "" }}">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+          科別管理
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="/admin/professional/list" class="nav-link{{ Request::is("admin/professional/list") ?" active " : "" }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>專業分科資料</p>
+          </a>
+        </li>
+      </ul>
+    </li>
     <li class="nav-item{{ Request::is('admin/doctor/*') ?" menu-open " : "" }}">
       <a href="#" class="nav-link{{ Request::is('admin/doctor/*') ?" active " : "" }}">
         <i class="nav-icon fas fa-copy"></i>

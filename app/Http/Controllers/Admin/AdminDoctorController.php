@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Photo\Upload;
 use App\Models\Doctor;
+use App\Models\Professional\Professional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -12,13 +13,13 @@ class AdminDoctorController extends Controller
 {
     public function list()
     {
-        $list=Doctor::get();
+        $list=(new Doctor)->getList();
         return view("admin.doctor.list",compact("list"));
     }
 
     public function add(Request $req)
     {
-        $list=Doctor::get();
+        $list=Professional::get();
         return view("admin.doctor.add", compact("list"));
     }
 
@@ -43,18 +44,21 @@ class AdminDoctorController extends Controller
         $doctor->save();
         Session::flash("message", "已新增");
         return redirect("/admin/doctor/list");
+        dd($fileName);
     }
 
     public function edit(Request $req)
     {
-        $doctor=Doctor::find($req->id);
-        return view("admin.doctor.edit", compact("doctor"));
+        $doctor=Doctor::find($req->doctorId);
+        $pr=Professional::get();
+        return view("admin.doctor.edit", compact("doctor","pr"));
+        
     }
 
     public function update(Request $req)
     {
         $photo = $req->photo;
-        $doctor = Doctor::find($req->id);
+        $doctor = Doctor::find($req->doctorId);
         //如果要變更圖檔
         if (!empty($photo)) {
             $fileName = (new Upload())->uploadPhoto($req->photo, "images/doctor", false, "", "", true, 100, 100);
@@ -65,8 +69,8 @@ class AdminDoctorController extends Controller
             //圖檔設定新的檔名
             $doctor->photo = $fileName;
         }
-        $doctor->doctorName = $req->doctorName;
         $doctor->doctorId = $req->doctorId;
+        $doctor->doctorName = $req->doctorName;
         $doctor->position = $req->position;
         $doctor->edu = $req->edu;
         $doctor->typeId = $req->typeId;
@@ -79,7 +83,7 @@ class AdminDoctorController extends Controller
 
     public function delete(Request $req)
     {
-        $ids = $req->id;
+        $ids = $req->doctorId;
         foreach ($ids as $id) {
             $doctor = Doctor::find($id);
             if (!empty($doctor->photo)) {
