@@ -21,12 +21,13 @@ class Member extends Model
         "userId",
         "pwd",
         "petId",
-        "prtId",
         "prm",
         "createTime",
     ];
 
-        public function checkUser($userId)
+
+    //用於驗證帳號是否重複
+    public function checkUser($userId)
     {
         //self:資料本身，在Member這個class的資
         //first:取締一筆資料
@@ -34,12 +35,17 @@ class Member extends Model
         return $member;
     }
 
+    //用於會用會員清單
     public function getList()
     {
-        $list=DB::table("member")->paginate(15);
+        $list = DB::table('member AS a')
+                    ->selectRaw('a.*, b.prmTitle')
+                    ->join('prm_list AS b', 'b.prm', 'a.prm')
+                    ->paginate(15);
         return $list;
     }
 
+    //用於驗證密碼
     public function getMember($userId,$pwd)
     {
         // self指table本身 ::是物件
@@ -47,6 +53,8 @@ class Member extends Model
 
         return $member;
     }
+
+    //用於計算會員等級人數
     public function chartJs()
     {
         $list = DB::table('member')

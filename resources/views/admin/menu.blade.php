@@ -20,6 +20,14 @@
           </a>
         </li>
       </ul>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="/admin/member/prm/list" class="nav-link{{ Request::is("admin/member/prm/list") ?" active " : "" }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>prmlist</p>
+          </a>
+        </li>
+      </ul>
     </li>
 
 

@@ -73,7 +73,7 @@
                             <th class="text-center">姓名</th>
                             <th class="text-center">信箱</th>
                             <th class="text-center">電話</th>
-                            <th class="text-center">地址</ th>
+                            <th class="text-center">地址</th>
                             <th class="text-center">生日</th>
                             <th class="text-center">帳號</th>
                             <th class="text-center">密碼</th>
@@ -90,12 +90,7 @@
                             <td class="text-center">{{ $data->bir }}</td>
                             <td class="text-center">{{ $data->userId }}</td>
                             <td class="text-center">{{ $data->pwd }}</td>
-                            <td>
-                                <select name="prm[]" id="prm[]" class="form-select ">
-                                    <option value="10" {{ $data->prm == 10 ? "selected" : "" }}>一般會員</option>
-                                    <option value="20" class="bg-danger" {{ $data->prm == 20 ? "selected" : "" }}>VIP01</option>
-                                </select>
-                            </td>
+                            <td class="text-center">{{ $data->prmTitle }}</td>
                             <td class="text-center">
                                 <a class="btn btn-info" href="edit/{{$data->id}}">修改</a>
                             </td>

@@ -6,3 +6,4 @@
  require "doctor.php";
  require "member.php";
  require "professional.php";
+ require "prmlist.php";

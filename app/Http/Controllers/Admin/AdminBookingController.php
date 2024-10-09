@@ -65,6 +65,7 @@ class AdminBookingController extends Controller
         $booking->bir=$req->bir;
         $booking->userId=$req->userId;
         $booking->pwd=$req->pwd;
+        $booking->prm=$req->prm;
 
         //也可以用$booking->update
         $booking->save();

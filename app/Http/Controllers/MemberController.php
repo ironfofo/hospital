@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\PrmList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -119,8 +120,9 @@ class MemberController extends Controller
         //如果路由參數為ABC 就要更改$req->ABC
         //find:尋找
         $member = Member::find($req->id);
+        $prm = PrmList::get();
 
-        return view("admin.member.edit", compact("member"));
+        return view("admin.member.edit", compact("member","prm"));
     }
 
     public function update(Request $req)
@@ -134,6 +136,7 @@ class MemberController extends Controller
         $member->bir = $req->bir;
         $member->userId = $req->userId;
         $member->pwd = $req->pwd;
+        $member->prm = $req->prm;
 
         //也可以用$member->update
         $member->save();
@@ -162,6 +165,7 @@ class MemberController extends Controller
     public function delete(Request $req)
     {
         Member::find($req->id)->delete();
-        echo ("ok");
+        return redirect("/admin/member/list");
+        
     }
 }

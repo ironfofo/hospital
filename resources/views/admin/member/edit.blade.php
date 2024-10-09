@@ -1,70 +1,82 @@
 @extends("admin.app")
 @section("title","會員修改")
 @section("content")
-    <div class="container">
-        <!--
-            mt: marign
-            mt4: 距離上邊界 ˋ4*space
-        -->
-        <div class="mt-5">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <a href="../list" class="btn btn-secondary">回上頁</a>
+                </div>
+                <div class="card-body">
+                    <form action="/admin/member/update" method="post">
+                        <input type="hidden" name="id" value="{{$member->id}}">
+                        {{csrf_field()}}
 
-            <form action="/admin/member/update" method="post">
-                <input type="hidden" name="id" value="{{$member->id}}">
-                {{csrf_field()}}
-
-                <div class="row">
-                    <!--
-                        col-2:一列有12格網路 col-2為2/12
-                        text-center:置中
-                    -->
-                    <div class="col-2 text-center">姓名</div>
-                    <div class="col-2">
-                        <!--border border-dark:有黑色邊框-->
-                        <input type="text" class="form-control border-dark" id="userName" name="userName" value="{{$member->userName}}" required autofocus onblur="doCheck(this.value)">
-                        <span id="msg"></span>
-                    </div>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-2 text-end">姓名</div>
+                            <div class="col-10">
+                                <!--border border-dark:有黑色邊框-->
+                                <input type="text" class="form-control" id="userName" name="userName" value="{{$member->userName}}" required autofocus onblur="doCheck(this.value)">
+                                <span id="msg"></span>
+                            </div>
+                        </div>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-2 text-end">信箱</div>
+                            <div class="col-10">
+                                <input type="email" class="form-control" name="email" id="email" value="{{$member->email}}" required>
+                            </div>
+                        </div>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-2 text-end">電話</div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" name="phone" id="phone" value="{{$member->phone}}">
+                            </div>
+                        </div>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-2 text-end">地址</div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" name="adr" id="adr"  value="{{$member->adr}}">
+                            </div>
+                        </div>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-2 text-end">生日</div>
+                            <div class="col-10">
+                                <input type="date" class="form-control" name="bir" id="bir" value="{{$member->bir}}">
+                            </div>
+                        </div>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-2 text-end">帳號</div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" name="userId" id="userId" value="{{$member->userId}}">
+                            </div>
+                        </div>
+                        <div class="row mt-3 d-flex align-items-center">
+                            <div class="col-2 text-end">密碼</div>
+                            <div class="col-10">
+                                <input type="text" class="form-control" name="pwd" id="pwd" value="{{$member->pwd}}">
+                            </div>
+                        </div> 
+                        <div class="row mt-3 d-flex align-items-center">
+                        <div class="col-2 text-end">會員等級</div>
+                            <div class="col-10">
+                            <select name="prm" id="prm" class="form-select">
+                            @foreach($prm as $data)
+                                <option value="{{$data->prm}}" {{ $data->prm == $member->prm ? "selected" : "" }}>{{$data->prmTitle}}</option>
+                            @endforeach
+                            </select>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-primary btn-lg">儲存</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-2 text-center">信箱</div>
-                    <div class="col-2">
-                        <input type="email" class="form-control border-dark" name="email" id="email" value="{{$member->email}}" required>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-2 text-center">電話</div>
-                    <div class="col-2">
-                        <input type="text" class="form-control border-dark" name="phone" id="phone" value="{{$member->phone}}">
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-2 text-center">地址</div>
-                    <div class="col-2">
-                        <input type="text" class="form-control border-dark" name="adr" id="adr"  value="{{$member->adr}}">
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-2 text-center">生日</div>
-                    <div class="col-2">
-                        <input type="date" class="form-control border-dark" name="bir" id="bir" value="{{$member->bir}}">
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-2 text-center">帳號</div>
-                    <div class="col-2">
-                        <input type="text" class="form-control border-dark" name="userId" id="userId" value="{{$member->userId}}">
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-2 text-center">密碼</div>
-                    <div class="col-2">
-                        <input type="text" class="form-control border-dark" name="pwd" id="pwd" value="{{$member->pwd}}">
-                    </div>
-                </div> 
-
-                <div class="col-12 test-center">
-                    <button class="btn btn-primary btn-lg" type="submit">確 定</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
+</div>
+
 @endsection
