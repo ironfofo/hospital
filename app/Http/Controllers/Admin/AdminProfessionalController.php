@@ -25,6 +25,7 @@ class AdminProfessionalController extends Controller
         
         $pro = new Professional();
         $pro->department = $req->department;
+        $pro->landepartment = $req->lan;
 
         $pro->save();
         Session::flash("message", "已新增");
@@ -43,6 +44,7 @@ class AdminProfessionalController extends Controller
         $pro=Professional::find($req->typeId);
 
         $pro->department = $req->department;
+        $pro->lan = $req->lan;
 
         $pro->update();
 

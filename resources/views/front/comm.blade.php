@@ -17,7 +17,15 @@
 
 
   <style type="text/css">
+    .nav-link {
+    color:#7a4800 ; 
+}
+    .nav-link:hover {
+    color: #FF9800; /* 懸停時變為柔和的橙色 */
+}
     @import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
+
+    
   </style>
 
 </head>
@@ -47,7 +55,7 @@
             <a class="nav-link" href="news">環境介紹</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="doctor">醫師介紹</a>
+            <a class="nav-link" href="/doctor/list">醫師介紹</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="news">最新消息</a>
@@ -65,8 +73,8 @@
         </ul>
         <div>
           @if(Session()->has("userId"))
-          <span class="text-success fw-700" id="login_username01">會員:</span>
-          <span class="text-danger fw-700" id="login_username02">{{session()->get("userId")}}</span>
+          <span class=" text-04" id="login_username01">會員:</span>
+          <span class="text-04 fw-700" id="login_username02">{{session()->get("userId")}}</span>
           <button class="btn btn01" type="button" onclick="logOut()">登出</button>
           @else
           <a href="/member/login" class="btn btn01">登入</a>

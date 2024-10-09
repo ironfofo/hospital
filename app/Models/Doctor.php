@@ -25,7 +25,7 @@ class Doctor extends Model
     public function getList()
     {
         $list = DB::table('doctor AS a')
-        ->selectRaw('a.*,b.department')
+        ->selectRaw('a.*,b.department,b.lan')
         ->leftJoin('professional AS b', 'b.typeId', 'a.typeId')
         ->paginate(10);
 

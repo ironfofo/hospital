@@ -13,6 +13,7 @@ class Professional extends Model
     protected $fillable=[
         "typeId",
         "department",
+        "lan",
         "createTime",
     ];
 

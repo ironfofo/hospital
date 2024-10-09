@@ -18,6 +18,7 @@ class FrontScheduleController extends Controller
         $startDate = Carbon::now(); // 當前日期
         $dates = [];
         $rest = DoctorRest::get();
+        $doctor=(new Doctor)->getList();
     
         $count1 = [];
         $count2 = [];
@@ -42,7 +43,7 @@ class FrontScheduleController extends Controller
         // dd($count1); // 這樣會輸出並停止程式
         
 
-        return view("front.schedule.list", compact("dates", "rest", "count1", "count2", "count3"));
+        return view("front.schedule.list", compact("dates", "rest", "count1", "count2", "count3","doctor"));
     }
     
 

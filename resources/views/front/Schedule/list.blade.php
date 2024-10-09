@@ -68,17 +68,14 @@
         <h2 class="mt-3">看診科別</h2>
 
         <div class="tab">
-            <button class="tablinks" onclick="openPr(event, 'InternalMedicine')" id="defaultOpen">內科</button>
-            <button class="tablinks" onclick="openPr(event, 'Surgery')">外科</button>
-            <button class="tablinks" onclick="openPr(event, 'Dental')">牙科</button>
-            <button class="tablinks" onclick="openPr(event, 'orthopedics')">骨科</button>
-            <button class="tablinks" onclick="openPr(event, 'dermatology')">皮膚科</button>
-            <button class="tablinks" onclick="openPr(event, 'FelineDisease')">貓病科</button>
-            <button class="tablinks" onclick="openPr(event, 'Inpatient')">住院部</button>
+            @foreach($doctor as $doc)
+            <button class="tablinks" onclick="openPr(event, '{{$doc->lan}}')" id="defaultOpen">{{$doc->department}}</button>
+            @endforeach
         </div>
 
-        <div id="InternalMedicine" class="tabcontent">
-            <h3>內科</h3>
+        @foreach($doctor as $doc)
+        <div id="{{$doc->lan}}" class="tabcontent">
+            <h3>{{$doc->department}}</h3>
             <div class="container">
                 <div class="mt-5">
                     <div class="row ">
@@ -86,8 +83,8 @@
                             <div class="container">
                                 <div class="row d-flex flex-column align-items-center ">
                                     <div class="box_roller" style="display: block;width:200px;  border-radius: 10px;">
-                                        <div class="roller"><span class="fw-900">豪斯</span></div>
-                                        <img class="doctor_img" src="/images/doctor/doctor1.jpg">
+                                        <div class="roller"><span class="fw-900">{{$doc->doctorName}}</span></div>
+                                        <img class="doctor_img" src="/images/doctor/{{$doc->photo}}">
                                     </div>
                                     <a class="btn01 mt-3 me-auto" id="intro" href="#"><i class="fa fa-user"></i>醫師簡介</a>
                                 </div>
@@ -97,7 +94,7 @@
                         <div class="col-12 col-lg-8 d_calender ">
                             <div class="row row-cols-7">
                                 @foreach($dates as $date)
-                                <div class="col text-03 mt-4">
+                                <div class="col text-0 mt-4">
                                     {{ $date['date'] }}<br>
                                     {{ $date['weekday'] }}
                                 </div>
@@ -111,7 +108,7 @@
                                     @php
                                         $isRest = false;
                                         foreach($rest as $rests) {
-                                            if ($rests->doctorId == 1 && $date['date'] == $rests->dates  && $rests->timeId==1) {
+                                            if ($rests->doctorId == $doc->doctorId && $date['date'] == $rests->dates  && $rests->timeId==1) {
                                                 $isRest = true;
                                                 break;
                                             }
@@ -147,7 +144,7 @@
                                     @php
                                         $isRest = false;
                                         foreach($rest as $rests) {
-                                            if ($rests->doctorId == 1 && $date['date'] == $rests->dates  && $rests->timeId==2) {
+                                            if ($rests->doctorId == $doc->doctorId && $date['date'] == $rests->dates  && $rests->timeId==2) {
                                                 $isRest = true;
                                                 break;
                                             }
@@ -164,7 +161,7 @@
                                                     <input type="hidden" name="userId">
                                                     <input type="hidden" name="dates" value="{{ $date['date'] }}">
                                                     <input type="hidden" name="timeId" value="2">
-                                                    <input type="hidden" name="doctorId" value="2">
+                                                    <input type="hidden" name="doctorId" value="1">
                                                     <span class="people_num text-danger fw-100" >({{ $count2[$date['date']] ?? 0 }}人)
                                                     </span>
                                                 </form>
@@ -181,7 +178,7 @@
                                     @php
                                         $isRest = false;
                                         foreach($rest as $rests) {
-                                            if ($rests->doctorId == 1 && $date['date'] == $rests->dates  && $rests->timeId==3) {
+                                            if ($rests->doctorId == $doc->doctorId && $date['date'] == $rests->dates  && $rests->timeId==3) {
                                                 $isRest = true;
                                                 break;
                                             }
@@ -198,7 +195,7 @@
                                                     <input type="hidden" name="userId">
                                                     <input type="hidden" name="dates" id="dates" value="{{ $date['date'] }}">
                                                     <input type="hidden" name="timeId" id="timeId" value="3">
-                                                    <input type="hidden" name="doctorId" value="3">
+                                                    <input type="hidden" name="doctorId" value="{{$doc->doctorId}}">
                                               
                                                     <span class="people_num text-danger fw-100" >({{ $count3[$date['date']] ?? 0 }}人)
                                                     </span>
@@ -214,32 +211,9 @@
                 </div>
             </div>
         </div>
+        @endforeach
 
-
-
-        <div id="Surgery" class="tabcontent">
-            <h3>外科</h3>
-            <p>Paris is the capital of France.</p>
-        </div>
-        <div id="Dental" class="tabcontent">
-            <h3>牙科</h3>
-            <p>Paris is the capital of France.</p>
-        </div>
-        <div id="orthopedics" class="tabcontent">
-            <h3>骨科</h3>
-            <p>Paris is the capital of France.</p>
-        </div>
-        <div id="dermatology" class="tabcontent">
-            <h3>皮膚科</h3>
-            <p>Paris is tal of France.</p>
-        </div>
-        <div id="FelineDisease" class="tabcontent">
-            <h3>貓病科</h3>
-            <p>Paris is the capital of France.</p>
-        </div>
     </div>
-
-
 
 
     <script>

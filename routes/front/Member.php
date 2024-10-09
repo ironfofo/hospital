@@ -4,7 +4,7 @@
 use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 
-
+//前端登入、登出、註冊用
 Route::group(["prefix" => "member/"], function () {
     Route::get("login", [MemberController::class, "login"]);
     Route::post("doLogin", [MemberController::class, "doLogin"]);

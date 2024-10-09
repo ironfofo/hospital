@@ -49,104 +49,53 @@ h3 {
 }
 
 .footer {
-    border-top: 5px solid #B4CAA7;
+    border-top: 5px solid #ffb84f;
     padding-top: 2.5em;
     position: relative;
 }
 
 :root {
-    --mycolor01: #f3f4f5;
-    --mycolor02: #e14444;
-    --mycolor03: #401743;
-    --mycolor04: #680951;
-    --mycolor05: #9c719f;
-    --mycolor06: #ff9a1d;
-    --mycolor07: #c12331;
-    --mycolor08: #353e41;
-    --mycolor09: #fbe0c3;
-    --mycolor10: #ffbb98;
-    --mycolor11: #7d8e95;
-    --mycolor12: #344648;
-    --mycolor13: #edefee;
-    --mycolor14: #d08856;
-    --mycolor15: #aa210f;
-    --mycolor16: #41403c;
+    --mycolor01: #7a4800 ;
+    --mycolor02: #FF9800;
+    --mycolor03: #f2f2f2;
+    --mycolor04: #c12331;
+    --mycolor05: #353e41;
+    --mycolor06: #ffd000;
+
     --mytextcolor01: #fff8fc;
-    --mytextcolor02: #1b1433;
-    --mytextcolor03: #343d0d;
-    --mytextcolor04: #300707;
+    --mytextcolor02: #7a4800;
+    --mytextcolor03: #FF9800;
+    --mytextcolor04: #b53636;
 }
 
 .bg-01 {
     background-color: var(--mycolor01);
 }
-
 .bg-02 {
     background-color: var(--mycolor02);
 }
-
 .bg-03 {
     background-color: var(--mycolor03);
 }
-
 .bg-04 {
     background-color: var(--mycolor04);
 }
 
-.bg-05 {
-    background-color: var(--mycolor05);
+.text-01 {
+    color: var(--mytextcolor01);
 }
-
-.bg-06 {
-    background-color: var(--mycolor06);
+.text-02 {
+    color: var(--mytextcolor02);
 }
-
-.bg-07 {
-    background-color: var(--mycolor07);
+.text-03{
+    color: var(--mytextcolor03);
 }
+.text-04 {
+    color: var(--mytextcolor04);
+    font-size: 18px;
+    font-weight: 700;
 
-.bg-08 {
-    background-color: var(--mycolor08);
 }
-
-.bg-09 {
-    background-color: var(--mycolor08);
-}
-
-.bg-09 {
-    background-color: var(--mycolor09);
-}
-
-.bg-10 {
-    background-color: var(--mycolor10);
-}
-
-.bg-11 {
-    background-color: var(--mycolor11);
-}
-
-.bg-12 {
-    background-color: var(--mycolor12);
-}
-
-.bg-13 {
-    background-color: var(--mycolor13);
-}
-
-.bg-14 {
-    background-color: var(--mycolor14);
-}
-
-.bg-15 {
-    background-color: var(--mycolor15);
-}
-
-.bg-16 {
-    background-color: var(--mycolor16);
-}
-
-
-
 
 .navbar-default {
     -webkit-transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
@@ -164,6 +113,17 @@ h3 {
     justify-content: space-between;
 
 }
+
+
+
+.breadcrumbs a {
+    color: #FFC107; /* 蜜蜂黃色 */
+    text-decoration: none;
+}
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
 
 .footer .footer_box ul li {
     /* -webkit-transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
@@ -202,12 +162,6 @@ h3 {
     }
 }
 
-.bg-yellow-option {
-    background-color: #e4eeab;
-    /* Bootstrap的紅色 */
-    color: white;
-    /* 文字顏色 */
-}
 
 ul li {
     list-style-type: none;
@@ -228,7 +182,7 @@ col {
 }
 
 .d_calender a:hover {
-    background-color: #578b26;
+    background-color: var(--mycolor06);
     color: #fff;
 }
 
@@ -544,24 +498,8 @@ a {
 
 }
 
-.text-01 {
-    color: var(--mytextcolor01);
-}
 
-.text-02 {
-    color: var(--mytextcolor02);
-}
 
-.text-03 {
-    color: var(--mytextcolor03);
-    font-size: 13px;
-    font-weight: 500;
-
-}
-
-.text-04 {
-    color: var(--mytextcolor04);
-}
 
 .myborder01 {
 

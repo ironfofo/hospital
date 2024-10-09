@@ -31,6 +31,7 @@
                                         <input type="checkbox" name="all" id="all" class=" form-check-input">
                                     </td>
                                     <td class="text-center">科別</td>
+                                    <td class="text-center">英文</td>
                                     <td class="text-center">修改</td>
                             </thead>
                             <tbody>
@@ -40,6 +41,7 @@
                                         <input type="checkbox" class="chk form-check-input border border-secondary" name="typeId[]" value="{{ $data->typeId }}">
                                     </td>
                                     <td class="text-center">{{ $data->department }}</td>
+                                    <td class="text-center">{{ $data->lan }}</td>
                                     <td class="text-center">
                                         <a href="edit/{{ $data->typeId }}" class="btn btn-success">修改</a>  
                                     </td>

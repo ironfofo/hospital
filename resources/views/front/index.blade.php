@@ -17,31 +17,31 @@
 
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item bg-cover active wow animate__pulse" style="background-image: url(/images/banner/Veterinarian-03.jpg.webp);height: 60vh;" data-wow-duration="1s" data-wow-delay="0s"
+        <div class="carousel-item bg-cover active wow animate__pulse" style="background-image: url(/images/banner/ricky-kharawala-adK3Vu70DEQ-unsplash.jpg);height: 60vh;" data-wow-duration="1s" data-wow-delay="0s"
         data-wow-iteration="1">
             <div class="carousel-caption d-none d-md-block mb-5 wow animate__flipInX"
-                data-wow-duration="5s" data-wow-delay="0s" data-wow-iteration="1">
+                data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">
                 <h5>定期健康檢查</h5>
                 <p>提供全面的健康檢查服務，早期發現潛在健康問題，專業獸醫團隊，細心呵護</p>
             </div>
         </div>
         <div class="carousel-item bg-cover" style="background-image: url(images/banner/NVA-City-Dog-Cat-Sleeping-Grass.webp);height: 60vh;">
             <div class="carousel-caption d-none d-md-block mb-5 wow animate__flipInX"
-                data-wow-duration="5s" data-wow-delay="0s" data-wow-iteration="1">
+                data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">
                 <h5>疫苗接種</h5>
                 <p>提供各類疫苗接種服務,預防常見疾病，增強免疫力安全有效，讓您安心</p>
             </div>
         </div>
         <div class="carousel-item bg-cover" style="background-image: url(images/banner/check.png);height: 60vh;">
             <div class="carousel-caption d-none d-md-block mb-5 wow animate__flipInX"
-                data-wow-duration="5s" data-wow-delay="0s" data-wow-iteration="1">
+                data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">
                 <h5>專業資格</h5>
                 <p>我們的獸醫團隊均畢業於知名獸醫學院，並持有國際認可的專業資格證書</p>
             </div>
         </div>
-        <div class="carousel-item bg-cover" style="background-image: url(images/banner/ricky-kharawala-adK3Vu70DEQ-unsplash.jpg);height: 60vh;">
+        <div class="carousel-item bg-cover" style="background-image: url(images/banner/Veterinarian-03.jpg.webp);height: 60vh;">
             <div class="carousel-caption d-none d-md-block mb-5 wow animate__flipInX"
-                data-wow-duration="5s" data-wow-delay="0s" data-wow-iteration="1">
+                data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1">
                 <h5>緊急醫療</h5>
                 <p>24小時緊急醫療服務，快速反應，專業處理，全面設備，保障健康</p>
             </div>
@@ -63,7 +63,7 @@
     <div class="container pt-4 pt-5 ">
         <div class="row">
             <div class="col-md-4 text-center mt-4 mb-3">
-                <i class="wow animate__shakeY fa-solid fa-address-card fa-6x text-success mb-3" data-wow-duration="4s" data-wow-delay="0s"
+                <i class="wow animate__shakeY fa-solid fa-address-card fa-6x text-03 mb-3" data-wow-duration="4s" data-wow-delay="0s"
                 data-wow-iteration="1"></i>
                 <h5 class="fw-900 mb-3">專業資格</h5>
                 <ul>
@@ -72,7 +72,7 @@
                 </ul>
             </div>
             <div class="col-md-4 text-center mt-4 mb-3">
-                <i class="wow animate__shakeY fa-solid fa-user-doctor fa-6x text-success mb-3"  data-wow-duration="4s" data-wow-delay="0s"
+                <i class="wow animate__shakeY fa-solid fa-user-doctor fa-6x text-03 mb-3"  data-wow-duration="4s" data-wow-delay="0s"
                 data-wow-iteration="1"></i>
                 <h5 class="fw-900 mb-3">臨床經驗</h5>
                 <ul>
@@ -81,7 +81,7 @@
                 </ul>
             </div>
             <div class="col-md-4 text-center mt-4 mb-3">
-                <i class="wow animate__shakeY fa-solid fa-book-open-reader fa-6x text-success mb-3"  data-wow-duration="4s" data-wow-delay="0s"
+                <i class="wow animate__shakeY fa-solid fa-book-open-reader fa-6x text-03 mb-3"  data-wow-duration="4s" data-wow-delay="0s"
                 data-wow-iteration="1"></i>
                 <h5 class="fw-900 mb-3">持續學習</h5>
                 <ul>
@@ -102,29 +102,29 @@
         </div>
         <div class="col-md-8 p-5  wow animate__fadeInRight" data-wow-duration="5s" data-wow-delay="0s"
             data-wow-iteration="1">
-            <h1>專業團隊<span class="text-success">受過嚴格訓練</span></h1>
+            <h1>專業團隊<span class="text-03">受過嚴格訓練</span></h1>
             <h1>寵物醫院首選</h1>
 
             <div class="row">
                 <div class="col-2">
-                    <h4>每年臨床手術</h4>
-                    <h2 class="counter01">1000<span class="h4">/位</span></h2>
+                    <h4>每年手術</h4>
+                    <h2 class="counter01 text-02">1000<span class="h4">/位</span></h2>
                 </div>
                 <div class="col-2">
                     <h4>專業證照</h4>
-                    <h2 class="counter02">100<span class="h4">/項</span></h2>
+                    <h2 class="counter02 text-02">100<span class="h4">/項</span></h2>
                 </div>
                 <div class="col-2">
                     <h4>大型寵物間</h4>
-                    <h2 class="counter03">5 <span class="h4">/間</span></h2>
+                    <h2 class="counter03 text-02">5 <span class="h4">/間</span></h2>
                 </div>
                 <div class="col-2">
                     <h4>中型寵物間</h4>
-                    <h2 class="counter04">20 <span class="h4">/間</span></h2>
+                    <h2 class="counter04 text-02">20 <span class="h4">/間</span></h2>
                 </div>
                 <div class="col-2">
                     <h4>小型寵物間</h4>
-                    <h2 class="counter05">20 <span class="h4">/間</span></h2>
+                    <h2 class="counter05 text-02">20 <span class="h4">/間</span></h2>
                 </div>
             </div>
         </div>
