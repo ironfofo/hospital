@@ -59,11 +59,11 @@
     </button>
 </div>
 
-<div class="bg-01">
-    <div class="container pt-4 pt-5 ">
+<div class="bg-05">
+    <div class="container pt-5 pb-5 ">
         <div class="row">
             <div class="col-md-4 text-center mt-4 mb-3">
-                <i class="wow animate__shakeY fa-solid fa-address-card fa-6x text-03 mb-3" data-wow-duration="4s" data-wow-delay="0s"
+                <i class="wow animate__shakeY fa-solid fa-address-card fa-5x text-03 mb-3" data-wow-duration="4s" data-wow-delay="0s"
                 data-wow-iteration="1"></i>
                 <h5 class="fw-900 mb-3">專業資格</h5>
                 <ul>
@@ -72,7 +72,7 @@
                 </ul>
             </div>
             <div class="col-md-4 text-center mt-4 mb-3">
-                <i class="wow animate__shakeY fa-solid fa-user-doctor fa-6x text-03 mb-3"  data-wow-duration="4s" data-wow-delay="0s"
+                <i class="wow animate__shakeY fa-solid fa-user-doctor fa-5x text-03 mb-3"  data-wow-duration="4s" data-wow-delay="0s"
                 data-wow-iteration="1"></i>
                 <h5 class="fw-900 mb-3">臨床經驗</h5>
                 <ul>
@@ -81,7 +81,7 @@
                 </ul>
             </div>
             <div class="col-md-4 text-center mt-4 mb-3">
-                <i class="wow animate__shakeY fa-solid fa-book-open-reader fa-6x text-03 mb-3"  data-wow-duration="4s" data-wow-delay="0s"
+                <i class="wow animate__shakeY fa-solid fa-book-open-reader fa-5x text-03 mb-3"  data-wow-duration="4s" data-wow-delay="0s"
                 data-wow-iteration="1"></i>
                 <h5 class="fw-900 mb-3">持續學習</h5>
                 <ul>

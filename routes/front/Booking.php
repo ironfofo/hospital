@@ -11,7 +11,7 @@ Route::get('professional', function () {
 
 
 Route::group(["prefix" => "/schedule"], function () {
-    Route::get("list", [FrontScheduleController::class, "list"]);
+    Route::get("list", [FrontScheduleController::class, "list"])->name('schedule.list');
     // Route::post("booking", [FrontScheduleController::class, "booking"]);
     Route::post("booking/insert", [FrontScheduleController::class, "doBooking"]);
     Route::post("booking/rest", [FrontScheduleController::class, "rest"]);

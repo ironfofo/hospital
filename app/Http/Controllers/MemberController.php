@@ -101,14 +101,8 @@ class MemberController extends Controller
         $member->bir = $req->bir;
         $member->userId = $req->userId;
         $member->pwd = $req->pwd;
-
-
         $member->save();
 
-        //.ajax是邊打邊存
-        //google的cookie是將資料留在個人電腦
-        //暫存網頁伺服器一段時間，時間一到歸0 ，congfig/seension有設定時間
-        //flash快閃儲存一次
         Session::flash("message", "已新增");
         //redirect轉址
         return redirect("/admin/member/list");
@@ -116,9 +110,6 @@ class MemberController extends Controller
 
     public function edit(Request $req)
     {
-        //$req->id的id自己輸入的值
-        //如果路由參數為ABC 就要更改$req->ABC
-        //find:尋找
         $member = Member::find($req->id);
         $prm = PrmList::get();
 

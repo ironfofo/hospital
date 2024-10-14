@@ -55,28 +55,32 @@ h3 {
 }
 
 :root {
-    --mycolor01: #7a4800 ;
-    --mycolor02: #FF9800;
-    --mycolor03: #f2f2f2;
+    --mycolor01: #7a4800;
+    --mycolor02: #ffaa2c;
+    --mycolor03: #ffffff;
     --mycolor04: #c12331;
-    --mycolor05: #353e41;
+    --mycolor05: #0c0570;
     --mycolor06: #ffd000;
+    --mycolor07: #0f0f0f;
 
     --mytextcolor01: #fff8fc;
     --mytextcolor02: #7a4800;
     --mytextcolor03: #FF9800;
-    --mytextcolor04: #b53636;
+    --mytextcolor04: #0c0570;
 }
 
 .bg-01 {
     background-color: var(--mycolor01);
 }
+
 .bg-02 {
     background-color: var(--mycolor02);
 }
+
 .bg-03 {
     background-color: var(--mycolor03);
 }
+
 .bg-04 {
     background-color: var(--mycolor04);
 }
@@ -84,12 +88,15 @@ h3 {
 .text-01 {
     color: var(--mytextcolor01);
 }
+
 .text-02 {
     color: var(--mytextcolor02);
 }
-.text-03{
+
+.text-03 {
     color: var(--mytextcolor03);
 }
+
 .text-04 {
     color: var(--mytextcolor04);
     font-size: 18px;
@@ -117,9 +124,11 @@ h3 {
 
 
 .breadcrumbs a {
-    color: #FFC107; /* 蜜蜂黃色 */
+    color: #FFC107;
+    /* 蜜蜂黃色 */
     text-decoration: none;
 }
+
 .breadcrumbs a:hover {
     text-decoration: underline;
 }
@@ -167,23 +176,32 @@ ul li {
     list-style-type: none;
 }
 
-/* calendar */
+
+/* 預約的上一頁與下一頁 */
+.pages {
+    display: inline-block;
+    padding: 10px 20px;
+    color: var(--mytextcolor02);
+    text-align: center;
+    margin: 0 10px; /* 加一些左右的間距 */
+    text-decoration: none; /* 移除超連結的預設底線 */
+}
+.pages:hover {
+    background-color: var(--mycolor03);
+    color: var(--mytextcolor04);
+}
+
+/* calendar  預約時程按鈕 */
 .d_calender a {
     min-width: 10px;
     background-color: #EFF2F9;
     color: #333;
     display: block;
     margin: 10px auto;
-
 }
-
-col {
-    margin: 0px;
-}
-
 .d_calender a:hover {
-    background-color: var(--mycolor06);
-    color: #fff;
+    background-color: var(--mycolor02);
+    color: var(--mytextcolor04);
 }
 
 .d_calender .btn {
@@ -363,8 +381,9 @@ a {
     opacity: 0;
 }
 
-
+/* 用於註冊按鈕 */
 .btn01 {
+    margin-right: 5px;
     width: 80px;
     height: 40px;
     display: flex;
@@ -372,16 +391,30 @@ a {
     justify-content: center;
     border-radius: 10px;
     font-size: 16px;
-    background-color: #EFF2F9;
+    background-color: var(--mycolor03);
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
-    color: #658172;
+    color: var(--mytextcolor02);
     border: none;
     cursor: pointer;
-    transition: transform 150ms,
-        font-size 150ms, color 150ms;
+    text-decoration: none;
+    transition: transform 300ms,
+        font-size 300ms, color 300ms;
+    /* transition: transform 0.5s ease, 
+        font-size 0.5s ease, color 0.5s ease, 
+        background-color 0.5s ease;  */
+
+}
+.btn01:hover {
+    transform: scale(1.03) translateY(-3px);
+    /* 增加大小 */
+    font-size: 18px;
+    /* 增加字體大小 */
+    color: var(--mytextcolor03);
+    /* 改變字體顏色 */
+    background-color: var(--mycolor07);
+    /* 改變背景顏色 */
 }
 
-.btn01:hover {}
 
 .btn01:active {
     background-color: #EFF2F9;
@@ -393,6 +426,7 @@ a {
 
 /* btn02 */
 .btn02 {
+    margin-left: 5px;
     align-items: center;
     background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
     border: 0;

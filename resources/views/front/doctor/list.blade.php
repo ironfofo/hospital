@@ -12,7 +12,7 @@
 
 
 
-.container {
+.doctor-container {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
@@ -25,24 +25,22 @@
     color: #4CAF50; /* 草綠色 */
 }
 
-.img-fluid {
+.doctor-img {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 添加陰影 */
 }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="/css/front/about/about.css">
-    <link rel="stylesheet" type="text/css" href="/css/front/about/timeline.css">
     
     <div data-scroll-watch="" class="fade_in title">
         <div class="breadcrumbs"><a href="/">首頁</a> / <span>醫師介紹</span></div>
     </div>
 
     @foreach($doctor as $data)
-    <div class="container mt-5 mb-5">
+    <div class="container doctor-container mt-5 mb-5">
         <div class="row">
             <div class="col-4 d-flex justify-content-center">
-                <img src="/images/doctor/{{$data->photo}}" class="img-fluid" alt="{{$data->doctorName}}">    
+                <img src="/images/doctor/{{$data->photo}}" class="img-fluid doctor-img" alt="{{$data->doctorName}}">    
             </div>
             <div class="col-8">
                 <div class="row mt-3">

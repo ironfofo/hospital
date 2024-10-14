@@ -39,26 +39,23 @@
   @endif
   <section id="s01">
     <nav class="navbar navbar-default sticky-lg-top navbar-expand-lg">
-      <a class="navbar-brand" href="/"><img src="/images/LOGO/LOGO.png" alt="LOGO" class="img-fluid"></a>
+      <a class="navbar-brand" href="/"><img src="/images/LOGO/LOGOB.png" alt="LOGO" class="ms-3"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse me-3" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">專業分科</a>
+            <a class="nav-link" href="/professional/list">專業分科</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about">關於SUSU</a>
+            <a class="nav-link" href="/about/list">關於SUSU</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="news">環境介紹</a>
+            <a class="nav-link" href="/environment/list">環境介紹</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/doctor/list">醫師介紹</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="news">最新消息</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/schedule/list">門診時間</a>
@@ -71,14 +68,16 @@
             <a class="nav-link disabled" aria-disabled="true">會員系統</a>
           </li>
         </ul>
-        <div>
+        <div class="ms-1">
           @if(Session()->has("userId"))
           <span class=" text-04" id="login_username01">會員:</span>
           <span class="text-04 fw-700" id="login_username02">{{session()->get("userId")}}</span>
           <button class="btn btn01" type="button" onclick="logOut()">登出</button>
           @else
-          <a href="/member/login" class="btn btn01">登入</a>
-          <a href="/member/register" class="btn btn01">註冊</a>
+          <div class="d-flex">
+          <a href="/member/login" class="btn01 P-3">登入</a>
+          <a href="/member/register" class="btn01 P-3">註冊</a>
+          </div>
           @endif
         </div>
       </div>
@@ -87,18 +86,18 @@
 
   @yield("content")
 
-  <footer class="footer mt-0">
+  <footer class="footer mt-5">
     <div class="box" style="width: 1920px;height:2px color"></div>
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-4 col-md-3 col-sm-12">
-          <img src="/images/LOGO/LOGO.png" class="img-fluid" alt="神速動物醫院">
+          <img src="/images/LOGO/LOGOS.png" class="img-fluid" alt="神速動物醫院">
         </div>
 
         <div class="col-lg-4 col-md-9 col-sm-12">
           <div class="footer_box">
             <h3>客戶服務</h3>
-            <p>本體系客戶服務時段為週一至週五10:00~12:00、14:00~17:00，不含例假日及國定假日，如需客戶服務請撥 0800-284-666，非服務時段請至「 <a href="http://www.vet.com.tw/contact.php">聯絡我們</a> 」頁面留言。</p>
+            <p>本體系客戶服務時段為週一至週五10:00~12:00、14:00~17:00，不含例假日及國定假日，如需客戶服務請撥 0800-284-666，非服務時段請至「 <a href="/contact/list" style="text-decoration: none">聯絡我們</a> 」頁面留言。</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-5 col-sm-6 col-12">

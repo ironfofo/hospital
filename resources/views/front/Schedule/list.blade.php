@@ -8,6 +8,10 @@
             box-sizing: border-box
         }
 
+        col {
+        margin: 0px;
+    }
+
         body {
             font-family: "Lato", sans-serif;
         }
@@ -43,7 +47,7 @@
 
         /* Create an active/current "tab button" class */
         .tab button.active {
-            background-color: #ccc;
+            background-color: var(--mycolor02);
         }
 
         /* Style the tab content */
@@ -53,8 +57,8 @@
             border: 1px solid #ccc;
             width: 70%;
             border-left: none;
-
         }
+
     </style>
 </head>
 
@@ -65,7 +69,17 @@
 
 
     <div class="row">
-        <h2 class="mt-3">看診科別</h2>
+        <h2 class="col-12 mt-3">看診科別</h2>
+        <div class="col-11 d-flex justify-content-end ms-1" >
+            @if ($showPrevWeekButton)
+            <a href="{{ route('schedule.list', ['date' => $startDate->copy()->subWeek()->format('Y-m-d')]) }}" class="pages"><=上一周</a>
+            @endif
+
+            @if ($showNextWeekButton)
+            <a href="{{ route('schedule.list', ['date' => $startDate->copy()->addWeek()->format('Y-m-d')]) }}" class="pages">下一周=></a>
+            @endif
+        </div>
+        
 
         <div class="tab">
             @foreach($doctor as $doc)
@@ -92,6 +106,7 @@
                         </div>
 
                         <div class="col-12 col-lg-8 d_calender ">
+
                             <div class="row row-cols-7">
                                 @foreach($dates as $date)
                                 <div class="col text-0 mt-4">
