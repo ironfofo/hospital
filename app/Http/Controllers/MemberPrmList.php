@@ -25,7 +25,7 @@ class MemberPrmList extends Controller
         
         $prm = new PrmList();
         $prm->prm = $req->prm;
-        $prm->title = $req->title;
+        $prm->prmTitle = $req->prmTitle;
 
         $prm->save();
         Session::flash("message", "已新增");
@@ -44,7 +44,7 @@ class MemberPrmList extends Controller
         $prm=PrmList::find($req->id);
 
         $prm->prm = $req->prm;
-        $prm->title = $req->title;
+        $prm->prmTitle = $req->prmTitle;
 
         $prm->update();
 

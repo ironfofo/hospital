@@ -3,6 +3,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.css') }}">
     <style>
         * {
             box-sizing: border-box
@@ -100,7 +102,7 @@
                                         <div class="roller"><span class="fw-900">{{$doc->doctorName}}</span></div>
                                         <img class="doctor_img" src="/images/doctor/{{$doc->photo}}">
                                     </div>
-                                    <a class="btn01 mt-3 me-auto" id="intro" href="#"><i class="fa fa-user"></i>醫師簡介</a>
+                                    <a class="btn01 mt-3 me-auto" id="intro" href="/doctor/list"><i class="fa fa-user"></i>醫師簡介</a>
                                 </div>
                             </div>
                         </div>
@@ -117,110 +119,40 @@
                             </div>
 
 
+                            @foreach($TimeList as $time)
                             <div class="row row-cols-7">
-                            @foreach($dates as $date)
-                                <div class="col">
-                                    @php
-                                        $isRest = false;
-                                        foreach($rest as $rests) {
-                                            if ($rests->doctorId == $doc->doctorId && $date['date'] == $rests->dates  && $rests->timeId==1) {
-                                                $isRest = true;
-                                                break;
+                                @foreach($dates as $date)
+                                    <div class="col">
+                                        @php
+                                            $isRest = false;
+                                            foreach($doctorrest as $rests) {
+                                                if ($rests->doctorId == $doc->doctorId && $date['date'] == $rests->dates && $rests->timeId == $time->timeId) {
+                                                    $isRest = true;
+                                                    break;
+                                                }
                                             }
-                                        }
-                                    @endphp
+                                        @endphp
 
-                                    @if($isRest)
-                                        <a class="btn disabled" name="date">休</a>
-                                    @else
-                                        <a class="btn" name="date" onclick="doBooking(event, this)">早
-                                            <div>
-                                                <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
-                                                    {{ csrf_field() }}
-                                                    <input type="hidden" name="userId">
-                                                    <input type="hidden" name="dates" value="{{ $date['date'] }}">
-                                                    <input type="hidden" name="timeId" value="1">
-                                                    <input type="hidden" name="doctorId" value="1">
-                                                    <span class="people_num text-danger fw-100" >({{ $count1[$date['date']] ?? 0 }}人)
-                                                    </span>
-                                                    <input type="hidden" name="submitType" value="早">
-                                                </form>
-                                            </div>
-                                        </a>
-                                    @endif
-                                </div>
-                            @endforeach
+                                        @if($isRest)
+                                            <a class="btn disabled" name="date">休</a>
+                                        @else
+                                            <a class="btn" name="date" onclick="doBooking(event, this)">{{ $time->time_period }}
+                                                <div>
+                                                    <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" name="userId">
+                                                        <input type="hidden" name="dates" value="{{ $date['date'] }}">
+                                                        <input type="hidden" name="timeId" value="{{ $time->timeId }}">
+                                                        <input type="hidden" name="doctorId" value="{{$doc->doctorId}}">
+                                                        <span class="people_num text-danger fw-100">({{ $counts[$doc->doctorId][$time->timeId][$date['date']] ?? 0}}人)</span>
+                                                    </form>
+                                                </div>
+                                            </a>
+                                        @endif
+                                    </div>
+                                @endforeach
                             </div>
-
-
-                            <div class="row row-cols-7">
-                            @foreach($dates as $date)
-                                <div class="col">
-                                    @php
-                                        $isRest = false;
-                                        foreach($rest as $rests) {
-                                            if ($rests->doctorId == $doc->doctorId && $date['date'] == $rests->dates  && $rests->timeId==2) {
-                                                $isRest = true;
-                                                break;
-                                            }
-                                        }
-                                    @endphp
-
-                                    @if($isRest)
-                                        <a class="btn disabled" name="date">休</a>
-                                    @else
-                                        <a class="btn" name="date" onclick="doBooking(event, this)">午
-                                            <div>
-                                                <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
-                                                    {{ csrf_field() }}
-                                                    <input type="hidden" name="userId">
-                                                    <input type="hidden" name="dates" value="{{ $date['date'] }}">
-                                                    <input type="hidden" name="timeId" value="2">
-                                                    <input type="hidden" name="doctorId" value="1">
-                                                    <span class="people_num text-danger fw-100" >({{ $count2[$date['date']] ?? 0 }}人)
-                                                    </span>
-                                                </form>
-                                            </div>
-                                        </a>
-                                    @endif
-                                </div>
                             @endforeach
-                            </div>
-
-                            <div class="row row-cols-7">
-                            @foreach($dates as $date)
-                                <div class="col">
-                                    @php
-                                        $isRest = false;
-                                        foreach($rest as $rests) {
-                                            if ($rests->doctorId == $doc->doctorId && $date['date'] == $rests->dates  && $rests->timeId==3) {
-                                                $isRest = true;
-                                                break;
-                                            }
-                                        }
-                                    @endphp
-
-                                    @if($isRest)
-                                        <a class="btn disabled" name="date">休</a>
-                                    @else
-                                        <a class="btn" name="date" onclick="doBooking(event, this)">晚
-                                            <div>
-                                                <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
-                                                    {{ csrf_field() }}
-                                                    <input type="hidden" name="userId">
-                                                    <input type="hidden" name="dates" id="dates" value="{{ $date['date'] }}">
-                                                    <input type="hidden" name="timeId" id="timeId" value="3">
-                                                    <input type="hidden" name="doctorId" value="{{$doc->doctorId}}">
-                                              
-                                                    <span class="people_num text-danger fw-100" >({{ $count3[$date['date']] ?? 0 }}人)
-                                                    </span>
-                                                </form>
-                                            </div>
-                                        </a>
-                                    @endif
-                                </div>
-                            @endforeach
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -230,7 +162,7 @@
 
     </div>
 
-
+    <script src="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
     <script>
         function openPr(evt, professional) {
             var i, tabcontent, tablinks;
@@ -250,31 +182,40 @@
         document.getElementById("defaultOpen").click();
     </script>
 
-    <script>
-        function doBooking(event,element) {
-            event.preventDefault(); //防止默認行為，與onsubmit="return false"類似
-            const form=element.querySelector("form");//獲取當前表單
-            const date=element.querySelector('input[name="dates"]').value;//獲取當前日期
-            const timeId=element.querySelector('input[name="timeId"]').value;//獲取當前時段
-            Swal.fire({
-                title: '確定要預約'+date+'的'+timeId+'的時段?',
-                text: "",
-                icon: "question",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "確定預約",
-                cancelButtonText: "不登預約",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // 確定預約，提交表單
-                    form.submit();
-                    Swal.fire("已預約").then(() => {
-                        location.reload(); // 刷新頁面
-                    });
-                }
-            });
-        }
-    </script>
+<script>
+    // 將 TimeList 資料傳遞到 JavaScript 中
+    const timeList = @json($TimeList);
+
+    function doBooking(event, element) {
+        event.preventDefault(); // 防止默認行為
+        const form = element.querySelector("form"); // 獲取當前表單
+        const date = element.querySelector('input[name="dates"]').value; // 獲取當前日期
+        const timeId = element.querySelector('input[name="timeId"]').value; // 獲取當前時段
+
+        // 根據 timeId 從 timeList 中獲取時段名稱
+        const timePeriod = (timeList[timeId] && timeList[timeId].time_period) || "未知";  // 如果沒有找到對應，顯示"未知"
+
+        Swal.fire({
+            title: '確定要預約 ' + date + ' 的 ' + timePeriod + ' 時段?',
+            text: "",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "確定預約",
+            cancelButtonText: "不登預約",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // 確定預約，提交表單
+                form.submit();
+                Swal.fire("已預約").then(() => {
+                    location.reload(); // 刷新頁面
+                });
+            }
+        });
+    }
+</script>
+
+
 </body>
 @endsection

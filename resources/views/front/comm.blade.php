@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="/css/sweetalert2.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+  
 
 
   <style type="text/css">
@@ -136,8 +137,6 @@
   <script src="/js/jquery-ui.min.js"></script>
 
   <script>
-
-
     function logOut() {
       Swal.fire({
         title: "確定登出嗎?",
