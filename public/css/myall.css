@@ -201,7 +201,7 @@ ul li {
 }
 .d_calender a:hover {
     background-color: var(--mycolor02);
-    color: var(--mytextcolor01);
+    color: var(--mytextcolor04);
 }
 
 .d_calender .btn {
@@ -414,6 +414,8 @@ a {
     background-color: var(--mycolor07);
     /* 改變背景顏色 */
 }
+
+
 .btn01:active {
     background-color: #EFF2F9;
     font-size: 16px;

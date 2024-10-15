@@ -119,7 +119,7 @@ class MemberController extends Controller
     public function update(Request $req)
     {
         //find找尋相對應資料
-        $member = Member::find($req->id);
+        $member = Member::find($req->id); 
         $member->userName = $req->userName;
         $member->email = $req->email;
         $member->phone = $req->phone;

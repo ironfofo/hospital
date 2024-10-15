@@ -69,15 +69,18 @@
             <a class="nav-link disabled" aria-disabled="true">會員系統</a>
           </li>
         </ul>
+        
         <div class="ms-1">
           @if(Session()->has("userId"))
-          <span class=" text-04" id="login_username01">會員:</span>
-          <span class="text-04 fw-700" id="login_username02">{{session()->get("userId")}}</span>
-          <button class="btn btn01" type="button" onclick="logOut()">登出</button>
+          <div class="d-flex align-items-center ms-2">
+            <i class="fa-solid fa-user text-03 "></i>
+            <span class="text-03 fw-900" id="login_username02">{{session()->get("userId")}}</span>
+          <button class="btn01 ms-2" type="button" onclick="logOut()"><i class="fa-solid fa-right-from-bracket"></i>登出</button>
+          </div>
           @else
           <div class="d-flex">
-          <a href="/member/login" class="btn01 P-3">登入</a>
-          <a href="/member/register" class="btn01 P-3">註冊</a>
+          <a href="/member/login" class="btn01 P-3"><i class="fa-solid fa-right-to-bracket"></i>登入</a>
+          <a href="/member/register" class="btn01 P-3"><i class="fa-solid fa-registered"></i>註冊</a>
           </div>
           @endif
         </div>

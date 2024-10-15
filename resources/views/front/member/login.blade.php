@@ -29,9 +29,6 @@
                         <input type="text" name="code" class="form-control" required>
                     </div>
                     <div class="col-4">
-                        <!-- <img src="/captcha/math?">另一種驗證方式 -->
-                        <!-- onclick="this.src='/captcha/flat?'點意下驗證碼會換新的
-                        +Math.random() 隨機產生-->
                         <img src="/captcha/flat?" onclick="this.src='/captcha/flat?' + Math.random()" style="cursor:pointer">
                     </div>
                 </div>
@@ -40,9 +37,9 @@
                     <div class="col-8 text-danger text-center">{{$errors->first("code")}}</div>
                 </div>
                 @endif
-                <div class="row mt-3 text-end mb-3">
+                <div class="row mt-3 text-end mb-3 ms-5">
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-lg">登入</button>
+                        <button type="submit" class="btn02 btn-lg "><i class="fa-solid fa-right-to-bracket"></i>登入</button>
                     </div>
                 </div>
             </form>

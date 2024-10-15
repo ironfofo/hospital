@@ -41,12 +41,14 @@ class FrontScheduleController extends Controller
         $doctor = (new Doctor)->getList();
         $TimeList = TimeList::all()->keyBy('timeId');
 
+        $pass=$startDate>$dates;
+
         // 計算預約數量
         $counts =[];
         foreach($doctor as $doc){
             $counts[$doc->doctorId]=$this->getCountsForDates([1,2,3],$dates,$doc->doctorId);
         }
-        return view("front.schedule.list", compact("dates", "doctorrest", "counts", "doctor", "startDate", "showPrevWeekButton", "showNextWeekButton","TimeList"));
+        return view("front.schedule.list", compact("dates", "doctorrest", "counts", "doctor", "startDate", "pass","showPrevWeekButton", "showNextWeekButton","TimeList"));
     }
 
     private function generateWeekDates($startDate)
