@@ -20,9 +20,8 @@ class FrontScheduleController extends Controller
     public function list(Request $req)
     {
 
-        //從前端請求獲取日期。如果沒有傳遞日期，則使用當前日期。
-        $currentDate = Carbon::now()->format('Y-m-d');
-        $currentDate = Carbon::now()->format('Y-m-d');
+        $currentDate = $req->input('date', Carbon::now()->format('Y-m-d')); // 如果前端未傳遞日期，則使用當前日期
+
         $startDate = Carbon::parse($currentDate); //將取得的日期轉換為 Carbon 日期對象，便於後續進行日期操作。
 
         // 獲取今天的日期->日期對象的時間設置為這週的開始日(預設該週星期一)
@@ -44,22 +43,33 @@ class FrontScheduleController extends Controller
         $TimeList = TimeList::all();//時段設定
 
 
+        $nowTime=Carbon::now();
+        // dd($nowTime);
         // 判斷哪些醫生在特定日期和時間段內休息，並標記出來
         $doctorSchedule = [];
         foreach ($doctor as $doc) {
             foreach ($TimeList as $time) {
                 foreach ($dates as $date) {
+                    $isRest = false; // 這裡將 isRest 每次重置為 false
+        
                     foreach ($doctorrest as $rests) {
-                        $isRest = false;
                         if ($rests->doctorId == $doc->doctorId && $rests->timeId == $time->timeId && $rests->dates == $date['date']) {
-                            $isRest=true;
+                            $isRest = true;
                             break;
                         }
                     }
-                    $doctorSchedule[$doc->doctorId][$date['date']][$time->timeId][$date['date']]=$isRest;
+        
+                    $endTime = Carbon::createFromFormat('Y-m-d H:i:s', $date['date'].' '.$time->time_end);
+        
+                    if ($nowTime->greaterThan($endTime) || $isRest ) {
+                        $isRest = true;
+                    }
+                    $doctorSchedule[$doc->doctorId][$time->timeId][$date['date']] = $isRest;
                 }
             }
         }
+        
+
 
         // 計算預約數量
         $counts = [];
@@ -107,7 +117,7 @@ class FrontScheduleController extends Controller
         $booking->doctorId = $req->doctorId;
         $booking->save();
 
-        Session::flash("message", "預定成功");
+        // Session::flash("message", "預定成功");
         return redirect("/schedule/list");
     }
 }

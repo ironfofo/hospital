@@ -65,7 +65,7 @@
     <div class="row" style="background-image: url(/images/banner/lukasz-szmigiel-2ShvY8Lf6l0-unsplash.jpg);background-size:cover;background-position:center center;background-attachment: fixed; height:20vh" alt="BANNER">
     </div>
 
-
+    
 
     <div class="row">
         <h2 class="col-12 mt-3">看診科別</h2>
@@ -119,7 +119,7 @@
                             <div class="row row-cols-7">
                                 @foreach($dates as $date)
                                     <div class="col">
-                                        @if($doctorSchedule[$doc->doctorId][$date['date']][$time->timeId][$date['date']])
+                                        @if($doctorSchedule[$doc->doctorId][$time->timeId][$date['date']])
                                             <a class="btn disabled" name="date">休</a>
                                         @else
                                             <a class="btn" name="date" onclick="doBooking(event, this)">{{ $time->time_period }}
@@ -168,43 +168,43 @@
         document.getElementById("defaultOpen").click();
     </script>
 
-<script>
-    
-    const timeList = @json($TimeList);// 將 TimeList 和 doctorName 資料以json格式傳遞到 JavaScript 中
-    const doctor = @json($doctorName);
-    
-
-    function doBooking(event, element) {
-        event.preventDefault(); // 防止默認行為
-        const form = element.querySelector("form"); // 獲取當前表單
-        const date = element.querySelector('input[name="dates"]').value; // 獲取當前日期
-        const timeId = element.querySelector('input[name="timeId"]').value; // 獲取當前時段
-        const doctorId = element.querySelector('input[name="doctorId"]').value; // 獲取當前醫生ID
-
+    <script>
         
-        const timePeriod = (timeList[timeId-1] && timeList[timeId-1].time_period);// 根據 timeId 從 timeList 中獲取時段名稱
-        const doctorName = (doctor[doctorId-1] && doctor[doctorId-1].doctorName);
+        const timeList = @json($TimeList);// 將 TimeList 和 doctorName 資料以json格式傳遞到 JavaScript 中
+        const doctor = @json($doctorName);
 
-        Swal.fire({
-            title: '確定要預約' + doctorName + '醫師?',
-            text:  date + ' 的 ' + timePeriod + ' 時段',
-            icon: "info",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "確定預約",
-            cancelButtonText: "不登預約",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // 確定預約，提交表單
-                form.submit();
-                Swal.fire("已預約").then(() => {
-                    location.reload(); // 刷新頁面
-                });
-            }
-        });
-    }
-</script>
+
+        function doBooking(event, element) {
+            event.preventDefault(); // 防止默認行為
+            const form = element.querySelector("form"); // 獲取當前表單
+            const date = element.querySelector('input[name="dates"]').value; // 獲取當前日期
+            const timeId = element.querySelector('input[name="timeId"]').value; // 獲取當前時段
+            const doctorId = element.querySelector('input[name="doctorId"]').value; // 獲取當前醫生ID
+
+            
+            const timePeriod = (timeList[timeId-1] && timeList[timeId-1].time_period);// 根據 timeId 從 timeList 中獲取時段名稱
+            const doctorName = (doctor[doctorId-1] && doctor[doctorId-1].doctorName);
+
+            Swal.fire({
+                title: '確定要預約' + doctorName + '醫師?',
+                text:  date + ' 的 ' + timePeriod + ' 時段',
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "確定預約",
+                cancelButtonText: "不登預約",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // 確定預約，提交表單
+                    form.submit();
+                    Swal.fire("已預約").then(() => {
+                        location.reload(); // 刷新頁面
+                    });
+                }
+            });
+        }
+    </script>
 
 
 
