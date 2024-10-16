@@ -1,10 +1,7 @@
 @extends("front.comm")
 @section("content")
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.css') }}">
     <style>
         * {
             box-sizing: border-box
@@ -62,10 +59,10 @@
         }
 
     </style>
-</head>
 
-<body>
-    <div class="row" style="background-image: url(/images/banner/lukasz-szmigiel-2ShvY8Lf6l0-unsplash.jpg);background-size:cover;background-position:center center;background-attachment: fixed; height:40vh" alt="BANNER">
+
+
+    <div class="row" style="background-image: url(/images/banner/lukasz-szmigiel-2ShvY8Lf6l0-unsplash.jpg);background-size:cover;background-position:center center;background-attachment: fixed; height:20vh" alt="BANNER">
     </div>
 
 
@@ -118,22 +115,11 @@
                                 @endforeach
                             </div>
 
-
                             @foreach($TimeList as $time)
                             <div class="row row-cols-7">
                                 @foreach($dates as $date)
                                     <div class="col">
-                                        @php
-                                            $isRest = false;
-                                            foreach($doctorrest as $rests) {
-                                                if ($rests->doctorId == $doc->doctorId && $date['date'] == $rests->dates && $rests->timeId == $time->timeId) {
-                                                    $isRest = true;
-                                                    break;
-                                                }
-                                            }
-                                        @endphp
-
-                                        @if($isRest)
+                                        @if($doctorSchedule[$doc->doctorId][$date['date']][$time->timeId][$date['date']])
                                             <a class="btn disabled" name="date">休</a>
                                         @else
                                             <a class="btn" name="date" onclick="doBooking(event, this)">{{ $time->time_period }}
@@ -154,15 +140,15 @@
                             </div>
                             @endforeach
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
         @endforeach
-
     </div>
+    
 
-    <script src="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
     <script>
         function openPr(evt, professional) {
             var i, tabcontent, tablinks;
@@ -183,22 +169,26 @@
     </script>
 
 <script>
-    // 將 TimeList 資料傳遞到 JavaScript 中
-    const timeList = @json($TimeList);
+    
+    const timeList = @json($TimeList);// 將 TimeList 和 doctorName 資料以json格式傳遞到 JavaScript 中
+    const doctor = @json($doctorName);
+    
 
     function doBooking(event, element) {
         event.preventDefault(); // 防止默認行為
         const form = element.querySelector("form"); // 獲取當前表單
         const date = element.querySelector('input[name="dates"]').value; // 獲取當前日期
         const timeId = element.querySelector('input[name="timeId"]').value; // 獲取當前時段
+        const doctorId = element.querySelector('input[name="doctorId"]').value; // 獲取當前醫生ID
 
-        // 根據 timeId 從 timeList 中獲取時段名稱
-        const timePeriod = (timeList[timeId] && timeList[timeId].time_period) || "未知";  // 如果沒有找到對應，顯示"未知"
+        
+        const timePeriod = (timeList[timeId-1] && timeList[timeId-1].time_period);// 根據 timeId 從 timeList 中獲取時段名稱
+        const doctorName = (doctor[doctorId-1] && doctor[doctorId-1].doctorName);
 
         Swal.fire({
-            title: '確定要預約 ' + date + ' 的 ' + timePeriod + ' 時段?',
-            text: "",
-            icon: "question",
+            title: '確定要預約' + doctorName + '醫師?',
+            text:  date + ' 的 ' + timePeriod + ' 時段',
+            icon: "info",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
@@ -215,6 +205,7 @@
         });
     }
 </script>
+
 
 
 </body>

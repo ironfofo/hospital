@@ -13,5 +13,7 @@ class TimeList extends Model
     protected $fillable=[
         "timeId",
         "time_period",
+        "time_start",
+        "time_end",
     ];
 }

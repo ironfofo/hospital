@@ -118,7 +118,6 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 
@@ -128,7 +127,6 @@ h3 {
     /* 蜜蜂黃色 */
     text-decoration: none;
 }
-
 .breadcrumbs a:hover {
     text-decoration: underline;
 }
@@ -201,7 +199,7 @@ ul li {
 }
 .d_calender a:hover {
     background-color: var(--mycolor02);
-    color: var(--mytextcolor04);
+    color: var(--mytextcolor01);
 }
 
 .d_calender .btn {
