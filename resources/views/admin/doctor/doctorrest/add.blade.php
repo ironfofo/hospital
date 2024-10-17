@@ -1,5 +1,5 @@
 @extends("admin.app")
-@section("title","新增醫師基本資料")
+@section("title","新增醫師休假表")
 @section("content")
 <link rel="stylesheet" href="/css/admin/ckeditor.css">
 

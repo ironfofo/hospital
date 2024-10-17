@@ -379,6 +379,60 @@ a {
     opacity: 0;
 }
 
+.card02 {
+    --bg: #f7f7f8;
+    --hover-bg: #FFE5F4;
+    max-width: 100%; /* 將最大寬度改為 100% 以適應小屏幕 */
+    text-align: center;
+    background: var(--mycolor03);
+    padding: 1.5em;
+    padding-block: 1.8em;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: .3s cubic-bezier(.6, .4, 0, 1), transform .15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+.card02> :not(span) {
+    transition: .3s cubic-bezier(.6, .4, 0, 1);
+}
+
+.card02>strong {
+    display: block;
+    font-size: 1.4rem;
+    letter-spacing: -.035em;
+}
+
+.card02 span {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--mycolor01);
+    border-radius: 5px;
+    font-weight: bold;
+    top: 100%;
+    transition: all .3s cubic-bezier(.6, .4, 0, 1);
+}
+.card02:hover span {
+    top: 0;
+    font-size: 1.2em;
+}
+.card02:hover {
+    background: var(--);
+}
+.card02hover>div,
+.card:hover>strong {
+    opacity: 0;
+}
+
 /* 用於註冊按鈕 */
 .btn01 {
     margin-right: 5px;
@@ -412,8 +466,6 @@ a {
     background-color: var(--mycolor07);
     /* 改變背景顏色 */
 }
-
-
 .btn01:active {
     background-color: #EFF2F9;
     font-size: 16px;
@@ -422,7 +474,7 @@ a {
 }
 
 
-/* btn02 */
+/* 漸變色 */
 .btn02 {
     margin-left: 5px;
     align-items: center;
@@ -447,12 +499,10 @@ a {
     cursor: pointer;
     transition: all 0.3s;
 }
-
 .btn02:active,
 .btn02:hover {
     outline: 0;
 }
-
 .btn02 span {
     background-color: rgb(5, 6, 45);
     padding: 16px 24px;
@@ -461,15 +511,52 @@ a {
     height: 100%;
     transition: 300ms;
 }
-
 .btn02:hover span {
     background: none;
 }
-
 .btn02:active {
     transform: scale(0.9);
 }
 
+/* 醫師簡介連結 */
+.btn03 {
+    margin-right: 5px;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: var(--mycolor03);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    color: var(--mytextcolor02);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 300ms,
+        font-size 300ms, color 300ms;
+    /* transition: transform 0.5s ease, 
+        font-size 0.5s ease, color 0.5s ease, 
+        background-color 0.5s ease;  */
+
+}
+.btn03:hover {
+    transform: scale(1.03) translateY(-3px);
+    /* 增加大小 */
+    font-size: 18px;
+    /* 增加字體大小 */
+    color: var(--mytextcolor03);
+    /* 改變字體顏色 */
+    background-color: var(--mycolor07);
+    /* 改變背景顏色 */
+}
+.btn03:active {
+    background-color: #EFF2F9;
+    font-size: 16px;
+    transform: scale(1.4);
+    box-shadow: 5px 5px 10px rgb(119, 119, 119);
+}
 
 
 .bg-btn01 {

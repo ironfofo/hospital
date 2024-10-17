@@ -35,6 +35,8 @@
         this.canvas.onmousemove = showTooltip.bind(this);
       }
     }
+    console.log(this.element); // 確認元素是否正確選取
+
   }
 
   Sparkline.options = {

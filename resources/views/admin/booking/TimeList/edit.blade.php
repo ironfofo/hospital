@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <!-- enctype="multipart/form-data" 用於上傳圖檔時 -->
                     <form method="post" action="../update">
-                        <input type="hidden" name="id" value="{{ $TimeList->timeId }}">
+                        <input type="hidden" name="timeId" value="{{ $TimeList->timeId }}">
                         {{ csrf_field() }}
                         
                         <div class="form-group row mt-3">

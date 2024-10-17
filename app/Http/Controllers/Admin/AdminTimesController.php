@@ -25,8 +25,10 @@ class AdminTimesController extends Controller
         
         $TimeList = new TimeList();
         $TimeList->time_period = $req->timeperiod;
-        $TimeList->time_start = $req->time_start;
-        $TimeList->time_end = $req->time_end;
+        $TimeList->time_start = $req->timestart;
+        $TimeList->time_end = $req->timeend;
+       
+
 
         $TimeList->save();
         Session::flash("message", "已新增");
@@ -55,7 +57,11 @@ class AdminTimesController extends Controller
 
     public function delete(Request $req)
     {
-        TimeList::find($req->timeId)->delete();
-        echo("ok");
+        if ($req->has("timeId")) {
+            // 刪除選取的 timeId
+            TimeList::whereIn("timeId", $req->input("timeId"))->delete();
+            Session::flash("message", "已刪除");
+        }
+        return redirect("/admin/TimeList/list");
     }
 }

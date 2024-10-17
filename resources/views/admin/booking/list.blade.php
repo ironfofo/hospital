@@ -58,7 +58,7 @@
             <div class="col-12">
                 <div class="card shadow-lg">
                     <div class="card-body">
-                        <table class="table table-striped table-bordered table-rwd">
+                        <table class="table table-striped table-bordered table-rwd table-hover">
                             <thead>
                                 <tr>
                                     <th class="text-center">預約編號</th>

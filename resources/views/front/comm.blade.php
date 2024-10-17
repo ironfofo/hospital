@@ -65,16 +65,21 @@
             <a class="nav-link" href="/contact/list">聯絡我們</a>
           </li>
 
+          @if(Session()->has("userId"))
           <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">會員系統</a>
+            
           </li>
+          @endif
         </ul>
         
         <div class="ms-1">
           @if(Session()->has("userId"))
           <div class="d-flex align-items-center ms-2">
+          <a class="nav-link" href="#">
             <i class="fa-solid fa-user text-03 "></i>
             <span class="text-03 fw-900" id="login_username02">{{session()->get("userId")}}</span>
+            <span class="text-03 fw-900" >會員系統</span>
+          </a>
           <button class="btn01 ms-2" type="button" onclick="logOut()"><i class="fa-solid fa-right-from-bracket"></i>登出</button>
           </div>
           @else
@@ -132,12 +137,12 @@
       </div>
     </div>
   </footer>
-  <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="/js/jquery-3.7.1.min.js"></script>
+  <script src="/js/jquery-ui.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
   <script src="/js/wow.min.js"></script>
   <script src="/js/sweetalert2@11.js"></script>
-  <script src="/js/jquery-ui.min.js"></script>
 
   <script>
     function logOut() {

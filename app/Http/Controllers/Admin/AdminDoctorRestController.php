@@ -1,21 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Front;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Booking;
 use App\Models\Doctor;
 use App\Models\DoctorRest;
 use App\Models\TimeList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
-
-class FrontScheduleController extends Controller
+class AdminDoctorRestController extends Controller
 {
-
-
-
     public function list(Request $req)
     {
 
@@ -38,7 +34,6 @@ class FrontScheduleController extends Controller
         $dates = $this->generateWeekDates($startDate);//取得一周時間
         $doctorrest = DoctorRest::all();//醫生休息班表
         $doctor = (new Doctor)->getList();//醫師基本資料
-        $doctorName = Doctor::all(); //sweatlart的doctorName
         $TimeList = TimeList::all();//時段設定
 
 
@@ -69,7 +64,6 @@ class FrontScheduleController extends Controller
         }
         
 
-
         // 計算預約數量
         $counts = [];
         foreach ($doctor as $doc) {
@@ -94,29 +88,43 @@ class FrontScheduleController extends Controller
         return $dates;
     }
 
-
-    private function getCountsForDates($timeIds, $dates, $doctorId)
+    public function add()
     {
-        $counts = [];
-        foreach ($timeIds as $timeId) {
-            foreach ($dates as $date) {
-                $counts[$timeId][$date['date']] = (new Booking())->bookingCount($timeId, $date['date'], $doctorId);
-            }
-        }
-        return $counts;
+        $list=DoctorRest::get();
+        return view("admin.doctor.doctorrest.add",compact("list"));
     }
 
-    public function doBooking(Request $req)
+    public function insert(Request $req)
     {
-        $booking = new Booking();
+        $doctorrest=new DoctorRest();
+        $doctorrest->id=$req->id;
+        $doctorrest->doctorId=$req->doctorId;
+        $doctorrest->dates=$req->dates;
+        $doctorrest->timeId=$req->timeId;
 
-        $booking->userId = session()->get("userId");
-        $booking->dates = $req->dates;
-        $booking->timeId = $req->timeId;
-        $booking->doctorId = $req->doctorId;
-        $booking->save();
-
-        // Session::flash("message", "預定成功");
-        return redirect("/schedule/list");
+        $doctorrest->save();
+        Session::flash("message","新增成功");
+        return redirect("/admin/doctorrest/list");
     }
+
+
+    public function edit(Request $req)
+    {
+        $doctorrest=DoctorRest::find($req->id);
+        return view("admin.doctor.doctorrest.add",compact("list"));
+    }
+
+    public function update(Request $req)
+    {
+        $doctorrest=DoctorRest::find($req->id);
+        $doctorrest->doctorId=$req->doctorId;
+        $doctorrest->dates=$req->dates;
+        $doctorrest->timeId=$req->timeId;
+
+        $doctorrest->save();
+        Session::flash("message","新增成功");
+        return redirect("/admin/doctorrest/list");
+    }
+
+    
 }

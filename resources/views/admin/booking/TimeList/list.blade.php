@@ -31,7 +31,7 @@
                                 @foreach($list as $data)
                                 <tr>
                                     <td class="text-center">
-                                        <input type="checkbox" class="chk form-check-input border border-secondary" name="id[]" value="{{ $data->id }}">
+                                        <input type="checkbox" class="chk form-check-input border border-secondary" name="timeId[]" value="{{ $data->timeId }}">
                                     </td>
                                     <td class="text-center">{{ $data-> time_period}}</td>
                                     <td class="text-center">{{ $data->time_start }}</td>

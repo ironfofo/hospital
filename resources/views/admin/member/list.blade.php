@@ -68,7 +68,7 @@
             </div>
             <div class="card shadow-lg">
                 <div class="card-body">
-                    <table class="table table-striped table-bordered">
+                    <table class="table table-striped table-bordered table-hover">
                         <tr>
                             <th class="text-center">姓名</th>
                             <th class="text-center">信箱</th>

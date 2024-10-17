@@ -25,7 +25,7 @@ class AdminProfessionalController extends Controller
         
         $pro = new Professional();
         $pro->department = $req->department;
-        $pro->landepartment = $req->lan;
+        $pro->lan = $req->lan;
 
         $pro->save();
         Session::flash("message", "已新增");
@@ -54,8 +54,13 @@ class AdminProfessionalController extends Controller
 
     public function delete(Request $req)
     {
-        Professional::find($req->typeId)->delete();
-        echo("ok");
+        if ($req->has("typeId")) {
+            // 刪除選取的 timeId
+            Professional::whereIn("typeId", $req->input("typeId"))->delete();
+            Session::flash("message", "已刪除");
+        }
+        return redirect("/admin/professional/list");
+
     }
 
 }

@@ -17,31 +17,31 @@
                         <input type="hidden" name="doctorId" value="{{ $doctor->doctorId }}">
                         {{ csrf_field() }}
                         <div class="row mt-3">
-                            <div class="col-2 text-end">編號</div>
+                            <label class="col-2 text-end">編號</label>
                             <div class="col-10">
                                 <input type="text" class="form-control" name="doctorId" required value="{{ $doctor->doctorId }}">
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-2 text-end">姓名</div>
+                            <label class="col-2 text-end">姓名</label>
                             <div class="col-10">
                                 <input type="text" class="form-control" name="doctorName" required value="{{ $doctor->doctorName }}">
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-2 text-end">職位</div>
+                            <label class="col-2 text-end">職位</label>
                             <div class="col-10">
                                 <input type="text" class="form-control" name="position" required value="{{ $doctor->position }}">
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-2 text-end">學歷</div>
+                            <label class="col-2 text-end">學歷</label>
                             <div class="col-10">
                                 <input type="text" class="form-control" name="edu" required value="{{ $doctor->edu }}">
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-2 text-end">科別</div>
+                            <label class="col-2 text-end">科別</label>
                             <div class="col-10">
                                 <select name="department" id="typeId" class="form-select">
                                         @foreach($pr as $data)
@@ -51,13 +51,13 @@
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-2 text-end">內容</div>
+                            <label class="col-2 text-end">內容</label>
                             <div class="col-10">
                                 <textarea class="form-control editor" name="content" id="editor">{!! $doctor->content !!}</textarea>
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-2 text-end">圖檔</div>
+                            <label class="col-2 text-end">圖檔</label>
                             <div class="col-4">
                                 <input type="file" class="form-control" name="photo" id="file">
                                 @if(!empty($doctor->photo))

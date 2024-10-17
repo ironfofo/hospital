@@ -268,14 +268,7 @@
       @yield("content")
       <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-      <strong>Copyright &copy; 2024- <a href="https://appledog0113.github.io">appleDog</a>.</strong>
-      All rights reserved.
-      <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
-      </div>
-    </footer>
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -286,7 +279,7 @@
   <!-- ./wrapper -->
 
   <!-- jQuery -->
-  <script src="/js/jquery/jquery.min.js"></script>
+  <script src="/js/jquery/jquery-3.7.1.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
   <script src="/js/jquery/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

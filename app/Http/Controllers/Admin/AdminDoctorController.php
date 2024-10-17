@@ -44,7 +44,7 @@ class AdminDoctorController extends Controller
         $doctor->save();
         Session::flash("message", "已新增");
         return redirect("/admin/doctor/list");
-        dd($fileName);
+
     }
 
     public function edit(Request $req)
@@ -65,6 +65,7 @@ class AdminDoctorController extends Controller
 
             if (!empty($doctor->photo)) {
                 @unlink("images/doctor/" . $doctor->photo);
+                @unlink("images/doctor/S/" . $doctor->photo);
             }
             //圖檔設定新的檔名
             $doctor->photo = $fileName;
@@ -88,6 +89,7 @@ class AdminDoctorController extends Controller
             $doctor = Doctor::find($id);
             if (!empty($doctor->photo)) {
                 @unlink("images/doctor/" . $doctor->photo);
+                @unlink("images/doctor/S/" . $doctor->photo);
             }
             $doctor->delete();
         }
