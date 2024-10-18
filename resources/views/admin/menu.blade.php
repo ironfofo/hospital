@@ -111,6 +111,14 @@
           </a>
         </li>
       </ul>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="/admin/doctor/doctorrest/list" class="nav-link{{ Request::is("admin/doctor/doctorrest/list") ?" active " : "" }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>醫師修假表</p>
+          </a>
+        </li>
+      </ul>
     </li>
 
 

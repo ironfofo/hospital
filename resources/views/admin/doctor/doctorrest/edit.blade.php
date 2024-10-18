@@ -1,64 +1,95 @@
 @extends("admin.app")
-@section("title","修改醫師休假表")
+@section("title","編輯醫師休假表")
 @section("content")
-<link rel="stylesheet" href="/css/admin/ckeditor.css">
 
+<link rel="stylesheet" href="/css/myall.css">
+<!-- 引入 jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- 引入 Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
+<!-- 查詢用 -->
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <a href="../list" class="btn btn-secondary">回上頁</a>
-                </div>
-                <div class="card-body">
-                    <!-- action目標位置網址  enctype="multipart/form-data上傳圖檔專用-->
-                    <form method="post" action="../update" enctype="multipart/form-data">
-                        <input type="hidden" name="id" value="{{ $doctor->id }}">
-                        {{ csrf_field() }}
-
-
-
-                        <div class="row mt-3">
-                            <label class="col-2 text-end">醫師編號</label>
-                            <div class="col-10">
-                                <select name="department" id="typeId" class="form-select">
-                                        @foreach($doctorrest as $data)
-                                            <option value="{{$data->doctorId}}"{{$data->typeId==$doctor->typeId ? "selected": ""}}>{{$data->department}}</option>
-                                        @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <label class="col-2 text-end">內容</label>
-                            <div class="col-10">
-                                <textarea class="form-control editor" name="content" id="editor">{!! $doctor->content !!}</textarea>
-                            </div>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col-12 text-end">
-                                <button type="submit" class="btn btn-primary btn-lg">儲存</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="row mb-1">
+        <div class="col text-right ">
+            <form action="{{ url('/admin/doctorrest/list') }}" method="GET">
+                <input type="date" name="date" class="form-control" value="{{ $startDate->format('Y-m-d') }}">
+                <button type="submit" class="btn btn-primary mt-2">查詢</button>
+            </form>
         </div>
     </div>
-</div>
-<script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/super-build/ckeditor.js"></script>
-<script src="/js/admin/editor.js"></script>
 
-<script>
-    $("#file").change(function () {
-        if (file.files[0].type == "image/png" || file.files[0].type == "image/jpeg") {
-            $("#prevImg").removeClass("d-none");
-            $("#prevImg").attr("src", URL.createObjectURL(file.files[0]));
-                photo = file01.files[0];
-            } else {
-                alert("jpg or png");
-            }
-    });
-</script>
+    <!-- Tab Navigation -->
+    <ul class="nav nav-tabs mb-4" id="doctorTab" role="tablist">
+        @foreach($doctor as $key => $doc)
+            <li class="nav-item">
+                <a class="nav-link {{ $key === 0 ? 'active' : '' }}" id="tab-{{ $doc->doctorId }}" data-toggle="tab" href="#doctor-{{ $doc->doctorId }}" role="tab" aria-controls="doctor-{{ $doc->doctorId }}" aria-selected="{{ $key === 0 ? 'true' : 'false' }}">
+                    {{ $doc->doctorName }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content">
+    @foreach($doctor as $key => $doc)
+        <div class="tab-pane fade {{ $key === 0 ? 'show active' : '' }}" id="doctor-{{ $doc->doctorId }}" role="tabpanel" aria-labelledby="tab-{{ $doc->doctorId }}">
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">日期</th>
+                            @foreach($dates as $date)
+                                <th scope="col">{{ $date['date'] }} <br> ({{ $date['weekday'] }})</th>
+                            @endforeach
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>{{ $doc->doctorName }}</strong></td>
+                            @foreach($dates as $date)
+                                @php
+                                    $scheduleForDate = $doctorSchedule[$doc->doctorId] ?? [];
+                                @endphp
+
+                                <td>
+                                    @foreach($TimeList as $time)
+                                        @php
+                                            $isRest = $scheduleForDate[$time->timeId][$date['date']] ?? false;
+                                            $checkboxName = "schedule[{$doc->doctorId}][{$date['date']}][{$time->timeId}]";
+                                        @endphp
+                                        
+                                        <div class="mb-2">
+                                            <input type="checkbox" name="{{ $checkboxName }}" value="1" {{ $isRest ? 'checked' : '' }}>
+                                            <form id="doctorrestForm" action="/admin/doctor/doctorrest/update" method="post">
+                                            {{ csrf_field() }}
+                                                <input type="hidden" name="doctorId" value="{{ $doc->doctorId }}">
+                                                <input type="hidden" name="dates" value="{{ $date['date'] }}">
+                                                <input type="hidden" name="timeId" value="{{ $time->timeId }}">
+                                            </form>
+                                            @if($isRest)
+                                                <label type="button" class="btn02">休息</label>
+                                            @else
+                                                <label type="button" class="btn02">上班</label>
+                                            @endif    
+                                        </div>
+                                    @endforeach
+                                </td>
+                            @endforeach
+                        </tr>
+                    </tbody>
+                    <div class="col-auto mt-1 mb-3">
+                        <a class="btn01" type="submit">儲存</a>
+                    </div>
+                </table>
+            </div>
+        </div>
+    @endforeach
+</div>  
+
+
+</div>
+
+
+
 @endsection

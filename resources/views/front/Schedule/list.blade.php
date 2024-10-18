@@ -52,7 +52,7 @@
 
     .doctor_img {
         width: 100%; /* 使圖片自適應寬度 */
-        height: auto;
+        height: auto;/
     }
 
     .btn03, .btn {
@@ -155,20 +155,20 @@
                                 @foreach($dates as $date)
                                     <div class="col">
                                         @if($doctorSchedule[$doc->doctorId][$time->timeId][$date['date']])
-                                            <a class="btn disabled" name="date">休</a>
+                                            <button class="btn disabled" name="date">休</button>
                                         @else
-                                            <a class="btn" name="date" onclick="doBooking(event, this)">{{ $time->time_period }}
-                                                <div>
-                                                    <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
-                                                        {{ csrf_field() }}
-                                                        <input type="hidden" name="userId">
-                                                        <input type="hidden" name="dates" value="{{ $date['date'] }}">
-                                                        <input type="hidden" name="timeId" value="{{ $time->timeId }}">
-                                                        <input type="hidden" name="doctorId" value="{{$doc->doctorId}}">
-                                                        <span class="people_num text-danger fw-100">({{ $counts[$doc->doctorId][$time->timeId][$date['date']] ?? 0}}人)</span>
-                                                    </form>
-                                                </div>
-                                            </a>
+                                        <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="userId">
+                                            <input type="hidden" name="dates" value="{{ $date['date'] }}">
+                                            <input type="hidden" name="timeId" value="{{ $time->timeId }}">
+                                            <input type="hidden" name="doctorId" value="{{ $doc->doctorId }}">
+                                            <button class="btn" type="button" onclick="doBooking(event, this)">
+                                                {{ $time->time_period }}
+                                                <span class="people_num text-danger fw-100">({{ $counts[$doc->doctorId][$time->timeId][$date['date']] ?? 0}}人)</span>
+                                            </button>
+                                        </form>
+
                                         @endif
                                     </div>
                                 @endforeach

@@ -189,15 +189,15 @@ ul li {
     color: var(--mytextcolor04);
 }
 
-/* calendar  預約時程按鈕 */
-.d_calender a {
+/* calendar  前台預約時程按鈕 */
+.d_calender button {
     min-width: 10px;
     background-color: #EFF2F9;
     color: #333;
     display: block;
     margin: 10px auto;
 }
-.d_calender a:hover {
+.d_calender button:hover {
     background-color: var(--mycolor02);
     color: var(--mytextcolor01);
 }
@@ -221,6 +221,41 @@ ul li {
     line-height: 16px;
 }
 
+
+/* calendar  後台按鈕 */
+.d_calenderrest a {
+    min-width: 20px;
+    background-color: #EFF2F9;
+    color: #333;
+    display: block;
+    margin: 10px auto;
+}
+.d_calenderrest a:hover {
+    background-color: var(--mycolor02);
+    color: var(--mytextcolor01);
+}
+
+.d_calenderrest .btn {
+    padding: 6px;
+    width: 80px;
+    height: 80px;
+    margin-top: 0px;
+    margin-left: 0px;
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    /* 控制文字大小寫 */
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.d_calenderrest a div.room_info span.people_num {
+    color: #d93232;
+    line-height: 16px;
+}
+
+/* 醫師照片 */
 .doctor_img {
     display: block;
     width: 200px;
@@ -234,7 +269,6 @@ ul li {
     position: relative;
     overflow: hidden;
 }
-
 .roller {
     position: absolute;
     top: 100%;
@@ -245,7 +279,6 @@ ul li {
     justify-content: center;
     align-items: center;
 }
-
 .box_roller:hover .roller {
     top: 0;
     transition: top 1s;
@@ -306,7 +339,6 @@ a {
     padding: 10px 1rem;
     transition: 0.25s;
 }
-
 .input01:focus {
     outline-offset: 5px;
     background-color: #fff
@@ -333,23 +365,19 @@ a {
     align-items: center;
     gap: 1em;
 }
-
 .card__body {
     color: #464853;
     line-height: 1.5em;
     font-size: 1em;
 }
-
 .card01> :not(span) {
     transition: .3s cubic-bezier(.6, .4, 0, 1);
 }
-
 .card01>strong {
     display: block;
     font-size: 1.4rem;
     letter-spacing: -.035em;
 }
-
 .card01 span {
     position: absolute;
     inset: 0;
@@ -364,16 +392,13 @@ a {
     top: 100%;
     transition: all .3s cubic-bezier(.6, .4, 0, 1);
 }
-
 .card01:hover span {
     top: 0;
     font-size: 1.2em;
 }
-
 .card01:hover {
     background: var(--hover-bg);
 }
-
 .card01:hover>div,
 .card:hover>strong {
     opacity: 0;
@@ -406,7 +431,6 @@ a {
     font-size: 1.4rem;
     letter-spacing: -.035em;
 }
-
 .card02 span {
     position: absolute;
     inset: 0;
@@ -454,7 +478,6 @@ a {
     /* transition: transform 0.5s ease, 
         font-size 0.5s ease, color 0.5s ease, 
         background-color 0.5s ease;  */
-
 }
 .btn01:hover {
     transform: scale(1.03) translateY(-3px);

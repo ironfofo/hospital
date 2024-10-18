@@ -1,73 +1,86 @@
 @extends("admin.app")
-@section("title","醫師基本資料")
+@section("title","醫師休假表")
 @section("content")
-<link rel="stylesheet" href="/css/lightbox.min.css">
-<script src="/js/lightbox.min.js"></script>
-<script>
-    lightbox.option({
-      'resizeDuration':10 ,
-      'wrapAround': true,
-    })
-</script>
+
+<link rel="stylesheet" href="/css/myall.css">
+<!-- 引入 jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- 引入 Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<!-- 查詢用 -->
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-2">
-                            <a class="btn btn-primary" href="add">新增</a>
-                        </div>
-                        <div class="col-2">
-                            <a class="btn btn-danger" href="javascript:doDelete('list')">刪除</a>
-                        </div>
-                    </div>
-                    <form name="list" id="list" method="post" action="delete">
-                        {{ csrf_field() }}
-                        <table class="table mt-3">
-                            <thead>
-                                <tr class="table-warning">
-                                    <td class="col-1 text-center">
-                                        <input type="checkbox" name="all" id="all" class=" form-check-input">
-                                    </td>
-                                    <td class="text-center">編號</td>
-                                    <td class="text-center">姓名</td>
-                                    <td class="text-center">職位</td>
-                                    <td class="text-center">學歷</td>
-                                    <td class="text-center">科別</td>
-                                    <td class="text-center">圖檔</td>
-                                    <td class="text-center">修改</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($list as $data)
-                                <tr>
-                                    <td class="text-center">
-                                        <input type="checkbox" class="chk form-check-input border border-secondary" name="doctorId[]" value="{{ $data->doctorId }}">
-                                    </td>
-                                    <td class="text-center">{{ $data->doctorId }}</td>
-                                    <td class="text-center">{{ $data->doctorName }}</td>
-                                    <td class="text-center">{{ $data->position }}</td>
-                                    <td class="text-center">{{ $data->edu }}</td>
-                                    <td class="text-center">{{ $data->department }}</td>
-                                    <td class="text-center">
-                                        @if(!empty($data->photo))
-                                            <a href="/images/doctor/{{ $data->photo }}" data-lightbox="photo">
-                                                <img src="/images/doctor/{{ $data->photo }}" width="100">
-                                            </a>
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="edit/{{ $data->doctorId }}" class="btn btn-success">修改</a>  
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </form>
-                </div>
-            </div>
+    <div class="row mb-1">
+        <div class="col text-right ">
+            <form action="{{ url('/admin/doctorrest/list') }}" method="GET">
+                <input type="date" name="date" class="form-control" value="{{ $startDate->format('Y-m-d') }}">
+                <button type="submit" class="btn btn-primary mt-2">查詢</button>
+            </form>
         </div>
     </div>
+
+    <!-- Tab Navigation -->
+    <ul class="nav nav-tabs mb-4" id="doctorTab" role="tablist">
+        @foreach($doctor as $key => $doc)
+            <li class="nav-item">
+                <a class="nav-link {{ $key === 0 ? 'active' : '' }}" id="tab-{{ $doc->doctorId }}" data-toggle="tab" href="#doctor-{{ $doc->doctorId }}" role="tab" aria-controls="doctor-{{ $doc->doctorId }}" aria-selected="{{ $key === 0 ? 'true' : 'false' }}">
+                    {{ $doc->doctorName }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content">
+        @foreach($doctor as $key => $doc)
+            <div class="tab-pane fade {{ $key === 0 ? 'show active' : '' }}" id="doctor-{{ $doc->doctorId }}" role="tabpanel" aria-labelledby="tab-{{ $doc->doctorId }}">
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">日期</th>
+                                @foreach($dates as $date)
+                                    <th scope="col">{{ $date['date'] }} <br> ({{ $date['weekday'] }})</th>
+                                @endforeach
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>{{ $doc->doctorName }}</strong></td>
+                                @foreach($dates as $date)
+                                    @php
+                                        $scheduleForDate = $doctorSchedule[$doc->doctorId] ?? [];
+                                    @endphp
+                                    <td>
+                                        @foreach($TimeList as $time)
+                                            @php
+                                                $isRest = $scheduleForDate[$time->timeId][$date['date']] ?? false;
+                                            @endphp
+                                            <div class="mb-2">
+                                                <strong>{{ $time->time_start }} - {{ $time->time_end }}</strong>
+                                                <br>
+                                                @if($isRest)
+                                                    <button class="btn btn-sm btn-danger">休息</button>
+                                                @else
+                                                    <button class="btn btn-sm btn-success">上班</button>
+                                                @endif
+                                            </div>
+                                        @endforeach
+                                    </td>
+                                @endforeach
+                            </tr>
+                        </tbody>
+                        <div class="col-auto mt-1 mb-3">
+                            <a class="btn01" href="edit/{{ $doc->doctorId }}">編輯班表</a>
+                        </div>
+                    </table>
+                </div>
+            </div>
+        @endforeach
+    </div>  
+
 </div>
+
+
+
 @endsection
