@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row mb-1">
         <div class="col text-right ">
-            <form action="{{ url('/admin/doctorrest/list') }}" method="GET">
+            <form action="{{ url('/admin/doctor/doctorrest/edit') }}" method="GET">
                 <input type="date" name="date" class="form-control" value="{{ $startDate->format('Y-m-d') }}">
                 <button type="submit" class="btn btn-primary mt-2">查詢</button>
             </form>
@@ -34,6 +34,8 @@
     <div class="tab-content">
     @foreach($doctor as $key => $doc)
         <div class="tab-pane fade {{ $key === 0 ? 'show active' : '' }}" id="doctor-{{ $doc->doctorId }}" role="tabpanel" aria-labelledby="tab-{{ $doc->doctorId }}">
+            <form id="doctorrestForm" action="/admin/doctor/doctorrest/update" method="post">
+                {{csrf_field()}}
             <div class="table-responsive">
                 <table class="table table-bordered text-center">
                     <thead class="thead-light">
@@ -52,25 +54,23 @@
                                     $scheduleForDate = $doctorSchedule[$doc->doctorId] ?? [];
                                 @endphp
 
-                                <td>
+                                <td>     
                                     @foreach($TimeList as $time)
                                         @php
                                             $isRest = $scheduleForDate[$time->timeId][$date['date']] ?? false;
                                             $checkboxName = "schedule[{$doc->doctorId}][{$date['date']}][{$time->timeId}]";
                                         @endphp
-                                        
+                                       
                                         <div class="mb-2">
-                                            <input type="checkbox" name="{{ $checkboxName }}" value="1" {{ $isRest ? 'checked' : '' }}>
-                                            <form id="doctorrestForm" action="/admin/doctor/doctorrest/update" method="post">
-                                            {{ csrf_field() }}
-                                                <input type="hidden" name="doctorId" value="{{ $doc->doctorId }}">
-                                                <input type="hidden" name="dates" value="{{ $date['date'] }}">
-                                                <input type="hidden" name="timeId" value="{{ $time->timeId }}">
-                                            </form>
+                                                {{ csrf_field() }}
+                                                <input type="checkbox" name="{{ $checkboxName }}[checked]" value="1" {{ $isRest ? 'checked' : '' }}>
+                                                <input type="hidden" name="{{ $checkboxName }}[doctorId]" value="{{ $doc->doctorId }}">
+                                                <input type="hidden" name="{{ $checkboxName }}[dates]" value="{{ $date['date'] }}">
+                                                <input type="hidden" name="{{ $checkboxName }}[timeId]" value="{{ $time->timeId }}">
                                             @if($isRest)
-                                                <label type="button" class="btn02">休息</label>
+                                                <label type="button" class="btn04">休息</label>
                                             @else
-                                                <label type="button" class="btn02">上班</label>
+                                                <label type="button" class="btn05">上班</label>
                                             @endif    
                                         </div>
                                     @endforeach
@@ -79,10 +79,11 @@
                         </tr>
                     </tbody>
                     <div class="col-auto mt-1 mb-3">
-                        <a class="btn01" type="submit">儲存</a>
+                        <button class="btn01" type="submit">儲存</button>
                     </div>
                 </table>
             </div>
+        </form>
         </div>
     @endforeach
 </div>  

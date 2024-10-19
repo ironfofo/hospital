@@ -67,6 +67,8 @@ h3 {
     --mytextcolor02: #7a4800;
     --mytextcolor03: #FF9800;
     --mytextcolor04: #0c0570;
+    --mytextcolor05: #9a9a9a;
+    ;
 }
 
 .bg-01 {
@@ -562,7 +564,6 @@ a {
     /* transition: transform 0.5s ease, 
         font-size 0.5s ease, color 0.5s ease, 
         background-color 0.5s ease;  */
-
 }
 .btn03:hover {
     transform: scale(1.03) translateY(-3px);
@@ -580,6 +581,45 @@ a {
     transform: scale(1.4);
     box-shadow: 5px 5px 10px rgb(119, 119, 119);
 }
+
+
+/* doctorrest醫師休息 */
+.btn04 {
+    margin-right: 5px;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: var(--mycolor06);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    color: var(--mytextcolor04);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* doctorrest醫師上班 */
+.btn05 {
+    margin-right: 5px;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: var(--mycolor03);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    color: var(--mytextcolor05);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
 
 
 .bg-btn01 {

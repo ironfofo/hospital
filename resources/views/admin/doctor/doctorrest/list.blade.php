@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row mb-1">
         <div class="col text-right ">
-            <form action="{{ url('/admin/doctorrest/list') }}" method="GET">
+            <form action="{{ url('/admin/doctor/doctorrest/list') }}" method="GET">
                 <input type="date" name="date" class="form-control" value="{{ $startDate->format('Y-m-d') }}">
                 <button type="submit" class="btn btn-primary mt-2">查詢</button>
             </form>
@@ -71,7 +71,7 @@
                             </tr>
                         </tbody>
                         <div class="col-auto mt-1 mb-3">
-                            <a class="btn01" href="edit/{{ $doc->doctorId }}">編輯班表</a>
+                            <a class="btn01" href="edit">編輯班表</a>
                         </div>
                     </table>
                 </div>

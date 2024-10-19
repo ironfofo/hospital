@@ -67,30 +67,10 @@ class AdminDoctorRestController extends Controller
         return $dates;
     }
 
-    public function add()
-    {
-        $list=DoctorRest::get();
-        return view("admin.doctor.doctorrest.add",compact("list"));
-    }
-
-    public function insert(Request $req)
-    {
-        $doctorrest=new DoctorRest();
-        $doctorrest->id=$req->id;
-        $doctorrest->doctorId=$req->doctorId;
-        $doctorrest->dates=$req->dates;
-        $doctorrest->timeId=$req->timeId;
-
-        $doctorrest->save();
-        Session::flash("message","新增成功");
-        return redirect("/admin/doctorrest/list");
-    }
-
 
     public function edit(Request $req)
     {
         $currentDate = $req->input('date', Carbon::now()->format('Y-m-d')); // 如果前端未傳遞日期，則使用當前日期
-
         $startDate = Carbon::parse($currentDate); //將取得的日期轉換為 Carbon 日期對象，便於後續進行日期操作。
 
         $dates = $this->generateMonthDates($startDate);//取得一周時間
@@ -125,15 +105,41 @@ class AdminDoctorRestController extends Controller
 
     public function update(Request $req)
     {
-        $doctorrest=DoctorRest::find($req->id);
-        $doctorrest->doctorId=$req->doctorId;
-        $doctorrest->dates=$req->dates;
-        $doctorrest->timeId=$req->timeId;
-
-        $doctorrest->save();
-        Session::flash("message","新增成功");
-        return redirect("/admin/doctorrest/list");
-    }
-
+        $input = $req->input('schedule', []);
     
+        foreach ($input as $doctorId => $dates) {
+            foreach ($dates as $date => $timeSlots) {
+                foreach ($timeSlots as $timeId => $scheduleData) {
+                    if (isset($scheduleData['checked'])) {
+                        // 使用 updateOrCreate 避免重複插入相同資料
+                        DoctorRest::updateOrCreate(
+                                // 用來查找現有記錄的條件
+                            [
+                                'doctorId' => $scheduleData['doctorId'],
+                                'dates' => $scheduleData['dates'],
+                                'timeId' => $scheduleData['timeId'],
+                            ],
+                                // 用來指定要更新或插入的欄位
+                            [
+                                'doctorId' => $scheduleData['doctorId'],
+                                'dates' => $scheduleData['dates'],
+                                'timeId' => $scheduleData['timeId'],
+                            ]
+                        );
+                    } else {
+                        // 如果沒有勾選，則檢查是否存在該資料並刪除（表示醫師不再休息）
+                        DoctorRest::where('doctorId', $scheduleData['doctorId'])
+                            ->where('dates', $scheduleData['dates'])
+                            ->where('timeId', $scheduleData['timeId'])
+                            ->delete();
+                    }
+                    dd($input);
+                }
+            }
+        }
+
+        Session::flash("message", "修改成功");
+        return redirect("/admin/doctor/doctorrest/list");
+    }
+      
 }
