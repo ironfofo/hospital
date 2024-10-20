@@ -10,7 +10,7 @@ class FrontDoctorCOntroller extends Controller
 {
     public function list()
     {
-        $doctor=Doctor::get();
+        $doctor=(new Doctor)->getList();
 
         return view("front.doctor.list",compact("doctor"));
     }

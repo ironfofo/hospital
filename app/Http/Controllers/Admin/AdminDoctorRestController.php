@@ -133,7 +133,7 @@ class AdminDoctorRestController extends Controller
                             ->where('timeId', $scheduleData['timeId'])
                             ->delete();
                     }
-                    dd($input);
+                    // dd($input);
                 }
             }
         }

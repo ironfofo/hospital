@@ -133,7 +133,7 @@
                                             <div class="roller"><span class="fw-900">{{$doc->doctorName}}</span></div>
                                             <img class="doctor_img" src="/images/doctor/{{$doc->photo}}">
                                         </div>
-                                        <a class="btn03 mt-3" id="intro" href="/doctor/list"><i class="fa fa-user"></i>醫師簡介</a>
+                                        <a class="btn03 mt-3" id="intro" href="/doctor/list/#{{$doc->doctorId}}"><i class="fa fa-user"></i>醫師簡介</a>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@
                                         @if($doctorSchedule[$doc->doctorId][$time->timeId][$date['date']])
                                             <button class="btn disabled" name="date">休</button>
                                         @else
-                                        <form id="bookingForm" action="/schedule/booking/insert" method="post" onsubmit="return false">
+                                        <form id="bookingForm" action="/schedule/booking/insert" method="post">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="userId">
                                             <input type="hidden" name="dates" value="{{ $date['date'] }}">
@@ -165,16 +165,23 @@
                                             <input type="hidden" name="doctorId" value="{{ $doc->doctorId }}">
                                             <button class="btn" type="button" onclick="doBooking(event, this)">
                                                 {{ $time->time_period }}
-                                                <span class="people_num text-danger fw-100">({{ $counts[$doc->doctorId][$time->timeId][$date['date']] ?? 0}}人)</span>
+                                                <span class="people_num text-danger fw-100">({{ $counts[$doc->doctorId][$time->timeId][$date['date']] ?? 0 }}人)</span>
                                             </button>
                                         </form>
-
                                         @endif
                                     </div>
                                 @endforeach
                             </div>
                             @endforeach
+
+                            <div class="mt-4">
+                            @foreach($TimeList as $time)
+                                <div class="text-05">{{$time->time_period}} {{$time->time_start}}-{{ $time->time_end }}</div>
+                            @endforeach
+                                <span class="text-05 text-danger fw-100">預約(人數)</span>
+                            </div>
                         </div>
+
 
                     </div>
                 </div>
@@ -185,22 +192,40 @@
 </div>
 
 <script>
+    // 這個函數負責打開選擇的 tab。它會隱藏所有的 tab 內容 (tabcontent)，並移除所有 tab 按鈕的 active 樣式，然後根據使用者點擊的按鈕顯示相應的 tab 內容，並給這個按鈕加上 active 樣式。
     function openPr(evt, professional) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+            tabcontent[i].style.display = "none";   //遍歷所有具有 tabcontent class 的元素，將它們的 display 設置為 none
         }
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
+            tablinks[i].className = tablinks[i].className.replace(" active", "");   //遍歷所有具有 tablinks class 的按鈕，將它們的 active class 移除
         }
-        document.getElementById(professional).style.display = "block";
-        evt.currentTarget.className += " active";
+        document.getElementById(professional).style.display = "block";  //根據 professional 參數，找到相應的 tab 內容並顯示出來（display: block
+        evt.currentTarget.className += " active";   //如果有事件傳遞進來，將當前被點擊的按鈕加上 active 樣式。
     }
 
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
+
+    // Function to handle opening tab based on URL hash
+    function openTabFromHash() {
+        var hash = window.location.hash.substring(1); // window.location.hash 會返回 URL 中的 hash 部分（例如 #tabName），substring(1) 则是去掉 #，只保留 tab 名稱。
+        if (hash) {
+            var targetTabButton = document.querySelector(".tab button[onclick*='" + hash + "']");   //它使用 querySelector 查找具有特定 onclick 事件的按鈕，並自動點擊該按鈕，打開對應的 tab
+            if (targetTabButton) {
+                targetTabButton.click();
+            }
+        }
+    }
+
+    // Call the function when the page loads
+    openTabFromHash();
+
+    // Also listen for hash change in case the hash changes while staying on the page
+    window.addEventListener("hashchange", openTabFromHash);
 </script>
 
 <script>
@@ -209,10 +234,15 @@
 
     function doBooking(event, element) {
         event.preventDefault(); // 防止默認行為
-        const form = element.querySelector("form"); // 獲取當前表單
-        const date = element.querySelector('input[name="dates"]').value; // 獲取當前日期
-        const timeId = element.querySelector('input[name="timeId"]').value; // 獲取當前時段
-        const doctorId = element.querySelector('input[name="doctorId"]').value; // 獲取當前醫生ID
+        // 獲取按鈕所在的表單，應該選擇按鈕的父元素中的表單
+        const form = element.closest("form");
+        const date = form.querySelector('input[name="dates"]').value; // 獲取當前日期
+        const timeId = form.querySelector('input[name="timeId"]').value; // 獲取當前時段
+        const doctorId = form.querySelector('input[name="doctorId"]').value; // 獲取當前醫生ID
+        
+        console.log(timeList);
+        console.log(doctor);
+
 
         const timePeriod = (timeList[timeId - 1] && timeList[timeId - 1].time_period); // 根據 timeId 從 timeList 中獲取時段名稱
         const doctorName = (doctor[doctorId - 1] && doctor[doctorId - 1].doctorName);

@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PetHospital</title>
+  <title> PetHospital</title>
+  <link rel="icon" href="/images/LOGO/pethospitalIcon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/myall.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/slick-theme.css">
@@ -18,12 +19,16 @@
 
 
   <style type="text/css">
-    .nav-link {
-    color:#7a4800 ; 
-}
-    .nav-link:hover {
-    color: #FF9800; /* 懸停時變為柔和的橙色 */
-}
+  .nav-link {
+    color:#7a4800 ;
+    font-weight: 100;
+
+  }
+  .nav-link:hover {
+    color: #FF9800; /* 懸停時變為柔和的橙色 */ 
+
+  }
+
     @import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
 
     
@@ -46,9 +51,6 @@
       </button>
       <div class="collapse navbar-collapse me-3" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/professional/list">專業分科</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="/about/list">關於SUSU</a>
           </li>

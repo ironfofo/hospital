@@ -68,6 +68,8 @@ h3 {
     --mytextcolor03: #FF9800;
     --mytextcolor04: #0c0570;
     --mytextcolor05: #9a9a9a;
+    --mytextcolor06: #ffd000;
+
     ;
 }
 
@@ -105,6 +107,14 @@ h3 {
     font-weight: 700;
 
 }
+.text-05 {
+    color: var(--mytextcolor05);
+    font-size: 15px;
+    font-weight: 300;
+
+}
+
+
 
 .navbar-default {
     -webkit-transition: all .3s cubic-bezier(0.42, 0, 0.58, 1);
@@ -121,8 +131,6 @@ h3 {
     align-items: center;
     justify-content: space-between;
 }
-
-
 
 .breadcrumbs a {
     color: #FFC107;
@@ -604,8 +612,8 @@ a {
 /* doctorrest醫師上班 */
 .btn05 {
     margin-right: 5px;
-    width: 80px;
-    height: 40px;
+    max-width: 100%;
+    min-width: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -617,6 +625,46 @@ a {
     border: none;
     cursor: pointer;
     text-decoration: none;
+}
+
+/* 跳轉到預約schedule */
+.btn06 {
+    margin-right: 5px;
+    padding: 1%;
+    max-width: 100%;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    font-size: 16px;
+    background-color: var(--mycolor03);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    color: var(--mytextcolor02);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 300ms,
+        font-size 300ms, color 300ms;
+    /* transition: transform 0.5s ease, 
+        font-size 0.5s ease, color 0.5s ease, 
+        background-color 0.5s ease;  */
+}
+.btn06:hover {
+    transform: scale(1.03) translateY(-3px);
+    /* 增加大小 */
+    font-size: 18px;
+    /* 增加字體大小 */
+    color: var(--mytextcolor06);
+    /* 改變字體顏色 */
+    background-color: var(--mycolor07);
+    /* 改變背景顏色 */
+}
+.btn06:active {
+    background-color: #EFF2F9;
+    font-size: 16px;
+    transform: scale(1.4);
+    box-shadow: 5px 5px 10px rgb(119, 119, 119);
 }
 
 
