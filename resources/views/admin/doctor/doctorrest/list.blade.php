@@ -23,6 +23,7 @@
     <ul class="nav nav-tabs mb-4" id="doctorTab" role="tablist">
         @foreach($doctor as $key => $doc)
             <li class="nav-item">
+                {{dd($doc)}}
                 <a class="nav-link {{ $key === 0 ? 'active' : '' }}" id="tab-{{ $doc->doctorId }}" data-toggle="tab" href="#doctor-{{ $doc->doctorId }}" role="tab" aria-controls="doctor-{{ $doc->doctorId }}" aria-selected="{{ $key === 0 ? 'true' : 'false' }}">
                     {{ $doc->doctorName }}
                 </a>

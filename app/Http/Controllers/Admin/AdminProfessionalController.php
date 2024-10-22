@@ -12,12 +12,12 @@ class AdminProfessionalController extends Controller
     public function list()
     {
         $list=Professional::get();
-        return view("admin.professional.list",compact("list"));
+        return view("admin.professional.professional.list",compact("list"));
     }
     public function add(Request $req)
     {
         $list=Professional::get();
-        return view("admin.professional.add", compact("list"));
+        return view("admin.professional.professional.add", compact("list"));
     }
 
     public function insert(Request $req)
@@ -29,13 +29,13 @@ class AdminProfessionalController extends Controller
 
         $pro->save();
         Session::flash("message", "已新增");
-        return redirect("/admin/professional/list");
+        return redirect("/admin/professional/professional/list");
     }
 
     public function edit(Request $req)
     {
         $pro=Professional::find($req->typeId);
-        return view("admin.professional.edit", compact("pro"));
+        return view("admin.professional.professional.edit", compact("pro"));
         
     }
 
@@ -49,7 +49,7 @@ class AdminProfessionalController extends Controller
         $pro->update();
 
         Session::flash("message", "已修改");
-        return redirect("/admin/professional/list");
+        return redirect("/admin/professional/professional/list");
     }
 
     public function delete(Request $req)
@@ -59,7 +59,7 @@ class AdminProfessionalController extends Controller
             Professional::whereIn("typeId", $req->input("typeId"))->delete();
             Session::flash("message", "已刪除");
         }
-        return redirect("/admin/professional/list");
+        return redirect("/admin/professional/professional/list");
 
     }
 

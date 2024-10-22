@@ -12,7 +12,7 @@ class Professional_layer1 extends Model
     protected $primaryKey="id";
     protected $fillable=[
         "id",
-        "p_typeId",
+        "typeId",
         "layer1_name",
         "createTime",
     ];
