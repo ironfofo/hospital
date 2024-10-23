@@ -8,10 +8,10 @@
                 <div class="card-header ">
                     <div class="row">
                         <div class="col-auto">
-                            <a class="btn btn-primary" href="add">新增</a>
+                            <a class="btnC" href="add">新增</a>
                         </div>
                         <div class="col-auto">
-                            <a class="btn btn-danger" href="javascript:doDelete('list')">刪除</a>
+                            <a class="btnD" href="javascript:doDelete('list')">刪除</a>
                         </div>
                     </div>
                     <form name="list" id="list" method="post" action="delete">
@@ -36,8 +36,8 @@
                                     <td class="text-center">{{ $data-> time_period}}</td>
                                     <td class="text-center">{{ $data->time_start }}</td>
                                     <td class="text-center">{{ $data->time_end }}</td>
-                                    <td class="text-center">
-                                        <a href="edit/{{ $data->timeId }}" class="btn btn-success">修改</a>  
+                                    <td class="text-center d-flex justify-content-center">
+                                        <a href="edit/{{ $data->timeId }}" class="btnU">修改</a>  
                                     </td>
                                 </tr>
                                 @endforeach

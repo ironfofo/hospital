@@ -44,9 +44,9 @@
                             <label class="col-2 text-end">科別</label>
                             <div class="col-10">
                                 <select name="department" id="typeId" class="form-select">
-                                        @foreach($pr as $data)
-                                            <option value="{{$data->typeId}}"{{$data->typeId==$doctor->typeId ? "selected": ""}}>{{$data->department}}</option>
-                                        @endforeach
+                                    @foreach($pr as $data)
+                                    <option value="{{$data->typeId}}"{{$data->typeId==$doctor->typeId ? "selected": ""}}>{{$data->department}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -66,8 +66,8 @@
                             </div>
                         </div>
                         <div class="row mt-4">
-                            <div class="col-12 text-end">
-                                <button type="submit" class="btn btn-primary btn-lg">儲存</button>
+                            <div class="col-12 text-end d-flex justify-content-end">
+                                <button type="submit" class="btn02">儲存</button>
                             </div>
                         </div>
                     </form>

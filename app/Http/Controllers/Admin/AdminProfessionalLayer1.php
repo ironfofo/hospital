@@ -19,37 +19,39 @@ class AdminProfessionalLayer1 extends Controller
     }
     public function add(Request $req)
     {
-        $list=Professional_layer1::get();
-        return view("admin.professional.professional_layer1.add", compact("list"));
+        $professional=Professional::get();
+        $professional_layer1=Professional_layer1::get();
+        return view("admin.professional.professional_layer1.add", compact("professional","professional_layer1"));
     }
 
     public function insert(Request $req)
     {
         
-        $pro = new Professional_layer1();
-        $pro->department = $req->department;
-        $pro->lan = $req->lan;
+        $professional_layer1=new Professional_layer1();
+        $professional_layer1->typeId = $req->typeId;
+        $professional_layer1->layer1_name = $req->layer1_name;
 
-        $pro->save();
+        $professional_layer1->save();
         Session::flash("message", "已新增");
         return redirect("/admin/professional/professional_layer1/list");
     }
 
     public function edit(Request $req)
     {
-        $pro=Professional_layer1::find($req->typeId);
-        return view("admin.professional.professional_layer1.edit", compact("pro"));
+        $professional=Professional::get();
+        $professional_layer1=Professional_layer1::find($req->id);
+        return view("admin.professional.professional_layer1.edit", compact("professional","professional_layer1"));
         
     }
 
     public function update(Request $req)
     {
-        $pro=Professional_layer1::find($req->typeId);
+        $professional_layer1=Professional_layer1::find($req->id);
 
-        $pro->department = $req->department;
-        $pro->lan = $req->lan;
+        $professional_layer1->typeId = $req->typeId;
+        $professional_layer1->layer1_name = $req->layer1_name;
 
-        $pro->update();
+        $professional_layer1->update();
 
         Session::flash("message", "已修改");
         return redirect("/admin/professional/professional_layer1/list");
@@ -57,11 +59,11 @@ class AdminProfessionalLayer1 extends Controller
 
     public function delete(Request $req)
     {
-        if ($req->has("typeId")) {
+        if ($req->has("id")) {
             // 刪除選取的 timeId
-            Professional_layer1::whereIn("typeId", $req->input("typeId"))->delete();
+            Professional_layer1::whereIn("id", $req->input("id"))->delete();
             Session::flash("message", "已刪除");
-        }
+        }   
         return redirect("/admin/professional/professional_layer1/list");
 
     }

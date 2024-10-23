@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(["prefix" => "/admin/doctor"], function () {
+Route::group(["middleware"=>"manager","prefix" => "/admin/doctor"], function () {
     Route::get("list", [AdminDoctorController::class, "list"]);
     Route::get("add", [AdminDoctorController::class, "add"]);
     Route::post("insert", [AdminDoctorController::class, "insert"]);

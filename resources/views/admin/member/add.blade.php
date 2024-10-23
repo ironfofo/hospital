@@ -104,8 +104,8 @@
                         <input type="text" class="form-control border-dark" name="pwd" id="pwd">
                     </div>
                 </div>
-                <div class="col-12 text-center">
-                    <button class="btn btn-primary btn-lg" type="submit">確 定</button>
+                <div class="col-12 text-center d-flex justify-content-end">
+                    <button class="btn02" type="submit">儲 存</button>
                 </div>
             </form>
         </div>

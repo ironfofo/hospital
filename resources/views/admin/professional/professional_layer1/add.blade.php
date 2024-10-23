@@ -1,5 +1,5 @@
 @extends("admin.app")
-@section("title","新增專業分科資料")
+@section("title","新增專業分科細項")
 @section("content")
 
 
@@ -14,20 +14,25 @@
                     <form method="post" action="insert">
                         {{ csrf_field() }}
                         <div class="row mt-3">
-                            <div class="col-2 text-end">科別</div>
+                            <label class="col-2 text-end">科別</label>
                             <div class="col-10">
-                                <input type="text" class="form-control" name="department">
+                                <select name="typeId" id="typeId" class="form-select">
+                                    <option value="">請選擇科別</option>
+                                    @foreach($professional as $pro)
+                                    <option value="{{ $pro->typeId }}">{{ $pro->department }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-2 text-end">英文</div>
+                            <label class="col-2 text-end">細項</label>
                             <div class="col-10">
-                                <input type="text" class="form-control" name="lan">
+                                <input type="text" class="form-control" name="layer1_name" placeholder="請輸入細項">
                             </div>
                         </div>
                         <div class="row mt-4">
-                            <div class="col-12 text-end">
-                                <button type="submit" class="btn btn-primary btn-lg">儲存</button>
+                            <div class="col-12 text-end d-flex justify-content-end">
+                                <button type="submit" class="btn02">儲存</button>
                             </div>  
                         </div>
                     </form>

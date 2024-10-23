@@ -2,14 +2,21 @@
 @section("title","專業分科細項")
 @section("content")
 
+<div class="row ms-0 mb-3">
+    <div class="col-1 ">
+        <a class="btnC" href="add">新增細項</a>
+    </div>
+    <div class="col-1 ">
+        <a class="btnD" href="javascript:doDelete('list')">刪除</a>
+    </div>
+</div>
+
     <!-- Tab Navigation -->
     <ul class="nav nav-tabs mb-4" id="profesionalTab" role="tablist">
         @foreach($professional as $key => $pro)
             <li class="nav-item">
                 <a class="nav-link {{ $key === 0 ? 'active' : '' }}" id="tab-{{ $pro->typeId }}" data-toggle="tab" href="#professional-{{ $pro->typeId }}" role="tab" aria-controls="professional-{{ $pro->typeId }}" aria-selected="{{ $key === 0 ? 'true' : 'false' }}">
                     {{ $pro->department }}
-                    @dump($pro)
-                    {{$pro->layer1_name}}
                 </a>
             </li>
         @endforeach
@@ -18,34 +25,42 @@
     <!-- Tab Content -->
     <div class="tab-content">
     @foreach($professional as $key => $pro)
-        <div class="tab-pane fade {{ $key === 0 ? 'show active' : '' }}" id="professoinal-{{ $pro->typeId }}" role="tabpanel" aria-labelledby="tab-{{ $pro->typeId }}">
-            <div class="table-responsive">
-                <table class="table table-bordered text-center">
-                    <thead class="thead-light">
-                         <tr>
-                            <th scope="col">細項</th>
+        <div class="tab-pane fade {{ $key === 0 ? 'show active' : '' }}" id="professional-{{ $pro->typeId }}" role="tabpanel" aria-labelledby="tab-{{ $pro->typeId }}">
+            <form name="list" id="list" method="post" action="delete">
+                {{ csrf_field() }}
+                <table class="table mt-3">
+                    <thead>
+                        <tr class="table-warning">
+                            <th class="col-1 text-center align-top">
+                                <input type="checkbox" class="form-check-input">
+                            </th>
+                            <th class=" text-center ">細項</th>
+                            <th class=" text-center ">修改</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @php
-                            $layer1_name = explode(',', $pro->layer1_name);
-                        @endphp
-
-                        <ul>
-                            @foreach($layer1_name as $name)
-                                <li>{{ $name }}</li>
-                            @endforeach
-                        </ul>
+                        @foreach($professional_layer1 as $prol)
+                           @if($pro->typeId == $prol->typeId)
+                            <tr>
+                                <td class="col-1 text-center ">
+                                    <input type="checkbox" class="chk form-check-input border border-secondary " name="id[]" value="{{ $prol->id }}">
+                                </td>
+                                <td class=" text-center ">{{ $prol->layer1_name }}</td>
+                                <td class=" text-center d-flex justify-content-center">
+                                    <a href="edit/{{ $prol->id }}" class="btnU">修改</a>  
+                                </td>
+                            </tr>
+                            @endif
+                        @endforeach
                     </tbody>
                 </table>
-            </div>
-            <div class="col-auto mt-1 mb-3">
-                <a class="btn01" href="edit">新增</a>
-            </div>
+            </form>
         </div>
     @endforeach
     </div>  
-    <script>
-    </script>
 
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 @endsection

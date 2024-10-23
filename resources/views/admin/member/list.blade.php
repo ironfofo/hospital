@@ -63,43 +63,45 @@
     @endif
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-4 mb-3">
-                <a class="btn btn-primary" href="add">新增</a>
+            <div class="col-12 ms-3 mb-3">
+                <a class="btnC" href="add">新增</a>
             </div>
             <div class="card shadow-lg">
                 <div class="card-body">
-                    <table class="table table-striped table-bordered table-hover">
-                        <tr>
-                            <th class="text-center">姓名</th>
-                            <th class="text-center">信箱</th>
-                            <th class="text-center">電話</th>
-                            <th class="text-center">地址</th>
-                            <th class="text-center">生日</th>
-                            <th class="text-center">帳號</th>
-                            <th class="text-center">密碼</th>
-                            <th class="text-center">等級</th>
-                            <th class="text-center">修改</th>
-                            <th class="text-center">刪除</th>
-                        </tr>
-                        @foreach($list as $data)
-                        <tr id="user{{$data->id}}" name="user{{$data->id}}">
-                            <td class="text-center">{{ $data->userName }}</td>
-                            <td class="text-center">{{ $data->email }}</td>
-                            <td class="text-center">{{ $data->phone }}</td>
-                            <td class="text-center">{{ $data->adr }}</td>
-                            <td class="text-center">{{ $data->bir }}</td>
-                            <td class="text-center">{{ $data->userId }}</td>
-                            <td class="text-center">{{ $data->pwd }}</td>
-                            <td class="text-center">{{ $data->prmTitle }}</td>
-                            <td class="text-center">
-                                <a class="btn btn-info" href="edit/{{$data->id}}">修改</a>
-                            </td>
-                            <td class="text-center">
-                                <a href="#" class="btn btn-danger" onclick="doDelete('{{$data->id}}','{{$data->userName}}')">刪除</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <th class="text-center">姓名</th>
+                                <th class="text-center">信箱</th>
+                                <th class="text-center">電話</th>
+                                <th class="text-center">地址</th>
+                                <th class="text-center">生日</th>
+                                <th class="text-center">帳號</th>
+                                <th class="text-center">密碼</th>
+                                <th class="text-center">等級</th>
+                                <th class="text-center">修改</th>
+                                <th class="text-center">刪除</th>
+                            </tr>
+                            @foreach($list as $data)
+                            <tr id="user{{$data->id}}" name="user{{$data->id}}">
+                                <td class="text-center">{{ $data->userName }}</td>
+                                <td class="text-center">{{ $data->email }}</td>
+                                <td class="text-center">{{ $data->phone }}</td>
+                                <td class="text-center">{{ $data->adr }}</td>
+                                <td class="text-center">{{ $data->bir }}</td>
+                                <td class="text-center">{{ $data->userId }}</td>
+                                <td class="text-center">{{ $data->pwd }}</td>
+                                <td class="text-center">{{ $data->prmTitle }}</td>
+                                <td class="text-center">
+                                    <a class="btnU" href="edit/{{$data->id}}">修改</a>
+                                </td>
+                                <td class="text-center d-flex justify-content-center">
+                                    <a href="#" class="btnD" onclick="doDelete('{{$data->id}}','{{$data->userName}}')">刪除</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    </div>
                 </div>
             </div>
             {{$list->links()}}

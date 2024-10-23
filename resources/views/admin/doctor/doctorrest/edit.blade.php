@@ -35,7 +35,9 @@
     @foreach($doctor as $key => $doc)
         <div class="tab-pane fade {{ $key === 0 ? 'show active' : '' }}" id="doctor-{{ $doc->doctorId }}" role="tabpanel" aria-labelledby="tab-{{ $doc->doctorId }}">
             <form id="doctorrestForm" action="/admin/doctor/doctorrest/update" method="post">
-                {{csrf_field()}}
+            <div class="col-auto mt-1 mb-3">
+                <button class="btn02" type="submit">儲存</button>
+            </div>    
             <div class="table-responsive">
                 <table class="table table-bordered text-center">
                     <thead class="thead-light">
@@ -78,9 +80,6 @@
                             @endforeach
                         </tr>
                     </tbody>
-                    <div class="col-auto mt-1 mb-3">
-                        <button class="btn01" type="submit">儲存</button>
-                    </div>
                 </table>
             </div>
         </form>

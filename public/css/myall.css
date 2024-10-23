@@ -62,6 +62,7 @@ h3 {
     --mycolor05: #0c0570;
     --mycolor06: #ffd000;
     --mycolor07: #0f0f0f;
+    --mycolor08: #49c307;
 
     --mytextcolor01: #fff8fc;
     --mytextcolor02: #7a4800;
@@ -594,8 +595,10 @@ a {
 /* doctorrest醫師休息 */
 .btn04 {
     margin-right: 5px;
-    width: 80px;
-    height: 40px;
+    max-width: 100%;
+    min-width: 80px;
+    max-height: 100%;
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -613,7 +616,9 @@ a {
 .btn05 {
     margin-right: 5px;
     max-width: 100%;
-    min-width: 140px;
+    min-width: 80px;
+    max-height: 100%;
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -661,6 +666,117 @@ a {
     /* 改變背景顏色 */
 }
 .btn06:active {
+    background-color: #EFF2F9;
+    font-size: 16px;
+    transform: scale(1.4);
+    box-shadow: 5px 5px 10px rgb(119, 119, 119);
+}
+
+/* 用於新增 */
+.btnC {
+    margin-right: 5px;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: var(--mytextcolor04);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    color: var(--mytextcolor01);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 300ms,
+        font-size 300ms, color 300ms;
+    /* transition: transform 0.5s ease, 
+        font-size 0.5s ease, color 0.5s ease, 
+        background-color 0.5s ease;  */
+}
+.btnC:hover {
+    transform: scale(1.03) translateY(-3px);
+    /* 增加大小 */
+    font-size: 18px;
+    /* 增加字體大小 */
+    color: var(--mytextcolor03);
+    /* 改變字體顏色 */
+    background-color: var(--mycolor07);
+    /* 改變背景顏色 */
+}
+.btnC:active {
+    background-color: #EFF2F9;
+    font-size: 16px;
+    transform: scale(1.4);
+    box-shadow: 5px 5px 10px rgb(119, 119, 119);
+}
+
+/* 用於刪除 */
+.btnD {
+    margin-right: 5px;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: var(--mycolor04);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    color: var(--mytextcolor01);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 300ms,
+        font-size 300ms, color 300ms;
+}
+.btnD:hover {
+    transform: scale(1.03) translateY(-3px);
+    /* 增加大小 */
+    font-size: 18px;
+    /* 增加字體大小 */
+    color: var(--mytextcolor03);
+    /* 改變字體顏色 */
+    background-color: var(--mycolor07);
+    /* 改變背景顏色 */
+}
+.btnD:active {
+    background-color: #EFF2F9;
+    font-size: 16px;
+    transform: scale(1.4);
+    box-shadow: 5px 5px 10px rgb(119, 119, 119);
+}
+
+/* 用於修改 */
+.btnU {
+    margin-right: 5px;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: var(--mycolor08);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    color: var(--mytextcolor01);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 300ms,
+        font-size 300ms, color 300ms;
+}
+.btnU:hover {
+    transform: scale(1.03) translateY(-3px);
+    /* 增加大小 */
+    font-size: 18px;
+    /* 增加字體大小 */
+    color: var(--mytextcolor03);
+    /* 改變字體顏色 */
+    background-color: var(--mycolor07);
+    /* 改變背景顏色 */
+}
+.btnU:active {
     background-color: #EFF2F9;
     font-size: 16px;
     transform: scale(1.4);

@@ -67,7 +67,7 @@
                                     <th class="text-center">醫生</th>
                                     <th class="text-center">日期</th>
                                     <th class="text-center">時間</th>
-                                    <th class="text-center">-</th>
+                                    <th class="text-center">刪除</th>
                                 </tr>
                             </thead>
                             @foreach($list as $data)
@@ -78,8 +78,8 @@
                                 <td class="text-center">{{ $data->doctorName }}</td>
                                 <td class="text-center">{{ $data->dates }}</td>
                                 <td class="text-center">{{ $data->time_period }}</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-danger" onclick="doDelete('{{$data->id}}','{{$data->userName}}','{{$data->dates}}','{{$data->time_period}}')">刪除</a>
+                                <td class="text-center d-flex justify-content-center">
+                                    <a href="#" class="btnD" onclick="doDelete('{{$data->id}}','{{$data->userName}}','{{$data->dates}}','{{$data->time_period}}')">刪除</a>
                                 </td>
                             </tr>
                             @endforeach

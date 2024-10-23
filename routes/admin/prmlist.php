@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(["prefix" => "/admin/member/prm"], function () {
+Route::group(["middleware"=>"manager","prefix" => "/admin/member/prm"], function () {
     Route::get("list", [MemberPrmList::class, "list"]);
     Route::get("add", [MemberPrmList::class, "add"]);
     Route::post("insert", [MemberPrmList::class, "insert"]);

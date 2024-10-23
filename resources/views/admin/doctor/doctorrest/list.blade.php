@@ -19,11 +19,14 @@
         </div>
     </div>
 
+    <div class="col-auto mt-1 mb-3">
+         <a class="btn01" href="edit">編輯班表</a>
+    </div>
+
     <!-- Tab Navigation -->
     <ul class="nav nav-tabs mb-4" id="doctorTab" role="tablist">
         @foreach($doctor as $key => $doc)
             <li class="nav-item">
-                {{dd($doc)}}
                 <a class="nav-link {{ $key === 0 ? 'active' : '' }}" id="tab-{{ $doc->doctorId }}" data-toggle="tab" href="#doctor-{{ $doc->doctorId }}" role="tab" aria-controls="doctor-{{ $doc->doctorId }}" aria-selected="{{ $key === 0 ? 'true' : 'false' }}">
                     {{ $doc->doctorName }}
                 </a>
@@ -39,15 +42,23 @@
                     <table class="table table-bordered text-center">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">日期</th>
+                                <th scope="col">   </th>
+                                <th scope="col">時間</th>
                                 @foreach($dates as $date)
-                                    <th scope="col">{{ $date['date'] }} <br> ({{ $date['weekday'] }})</th>
+                                <th scope="col">{{ $date['date'] }} <br> ({{ $date['weekday'] }})</th>
                                 @endforeach
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>{{ $doc->doctorName }}</strong></td>
+                                <td>
+                                @foreach($TimeList as $time)
+                                <div class="mb-3 mt-3">
+                                    <strong>{{ $time->time_start }} - {{ $time->time_end }}</strong>
+                                </div>
+                                @endforeach
+                                </td>
                                 @foreach($dates as $date)
                                     @php
                                         $scheduleForDate = $doctorSchedule[$doc->doctorId] ?? [];
@@ -57,13 +68,13 @@
                                             @php
                                                 $isRest = $scheduleForDate[$time->timeId][$date['date']] ?? false;
                                             @endphp
-                                            <div class="mb-2">
-                                                <strong>{{ $time->time_start }} - {{ $time->time_end }}</strong>
+
+                                            <div class="mt-0 mb-1">
                                                 <br>
                                                 @if($isRest)
-                                                    <button class="btn btn-sm btn-danger">休息</button>
+                                                    <button class="btn04">休息</button>
                                                 @else
-                                                    <button class="btn btn-sm btn-success">上班</button>
+                                                    <button class="btn05">上班</button>
                                                 @endif
                                             </div>
                                         @endforeach
@@ -71,9 +82,6 @@
                                 @endforeach
                             </tr>
                         </tbody>
-                        <div class="col-auto mt-1 mb-3">
-                            <a class="btn01" href="edit">編輯班表</a>
-                        </div>
                     </table>
                 </div>
             </div>

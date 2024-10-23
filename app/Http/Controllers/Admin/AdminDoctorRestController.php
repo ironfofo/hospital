@@ -25,7 +25,7 @@ class AdminDoctorRestController extends Controller
         $TimeList = TimeList::all();//時段設定
 
         $nowTime=Carbon::now();
-        // dd($nowTime);
+
         // 判斷哪些醫生在特定日期和時間段內休息，並標記出來
         $doctorSchedule = [];
         foreach ($doctor as $doc) {
@@ -79,7 +79,7 @@ class AdminDoctorRestController extends Controller
         $TimeList = TimeList::all();//時段設定
 
         $nowTime=Carbon::now();
-        // dd($nowTime);
+
         // 判斷哪些醫生在特定日期和時間段內休息，並標記出來
         $doctorSchedule = [];
         foreach ($doctor as $doc) {
@@ -133,7 +133,7 @@ class AdminDoctorRestController extends Controller
                             ->where('timeId', $scheduleData['timeId'])
                             ->delete();
                     }
-                    // dd($input);
+
                 }
             }
         }

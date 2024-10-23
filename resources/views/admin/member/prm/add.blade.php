@@ -26,8 +26,8 @@
                             </div>
                         </div>
                         <div class="form-group row mt-4">
-                            <div class="col-12 text-end">
-                                <button type="submit" class="btn btn-primary btn-lg">儲存</button>
+                            <div class="col-12 text-end d-flex justify-content-end">
+                                <button type="submit" class="btn02">儲存</button>
                             </div>  
                         </div>
                     </form>

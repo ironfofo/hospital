@@ -10,9 +10,8 @@ Route::get('professional', function () {
 });
 
 
-Route::group(["prefix" => "/admin/booking"], function () {
+Route::group(["middleware"=>"manager","prefix" => "/admin/booking"], function () {
     Route::get("list", [AdminBookingController::class, "list"]);
-
     Route::get("add", [AdminBookingController::class, "add"]);
     Route::post("insert", [AdminBookingController::class, "insert"]);
     Route::get("edit/{id}", [AdminBookingController::class, "edit"]);
