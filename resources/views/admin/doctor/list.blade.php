@@ -15,10 +15,10 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-2">
+                        <div class="col-auto">
                             <a class="btnC" href="add">新增</a>
                         </div>
-                        <div class="col-2">
+                        <div class="col-auto">
                             <a class="btnD" href="javascript:doDelete('list')">刪除</a>
                         </div>
                     </div>

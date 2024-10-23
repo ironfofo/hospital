@@ -63,7 +63,7 @@
     @endif
     <div class="container">
         <div class="row">
-            <div class="col-12 ms-3 mb-3">
+            <div class="col-auto mb-3">
                 <a class="btnC" href="add">新增</a>
             </div>
             <div class="card shadow-lg">

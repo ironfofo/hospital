@@ -13,7 +13,7 @@ class AdminProfessionalLayer1 extends Controller
     public function list()
     {
 
-        $professional=(new Professional)->getList();
+        $professional=Professional::get();
         $professional_layer1=Professional_layer1::get();
         return view("admin.professional.professional_layer1.list",compact("professional","professional_layer1"));
     }
@@ -41,13 +41,11 @@ class AdminProfessionalLayer1 extends Controller
         $professional=Professional::get();
         $professional_layer1=Professional_layer1::find($req->id);
         return view("admin.professional.professional_layer1.edit", compact("professional","professional_layer1"));
-        
     }
 
     public function update(Request $req)
     {
         $professional_layer1=Professional_layer1::find($req->id);
-
         $professional_layer1->typeId = $req->typeId;
         $professional_layer1->layer1_name = $req->layer1_name;
 
