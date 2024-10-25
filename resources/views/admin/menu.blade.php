@@ -88,7 +88,7 @@
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="/admin/professional/professional/list" class="nav-link{{ Request::is("admin/professional/professional/list") ?" active " : "" }}">
+          <a href="/admin/professional/professional/list" class="nav-link{{ Request::is("admin/professional/professional/*") ?" active " : "" }}">
             <i class="far fa-circle nav-icon"></i>
             <p>專業分科資料</p>
           </a>
@@ -96,7 +96,7 @@
       </ul>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="/admin/professional/professional_layer1/list" class="nav-link{{ Request::is("admin/professional/professional_layer1/list") ?" active " : "" }}">
+          <a href="/admin/professional/professional_layer1/list" class="nav-link{{ Request::is("admin/professional/professional_layer1/*") ?" active " : "" }}">
             <i class="far fa-circle nav-icon"></i>
             <p>專業分科細項</p>
           </a>

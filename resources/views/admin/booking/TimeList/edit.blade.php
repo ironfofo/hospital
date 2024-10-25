@@ -17,20 +17,20 @@
                         
                         <div class="form-group row mt-3">
                             <label class="col-2 col-form-label text-end">時間名稱</label>
-                            <div class="col-9">
+                            <div class="col-10">
                                 <input type="text" class="form-control" name="timeperiod" value="{{ $TimeList->time_period }}">
                             </div>
                         </div>
 
                         <div class="form-group row mt-3">
                             <label class="col-2 col-form-label text-end">開始時間</label>
-                            <div class="col-9">
+                            <div class="col-10">
                                 <input type="time" class="form-control" name="timestart" value="{{ $TimeList->time_start }}">
                             </div>
                         </div>
                         <div class="form-group row mt-3">
                             <label class="col-2 col-form-label text-end">結束時間</label>
-                            <div class="col-9">
+                            <div class="col-10">
                                 <input type="time" class="form-control" name="timeend" value="{{ $TimeList->time_end }}">
                             </div>
                         </div>

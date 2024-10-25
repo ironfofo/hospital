@@ -749,7 +749,7 @@ a {
 
 /* 用於修改 */
 .btnU {
-    margin-right: 5px;
+    margin: auto;
     width: 80px;
     height: 40px;
     display: flex;

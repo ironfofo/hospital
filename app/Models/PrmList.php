@@ -14,6 +14,8 @@ class PrmList extends Model
         "id",
         "prm",
         "prmTitle",
+        "icon",
+        "text-color",
         "createTime",
     ];
 }

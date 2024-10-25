@@ -39,7 +39,7 @@ class Member extends Model
     public function getList()
     {
         $list = DB::table('member AS a')
-                    ->selectRaw('a.*, b.prmTitle')
+                    ->selectRaw('a.*, b.prmTitle, b.icon,b.text_color')
                     ->join('prm_list AS b', 'b.prm', 'a.prm')
                     ->paginate(15);
         return $list;

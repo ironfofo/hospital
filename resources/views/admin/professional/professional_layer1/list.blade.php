@@ -2,7 +2,7 @@
 @section("title","專業分科細項")
 @section("content")
 
-<div class="container mt-5">
+<div class="container mt-3">
     <div class="row mb-4">
         <div class="col-auto">
             <a class="btnC" href="add">新增細項</a>

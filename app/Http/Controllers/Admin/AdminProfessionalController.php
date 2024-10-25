@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Photo\Upload;
 use App\Models\Professional\Professional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -22,12 +23,18 @@ class AdminProfessionalController extends Controller
 
     public function insert(Request $req)
     {
-        
         $pro = new Professional();
+        // 如果有上傳圖
+        if (!empty($req->photo)) {
+            //取得上傳後的檔名
+            $fileName = (new Upload())->uploadPhoto($req->photo, "images/professional", false, "", "", true, 100, 100);
+            $pro->photo = $fileName;
+        }
+        
         $pro->department = $req->department;
         $pro->lan = $req->lan;
-
         $pro->save();
+
         Session::flash("message", "已新增");
         return redirect("/admin/professional/professional/list");
     }
@@ -42,9 +49,21 @@ class AdminProfessionalController extends Controller
     public function update(Request $req)
     {
         $pro=Professional::find($req->typeId);
-
         $pro->department = $req->department;
         $pro->lan = $req->lan;
+        $photo = $req->photo;
+
+        //如果要變更圖檔
+        if (!empty($photo)) {
+            $fileName = (new Upload())->uploadPhoto($req->photo, "images/professional", false, "", "", true, 100, 100);
+
+            if (!empty($doctor->photo)) {
+                @unlink("images/professional/" . $pro->photo);
+                @unlink("images/professional/S/" . $pro->photo);
+            }
+            //圖檔設定新的檔名
+            $pro->photo = $fileName;
+        }
 
         $pro->update();
 

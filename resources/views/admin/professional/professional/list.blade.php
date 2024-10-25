@@ -30,9 +30,10 @@
                                     <td class="col-1 text-center">
                                         <input type="checkbox" name="all" id="all" class=" form-check-input">
                                     </td>
-                                    <td class="text-center">科別</td>
-                                    <td class="text-center">英文</td>
-                                    <td class="text-center">修改</td>
+                                    <td class="col-2 text-center">科別</td>
+                                    <td class="col-2 text-center">英文</td>
+                                    <td class="col-2 text-center">圖片</td>
+                                    <td class="col-2 text-center">修改</td>
                             </thead>
                             <tbody>
                                 @foreach($list as $data)
@@ -40,9 +41,16 @@
                                     <td class="text-center">
                                         <input type="checkbox" class="chk form-check-input border border-secondary" name="typeId[]" value="{{ $data->typeId }}">
                                     </td>
-                                    <td class="text-center">{{ $data->department }}</td>
-                                    <td class="text-center">{{ $data->lan }}</td>
-                                    <td class="text-center d-flex justify-content-center">
+                                    <td class="col-2 text-center">{{ $data->department }}</td>
+                                    <td class="col-2 text-center">{{ $data->lan }}</td>
+                                    <td class="col-2 text-center">
+                                    @if(!empty($data->photo))
+                                        <a href="/images/professional/{{ $data->photo }}" data-lightbox="photo">
+                                            <img src="/images/professional/S/{{ $data->photo }}" width="100">
+                                        </a>
+                                    @endif
+                                    </td>
+                                    <td class="col-2 text-center">
                                         <a href="edit/{{ $data->typeId }}" class="btnU">修改</a>  
                                     </td>
                                 </tr>

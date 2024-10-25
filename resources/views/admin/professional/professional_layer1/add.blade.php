@@ -32,7 +32,7 @@
                         </div>
                         <div class="row mt-4">
                             <div class="col-12 text-end d-flex justify-content-end">
-                                <button type="submit" class="btn02">儲存</button>
+                                <button type="submit" class="btn02"><i class="fa-sharp-duotone fa-solid fa-file-arrow-up"></i>儲存</button>
                             </div>  
                         </div>
                     </form>

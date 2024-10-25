@@ -7,6 +7,8 @@
   <title>SUSU控制台</title>
   <link rel="icon" href="/images/LOGO/pethospitalIcon.ico" type="image/x-icon">
 
+  <!-- Font: Awesome -->
+  <link rel="stylesheet" href="/css/all.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->

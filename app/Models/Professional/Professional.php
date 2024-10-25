@@ -14,6 +14,7 @@ class Professional extends Model
         "typeId",
         "department",
         "lan",
+        "photo",
         "createTime",
     ];
 

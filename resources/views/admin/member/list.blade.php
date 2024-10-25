@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/css/slick-theme.css">
     <link rel="stylesheet" href="/css/all.min.css">
     <link rel="stylesheet" href="/css/slick.css">
-    <link rel="stylesheet" href="/css/slick.css?v=1.01">
     <link rel="stylesheet" href="/css/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
@@ -71,31 +70,31 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover">
                             <tr>
-                                <th class="text-center">姓名</th>
-                                <th class="text-center">信箱</th>
-                                <th class="text-center">電話</th>
-                                <th class="text-center">地址</th>
-                                <th class="text-center">生日</th>
-                                <th class="text-center">帳號</th>
-                                <th class="text-center">密碼</th>
-                                <th class="text-center">等級</th>
-                                <th class="text-center">修改</th>
-                                <th class="text-center">刪除</th>
+                                <th class="text-center text-nowrap">姓名</th>
+                                <th class="text-center text-nowrap">信箱</th>
+                                <th class="text-center text-nowrap">電話</th>
+                                <th class="text-center text-nowrap">地址</th>
+                                <th class="text-center text-nowrap">生日</th>
+                                <th class="text-center text-nowrap">帳號</th>
+                                <th class="text-center text-nowrap">密碼</th>
+                                <th class="text-center text-nowrap">等級</th>
+                                <th class="text-center text-nowrap">修改</th>
+                                <th class="text-center text-nowrap">刪除</th>
                             </tr>
                             @foreach($list as $data)
                             <tr id="user{{$data->id}}" name="user{{$data->id}}">
-                                <td class="text-center">{{ $data->userName }}</td>
-                                <td class="text-center">{{ $data->email }}</td>
-                                <td class="text-center">{{ $data->phone }}</td>
-                                <td class="text-center">{{ $data->adr }}</td>
-                                <td class="text-center">{{ $data->bir }}</td>
-                                <td class="text-center">{{ $data->userId }}</td>
-                                <td class="text-center">{{ $data->pwd }}</td>
-                                <td class="text-center">{{ $data->prmTitle }}</td>
-                                <td class="text-center">
+                                <td class="text-center text-nowrap">{{ $data->userName }}</td>
+                                <td class="text-center text-nowrap">{{ $data->email }}</td>
+                                <td class="text-center text-nowrap">{{ $data->phone }}</td>
+                                <td class="text-center text-nowrap">{{ $data->adr }}</td>
+                                <td class="text-center text-nowrap">{{ $data->bir }}</td>
+                                <td class="text-center text-nowrap">{{ $data->userId }}</td>
+                                <td class="text-center text-nowrap">{{ $data->pwd }}</td>
+                                <td class="text-center text-nowrap {{$data->text_color}} align-middle"><i class="{{ $data->icon }}"></i>{{ $data->prmTitle }}</td>
+                                <td class="justify-content-center">
                                     <a class="btnU" href="edit/{{$data->id}}">修改</a>
                                 </td>
-                                <td class="text-center d-flex justify-content-center">
+                                <td class="d-flex justify-content-center">
                                     <a href="#" class="btnD" onclick="doDelete('{{$data->id}}','{{$data->userName}}')">刪除</a>
                                 </td>
                             </tr>

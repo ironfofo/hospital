@@ -102,6 +102,7 @@ class MemberController extends Controller
         $member->userId = $req->userId;
         $member->pwd = $req->pwd;
         $member->save();
+        
 
         Session::flash("message", "已新增");
         //redirect轉址
