@@ -135,30 +135,37 @@
     </div>
 </section>
 
-
 <section id="section04">
-    <div class="container">
-        <div class="row mt-5 justify-content-center">
-            @foreach($professional as $index => $pro)
-                @if ($index % 2 == 0)
-                    <!-- 開始新的一行 -->
-                    <div class="col-12 d-flex @if(($index / 2) % 2 == 1) flex-row-reverse @else flex-row @endif">
-                @endif
-
-                    <!-- 每個單元 -->
-                   
-                        <div class="col-12 bg-cover" style="background-image: url(/images/professional/{{ $pro->photo }}); height:330px;"></div>
-                        <div class="col-12 bg-01" style="height:330px;"></div>
-                    
-
-                @if ($index % 2 == 1)
-                    <!-- 結束當前行 -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 mb-3 bg-01 bg-02" style="max-height: 330px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/images/professional/2024_10_25_15_46_17_734.png" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="...">
                     </div>
-                @endif
-            @endforeach
+                    <div class="col-md-8">
+                        <h5 class="p-3">Card title</h5>
+                        <p class="p-3">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3 bg-01 bg-02" style="max-height: 330px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="/images/professional/2024_10_25_15_46_17_734.png" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="p-3">Card title</h5>
+                        <p class="p-3">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+
+
 
 
 <script src="js/bootstrap.bundle.min.js"></script>
