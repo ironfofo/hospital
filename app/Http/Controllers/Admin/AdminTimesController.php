@@ -52,7 +52,7 @@ class AdminTimesController extends Controller
         $TimeList->update();
 
         Session::flash("message", "已修改");
-        return redirect("/admin/TimeList/list");
+        return redirect("/admin/booking/TimeList/list");
     }
 
     public function delete(Request $req)

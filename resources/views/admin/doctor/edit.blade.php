@@ -43,7 +43,7 @@
                         <div class="row mt-3">
                             <label class="col-2 text-end">科別</label>
                             <div class="col-10">
-                                <select name="department" id="typeId" class="form-select">
+                                <select name="typeId" id="typeId" class="form-select">
                                     @foreach($pr as $data)
                                     <option value="{{$data->typeId}}"{{$data->typeId==$doctor->typeId ? "selected": ""}}>{{$data->department}}</option>
                                     @endforeach
