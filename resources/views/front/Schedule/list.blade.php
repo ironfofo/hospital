@@ -65,7 +65,7 @@
     @media (max-width: 768px) {
         .tab {
             width: 100%; /* 在小屏幕上使標籤佔滿整個寬度 */
-            margin-bottom: 20px; /* 增加底部間距 */
+            margin-bottom: 20px; /* 增加底部間距123456789 */
         }
 
         .tabcontent {
