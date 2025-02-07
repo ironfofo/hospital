@@ -18,6 +18,8 @@ class Professional extends Model
         "createTime",
     ];
 
+
+    //此段用於未來細分各科治療項目
     public function getList()
     {
         /*

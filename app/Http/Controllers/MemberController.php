@@ -138,26 +138,14 @@ class MemberController extends Controller
         return redirect("/admin/member/list");
     }
 
-    public function prmUpdate(Request $req)
+
+    public function state(Request $req)
     {
-        // 使用傳入的 userId 找到會員
-        $member = Member::where('userId', $req->userId)->first();
-        if ($member) {
-            $member->prm = $req->prm; // 更新會員等級
+        $member=Member::where('userId',$req->userId)->first();
+        if($member){
+            $member->state=$req->state;
             $member->save();
-
-            Session::flash("message", "已修改");
-            return response()->json(['status' => 'success', 'message' => '已修改']);
-        } else {
-            return response()->json(['status' => 'error', 'message' => '會員不存在']);
         }
-    }
-
-
-    public function delete(Request $req)
-    {
-        Member::find($req->id)->delete();
-        return redirect("/admin/member/list");
         
     }
 }

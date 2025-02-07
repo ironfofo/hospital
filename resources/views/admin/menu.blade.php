@@ -29,28 +29,7 @@
         </li>
       </ul>
     </li>
-
-
-    <li class="nav-item{{ Request::is('admin/chartJs/*') ?" menu-open " : "" }}">
-      <a href="#" class="nav-link{{ Request::is('admin/chartJs/*') ?" active " : "" }}">
-        <i class="nav-icon fas fa-copy"></i>
-        <p>
-          數據分析
-          <i class="fas fa-angle-left right"></i>
-        </p>
-      </a>
-      <ul class="nav nav-treeview">
-        <li class="nav-item">
-          <a href="/admin/chartJs/list" class="nav-link{{ Request::is("admin/chartJs/list") ?" active " : "" }}">
-            <i class="far fa-circle nav-icon"></i>
-            <p>會員數據分析</p>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-
-    
+   
     <li class="nav-item{{ Request::is('admin/booking/*') ?" menu-open " : "" }}">
       <a href="#" class="nav-link{{ Request::is('admin/booking/*') ?" active " : "" }}">
         <i class="nav-icon fas fa-copy"></i>
@@ -72,33 +51,6 @@
           <a href="/admin/booking/TimeList/list" class="nav-link{{ Request::is("admin/booking/TimeList/list") ?" active " : "" }}">
             <i class="far fa-circle nav-icon"></i>
             <p>時間清單</p>
-          </a>
-        </li>
-      </ul>
-    </li>
-
-
-    <li class="nav-item{{ Request::is('admin/professional/*') ?" menu-open " : "" }}">
-      <a href="#" class="nav-link{{ Request::is('admin/professional/*') ?" active " : "" }}">
-        <i class="nav-icon fas fa-copy"></i>
-        <p>
-          科別管理
-          <i class="fas fa-angle-left right"></i>
-        </p>
-      </a>
-      <ul class="nav nav-treeview">
-        <li class="nav-item">
-          <a href="/admin/professional/professional/list" class="nav-link{{ Request::is("admin/professional/professional/*") ?" active " : "" }}">
-            <i class="far fa-circle nav-icon"></i>
-            <p>專業分科資料</p>
-          </a>
-        </li>
-      </ul>
-      <ul class="nav nav-treeview">
-        <li class="nav-item">
-          <a href="/admin/professional/professional_layer1/list" class="nav-link{{ Request::is("admin/professional/professional_layer1/*") ?" active " : "" }}">
-            <i class="far fa-circle nav-icon"></i>
-            <p>專業分科細項</p>
           </a>
         </li>
       </ul>
@@ -125,6 +77,50 @@
           <a href="/admin/doctor/doctorrest/list" class="nav-link{{ Request::is("admin/doctor/doctorrest/list") ?" active " : "" }}">
             <i class="far fa-circle nav-icon"></i>
             <p>醫師修假表</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+    
+    <li class="nav-item{{ Request::is('admin/professional/*') ?" menu-open " : "" }}">
+      <a href="#" class="nav-link{{ Request::is('admin/professional/*') ?" active " : "" }}">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+          科別管理
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="/admin/professional/professional/list" class="nav-link{{ Request::is("admin/professional/professional/*") ?" active " : "" }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>專業分科資料</p>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="/admin/professional/professional_layer1/list" class="nav-link{{ Request::is("admin/professional/professional_layer1/*") ?" active " : "" }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>專業分科細項</p>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="nav-item{{ Request::is('admin/chartJs/*') ?" menu-open " : "" }}">
+      <a href="#" class="nav-link{{ Request::is('admin/chartJs/*') ?" active " : "" }}">
+        <i class="nav-icon fas fa-copy"></i>
+        <p>
+          數據分析
+          <i class="fas fa-angle-left right"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="/admin/chartJs/list" class="nav-link{{ Request::is("admin/chartJs/list") ?" active " : "" }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>會員數據分析</p>
           </a>
         </li>
       </ul>

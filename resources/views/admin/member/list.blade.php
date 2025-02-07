@@ -13,46 +13,7 @@
     <link rel="stylesheet" href="/css/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
-    <script>
-        function doDelete(id, userName) {
-            Swal.fire({
-                title: "確定刪除[" + userName + "]?",
-                showDenyButton: true,
-                showCancelButton: false,
-                confirmButtonText: "確定",
-                denyButtonText: "不刪除"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: "請再次確認[" + userName + "]?",
-                        showDenyButton: true,
-                        showCancelButton: false,
-                        confirmButtonText: "確定要刪除",
-                        denyButtonText: "不刪除"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            $.ajax({
-                                url: "/admin/member/delete",
-                                type: "post",
-                                //dataType:"json",資料傳回方法一種這裡不是這種
-                                data: {
-                                    id: id,
-                                    _token: "{{ csrf_token() }}"
-                                },
-                                //msg:變數名稱，不一定是msg這個字，可自己定
-                                success: function(msg) {
-                                    if (msg == "ok") {
-                                        Swal.fire("已刪除");
-                                        $("table tr.user" + id).remove();
-                                    }
-                                }
-                            });
-                        }
-                    });
-                }
-            });
-        }
-    </script>
+
 
     <!--如果有有message就顯示出來-->
     @if(Session::has("message"))
@@ -79,7 +40,7 @@
                                 <th class="text-center text-nowrap">密碼</th>
                                 <th class="text-center text-nowrap">等級</th>
                                 <th class="text-center text-nowrap">修改</th>
-                                <th class="text-center text-nowrap">刪除</th>
+                                <th class="text-center text-nowrap">權限</th>
                             </tr>
                             @foreach($list as $data)
                             <tr id="user{{$data->id}}" name="user{{$data->id}}">
@@ -94,8 +55,15 @@
                                 <td class="justify-content-center">
                                     <a class="btnU" href="edit/{{$data->id}}">修改</a>
                                 </td>
-                                <td class="d-flex justify-content-center">
-                                    <a href="#" class="btnD" onclick="doDelete('{{$data->id}}','{{$data->userName}}')">刪除</a>
+                                <td>
+                                    <div class="form-check form-switch">
+                                        <input type="checkbox" checked class="form-check-input bg-text-success" name="state" id="state" onclick="state('{{$data->id}}')">
+                                        @if($data->state == 1)
+                                        <label for="state" class="form-check-label" value="{{ $data->state }}">啟用</label>
+                                        @else
+                                        <label for="state" class="form-check-label" value="{{ $data->state }}">停用</label>
+                                        @endif
+                                    </div>    
                                 </td>
                             </tr>
                             @endforeach
@@ -138,5 +106,39 @@
                 });
             });
         });
+    </script>
+
+    <script>
+        function state() {
+            $("#state").change(function(){
+                if($(this).is(":checked")){
+                    $(this).next().text("啟用");
+                    $(this).addClass("bg-success");
+                    $(this).removeClass("bg-danger");
+                    state="1";
+                }else{
+                    $(this).next().text("停權");
+                    $(this).addClass("bg-danger");
+                    $(this).removeClass("bg-success");
+                    state="0";
+                }
+                $.ajax({
+                    url: "/admin/member/state",
+                    type: "post",
+                    //dataType:"json",資料傳回方法一種這裡不是這種
+                    data: {
+                    id: id,
+                    state:mystate,
+                    _token: "{{ csrf_token() }}"                
+                    },
+                    //msg:變數名稱，不一定是msg這個字，可自己定
+                    success: function(msg) {
+                        if (msg == "ok") {
+                            Swal.fire("已變更");
+                        }
+                    }
+                });
+            })
+        }                                         
     </script>
 @endsection

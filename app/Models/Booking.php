@@ -34,7 +34,7 @@ class Booking extends Model
         return $list;
     }
 
-    // 計算特定日期和時間的預約數量
+    // 預約根據時間、日期、醫師編號後的預約數量
     public function bookingCount($timeId,$date ,$doctorId)
     {
             return self::where('dates', $date)

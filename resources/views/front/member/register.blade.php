@@ -41,12 +41,15 @@
         <div class="card mt-5">
             <div class="row">
                 <div class="col-6">
-                    <img src="https://fakeimg.pl/700x750/724" class="img-fluid">
+                    <img src="/images/register/registerpet.jpg" class="img-fluid">
                 </div>
-                <div class="col-6 mt-4">
+                <div class="col-6 mt-5">
+                    <div class="row mt-4">
+                        <div class="col-6 text-end text-secondary fs-5 fw-800">註冊</div>
+                    </div>
                     <form action="/member/doRegister" method="post">
                         {{csrf_field()}}
-                        <div class="row mt-3">
+                        <div class="row mt-4">
                             <div class="col-3 text-end">姓名</div>
                             <div class="col-6">
                                 <!-- old:意思是原始資料 -->

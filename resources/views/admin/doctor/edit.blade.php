@@ -17,9 +17,10 @@
                         <input type="hidden" name="doctorId" value="{{ $doctor->doctorId }}">
                         {{ csrf_field() }}
                         <div class="row mt-3">
+                        <!--doctorId是主鍵不行隨意修改,編號的新增是要照順續不得跟改-->
                             <label class="col-2 text-end">編號</label>
                             <div class="col-10">
-                                <input type="text" class="form-control" name="doctorId" required value="{{ $doctor->doctorId }}">
+                                <input type="text" class="form-control" name="doctorId" required value="{{ $doctor->doctorId }}" readonly>
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -80,6 +81,7 @@
 <script src="/js/admin/editor.js"></script>
 
 <script>
+
     $("#file").change(function () {
         if (file.files[0].type == "image/png" || file.files[0].type == "image/jpeg") {
             $("#prevImg").removeClass("d-none");

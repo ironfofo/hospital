@@ -8,8 +8,9 @@ use App\Models\Doctor;
 use App\Models\DoctorRest;
 use App\Models\TimeList;
 use Carbon\Carbon;
+use Error;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Session;
 
 class FrontScheduleController extends Controller
 {
@@ -67,8 +68,6 @@ class FrontScheduleController extends Controller
                 }
             }
         }
-        
-
 
         // 計算預約數量
         $counts = [];
@@ -79,9 +78,9 @@ class FrontScheduleController extends Controller
         return view("front.schedule.list", compact("dates", "doctorSchedule", "counts", "doctor", "doctorName", "startDate", "showPrevWeekButton", "showNextWeekButton", "TimeList"));
     }
 
+    // 生成這一週的日期
     private function generateWeekDates($startDate)
     {
-        // 生成這一週的日期
         $dates = [];
         for ($i = 0; $i < 7; $i++) {
             $date = $startDate->copy()->startOfWeek()->addDays($i);
@@ -94,7 +93,7 @@ class FrontScheduleController extends Controller
         return $dates;
     }
 
-
+    //根據時間、日期、醫師編號紀錄
     private function getCountsForDates($timeIds, $dates, $doctorId)
     {
         $counts = [];
@@ -102,14 +101,16 @@ class FrontScheduleController extends Controller
             foreach ($dates as $date) {
                 $counts[$timeId][$date['date']] = (new Booking())->bookingCount($timeId, $date['date'], $doctorId);
             }
+            
         }
         return $counts;
     }
 
+    //根據userId紀錄
     public function doBooking(Request $req)
     {
-        $booking = new Booking();
 
+        $booking = new Booking();
         $booking->userId = session()->get("userId");
         $booking->dates = $req->dates;
         $booking->timeId = $req->timeId;

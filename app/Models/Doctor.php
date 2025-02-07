@@ -22,6 +22,7 @@ class Doctor extends Model
         "createTime",
     ];
 
+    // 資料庫查詢醫生資料,用typeId為主鍵與professional資表做關聯
     public function getList()
     {
         $list = DB::table('doctor AS a')

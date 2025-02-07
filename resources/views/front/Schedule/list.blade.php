@@ -101,9 +101,16 @@
 </div>
 
 <div class="container">
-    <div class="row">
-        <h3 class="col-12 mt-3">預約您的醫生</h3>
-        <div class="col-12 d-flex justify-content-end">
+
+    <!-- 顯示錯誤和成功訊息 -->
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+    <div class="row mt-3">
+        <h3 class="col-6 mt-2">診間時間</h3>
+        <div class="col-6 d-flex justify-content-end">
             @if ($showPrevWeekButton)
             <a href="{{ route('schedule.list', ['date' => $startDate->copy()->subWeek()->format('Y-m-d')]) }}" class="pages"><=上一周</a>
             @endif
@@ -165,7 +172,12 @@
                                             <input type="hidden" name="doctorId" value="{{ $doc->doctorId }}">
                                             <button class="btn" type="button" onclick="doBooking(event, this)">
                                                 {{ $time->time_period }}
-                                                <span class="people_num text-danger fw-100">({{ $counts[$doc->doctorId][$time->timeId][$date['date']] ?? 0 }}人)</span>
+                                                <span id=counts class="people_num text-danger fw-100">
+                                                    ({{ $counts[$doc->doctorId][$time->timeId][$date['date']] ?? 0 }}人)
+                                                    @if(($counts[$doc->doctorId][$time->timeId][$date['date']] ?? 0)>=5)
+                                                        滿診
+                                                    @endif
+                                                </span>
                                             </button>
                                         </form>
                                         @endif
@@ -187,7 +199,7 @@
                 </div>
             </div>
         </div>
-        @endforeach
+        @endforeach 
     </div>
 </div>
 
@@ -239,6 +251,22 @@
         const date = form.querySelector('input[name="dates"]').value; // 獲取當前日期
         const timeId = form.querySelector('input[name="timeId"]').value; // 獲取當前時段
         const doctorId = form.querySelector('input[name="doctorId"]').value; // 獲取當前醫生ID
+
+        // 獲取該時段的已預約人數
+        const countElement = element.querySelector('.people_num');
+        const countText = countElement.textContent.match(/\d+/); // 取得數字,如果數字是(2人),返回數組["2"]
+        const count = countText ? parseInt(countText[0]) : 0;
+
+        if (count >= 5) {
+            Swal.fire({
+                title: "預約額滿",
+                text: "該時段已無法預約，請選擇其他時間。",
+                icon: "warning",
+            });
+            return; // 不提交表單
+        }
+
+
         
         console.log(timeList);
         console.log(doctor);
@@ -247,6 +275,7 @@
         const timePeriod = (timeList[timeId - 1] && timeList[timeId - 1].time_period); // 根據 timeId 從 timeList 中獲取時段名稱
         const doctorName = (doctor[doctorId - 1] && doctor[doctorId - 1].doctorName);
 
+        
         Swal.fire({
             title: '確定要預約' + doctorName + '醫師?',
             text: date + ' 的 ' + timePeriod + ' 時段',

@@ -70,13 +70,13 @@ class AdminDoctorController extends Controller
             //圖檔設定新的檔名
             $doctor->photo = $fileName;
         }
-        $doctor->doctorId = $req->doctorId;
         $doctor->doctorName = $req->doctorName;
         $doctor->position = $req->position;
         $doctor->edu = $req->edu;
-        $doctor->typeId = $req->typeId;
+        $doctor->typeId = $req->department;
         $doctor->content = $req->content;
         $doctor->update();
+
 
         Session::flash("message", "已修改");
         return redirect("/admin/doctor/list");
