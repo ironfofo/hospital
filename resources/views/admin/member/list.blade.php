@@ -57,11 +57,12 @@
                                 </td>
                                 <td>
                                     <div class="form-check form-switch">
-                                        <input type="checkbox" checked class="form-check-input bg-text-success" name="state" id="state" onclick="state('{{$data->id}}')">
                                         @if($data->state == 1)
-                                        <label for="state" class="form-check-label" value="{{ $data->state }}">啟用</label>
+                                        <input type="checkbox" checked class="form-check-input bg-success state" name="state" id="state{{$data->id}}" value="{{ $data->state }}">
+                                        <label for="state{{$data->id}}" class="form-check-label">啟用</label>
                                         @else
-                                        <label for="state" class="form-check-label" value="{{ $data->state }}">停用</label>
+                                        <input type="checkbox" class="form-check-input bg-danger state" name="state" id="state{{$data->id}}" value="{{ $data->state }}">
+                                        <label for="state{{$data->id}}" class="form-check-label" >停用</label>
                                         @endif
                                     </div>    
                                 </td>
@@ -108,37 +109,38 @@
         });
     </script>
 
-    <script>
-        function state() {
-            $("#state").change(function(){
-                if($(this).is(":checked")){
-                    $(this).next().text("啟用");
-                    $(this).addClass("bg-success");
-                    $(this).removeClass("bg-danger");
-                    state="1";
-                }else{
-                    $(this).next().text("停權");
-                    $(this).addClass("bg-danger");
-                    $(this).removeClass("bg-success");
-                    state="0";
-                }
-                $.ajax({
-                    url: "/admin/member/state",
-                    type: "post",
-                    //dataType:"json",資料傳回方法一種這裡不是這種
-                    data: {
+<script>
+    $(document).ready(function() {
+        $(".state").change(function(){
+            var $this = $(this);
+            var id=$this.attr("id").replace("state","");//獲取當前id，並將state替換成空字串
+            var state;
+            if($this.is(":checked")){
+                $this.next().text("啟用");
+                $this.addClass("bg-success");
+                $this.removeClass("bg-danger");
+                state="1";
+            }else{
+                $this.next().text("停權");
+                $this.addClass("bg-danger");
+                $this.removeClass("bg-success");
+                state="0";
+            }
+            $.ajax({
+                url: "/admin/member/state",
+                type: "post",
+                data: {
                     id: id,
-                    state:mystate,
+                    state: state,
                     _token: "{{ csrf_token() }}"                
-                    },
-                    //msg:變數名稱，不一定是msg這個字，可自己定
-                    success: function(msg) {
-                        if (msg == "ok") {
-                            Swal.fire("已變更");
-                        }
+                },
+                success: function(msg) {
+                    if (msg.message == "ok") {
+                        Swal.fire("已變更");
                     }
-                });
-            })
-        }                                         
-    </script>
+                }
+            });
+        });
+    })
+</script>
 @endsection

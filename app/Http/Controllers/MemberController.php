@@ -141,11 +141,13 @@ class MemberController extends Controller
 
     public function state(Request $req)
     {
-        $member=Member::where('userId',$req->userId)->first();
+        $member=Member::find($req->id);
         if($member){
             $member->state=$req->state;
             $member->save();
+            return response()->json(['message'=>'ok']);
         }
+        return response()->json(['message'=>'error'],404);
         
     }
 }
