@@ -17,14 +17,14 @@
 </div>
 
 ### 後台管理
-- **會員管理**：編輯會員資訊、權限。
+- **會員管理**：使用 Laravel 的 Middleware 進行身份驗證和授權控制，編輯會員資訊、權限。
 - **醫師資訊管理**：編輯醫師資訊、科別介紹、診間時間等。
 - **班表編輯**：支持按日期搜尋並編輯該月份的班表，包括醫師休息時間。
 <div style="display: flex; justify-content: space-between;">
     <img src="https://github.com/user-attachments/assets/ceffea30-d501-43ab-a116-826f85410575" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
     <img src="https://github.com/user-attachments/assets/7ef3e23e-a416-40d3-9635-642c59ccd8d8" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
-    
 </div>
+
 ### 內容編輯
 - **CKEditor**：提供豐富的內文編輯功能。
 - **Lightbox**：方便檢視照片。
@@ -59,11 +59,7 @@
 - **安全性**：驗證碼、CSRF Token、Session 管理
 - **資料庫**：MySQL（或其他支援的資料庫）
 
-### 會員系統
 
-- 使用 Laravel 的 Middleware 進行身份驗證和授權控制。
-<div style="display: flex; justify-content: space-between;">
-    <img src="" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
-</div>
+
 
 
