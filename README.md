@@ -53,13 +53,7 @@
 ### 資料庫優化
 - **Carbon**：使用 Laravel 內建的 Carbon 庫在前端顯示日期，減少資料庫儲存需求。
 
-## 技術棧
 - **後端框架**：Laravel
-- **前端工具**：ChartJS、CKEditor、Lightbox
+- **前端工具**：ChartJS、CKEditor、Lightbox、CSS3、bootstrap、SweetAlert、jQuery
 - **安全性**：驗證碼、CSRF Token、Session 管理
 - **資料庫**：MySQL（或其他支援的資料庫）
-
-
-
-
-
