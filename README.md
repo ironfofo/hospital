@@ -55,7 +55,7 @@
 
 ## 技術棧
 - **後端框架**：Laravel
-- **前端工具**：ChartJS、CKEditor、Lightbox
+- **前端工具**：ChartJS、CKEditor、Lightbox、CSS3、bootstrap、sweetAlert、javaScript、jQuery
 - **安全性**：驗證碼、CSRF Token、Session 管理
 - **資料庫**：MySQL（或其他支援的資料庫）
 
