@@ -13,7 +13,7 @@
 - **醫師與科別預約**：用戶可根據不同醫師和科別進行預約。
 - **自動化更新**：系統自動顯示醫師休息時間及預約額滿狀態。
 <div style="display: flex; justify-content: space-between;">
-    <img src="https://github.com/user-attachments/assets/7abcf7fc-a801-4f18-8613-cdfb3315c67f" style="width: 800px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/7abcf7fc-a801-4f18-8613-cdfb3315c67f" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
 </div>
 
 ### 後台管理
