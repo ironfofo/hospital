@@ -12,8 +12,9 @@ Route::group(["middleware"=>"manager","prefix" => "/admin/member"], function () 
     Route::post("insert", [MemberController::class, "insert"]);
     Route::get("edit/{id}", [MemberController::class, "edit"]);
     Route::post("update", [MemberController::class, "update"]);
-    Route::post("state", [MemberController::class, "state"]);
     Route::post("prmUpdate", [MemberController::class, "prmUpdate"]);
+    Route::post("state", [MemberController::class, "state"]);
+    Route::post("search", [MemberController::class, "search"]);
 });
 
 Route::group(["prefix" => "/admin/chartJs"], function () {

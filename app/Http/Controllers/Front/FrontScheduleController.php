@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use App\Models\Doctor;
 use App\Models\DoctorRest;
+use App\Models\Member;
 use App\Models\TimeList;
 use Carbon\Carbon;
 use Error;
@@ -72,7 +73,7 @@ class FrontScheduleController extends Controller
         // 計算預約數量
         $counts = [];
         foreach ($doctor as $doc) {
-            $counts[$doc->doctorId] = $this->getCountsForDates([1, 2, 3], $dates, $doc->doctorId);
+            $counts[$doc->doctorId] = $this->getCountsForDates([1, 2, 3, 4, 5], $dates, $doc->doctorId);
         }
 
         return view("front.schedule.list", compact("dates", "doctorSchedule", "counts", "doctor", "doctorName", "startDate", "showPrevWeekButton", "showNextWeekButton", "TimeList"));
@@ -109,7 +110,6 @@ class FrontScheduleController extends Controller
     //根據userId紀錄
     public function doBooking(Request $req)
     {
-
         $booking = new Booking();
         $booking->userId = session()->get("userId");
         $booking->dates = $req->dates;

@@ -32,7 +32,7 @@ class AdminTimesController extends Controller
 
         $TimeList->save();
         Session::flash("message", "已新增");
-        return redirect("/admin/TimeList/list");
+        return redirect("/admin/booking/TimeList/list");
     }
 
     public function edit(Request $req)
@@ -52,7 +52,7 @@ class AdminTimesController extends Controller
         $TimeList->update();
 
         Session::flash("message", "已修改");
-        return redirect("/admin/TimeList/list");
+        return redirect("/admin/booking/TimeList/list");
     }
 
     public function delete(Request $req)
@@ -62,6 +62,6 @@ class AdminTimesController extends Controller
             TimeList::whereIn("timeId", $req->input("timeId"))->delete();
             Session::flash("message", "已刪除");
         }
-        return redirect("/admin/TimeList/list");
+        return redirect("/admin/booking/TimeList/list");
     }
 }

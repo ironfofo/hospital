@@ -101,7 +101,7 @@
   <script src="/js/jquery-ui.min.js"></script>
     <!-- <script>
         $(document).ready(function() {
-
+            $("#card").html("");
             let userId = $("#search").val();
             $.ajax({
                 url: "/admin/member/search",

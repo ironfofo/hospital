@@ -257,43 +257,61 @@
         const countText = countElement.textContent.match(/\d+/); // 取得數字,如果數字是(2人),返回數組["2"]
         const count = countText ? parseInt(countText[0]) : 0;
 
-        if (count >= 5) {
+        if("{{session('userId')}}" == ""){ // 如果未登入，提示用戶登入
             Swal.fire({
-                title: "預約額滿",
-                text: "該時段已無法預約，請選擇其他時間。",
+                title: "請先登入",
+                text: "請先登入會員後再預約",
                 icon: "warning",
             });
             return; // 不提交表單
-        }
-
-
-        
-        console.log(timeList);
-        console.log(doctor);
-
-
-        const timePeriod = (timeList[timeId - 1] && timeList[timeId - 1].time_period); // 根據 timeId 從 timeList 中獲取時段名稱
-        const doctorName = (doctor[doctorId - 1] && doctor[doctorId - 1].doctorName);
-
-        
-        Swal.fire({
-            title: '確定要預約' + doctorName + '醫師?',
-            text: date + ' 的 ' + timePeriod + ' 時段',
-            icon: "info",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "確定預約",
-            cancelButtonText: "不登預約",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // 確定預約，提交表單
-                form.submit();
-                Swal.fire("已預約").then(() => {
-                    location.reload(); // 刷新頁面
+        }else{
+            if ("{{session('state')}}" == 0) {
+                Swal.fire({
+                    title: "帳號停用",
+                    text: "您的帳號已停用，無法預約，請聯絡管理員。",
+                    icon: "warning",
                 });
+                return; // 不提交表單
+            }else{
+                if (count >= 5) {
+                Swal.fire({
+                    title: "預約額滿",
+                    text: "該時段已無法預約，請選擇其他時間。",
+                    icon: "warning",
+                });
+                return; // 不提交表單    
+                }else{
+                    console.log(timeList);
+                    console.log(doctor);
+
+
+                    const timePeriod = (timeList[timeId - 1] && timeList[timeId - 1].time_period); // 根據 timeId 從 timeList 中獲取時段名稱
+                    const doctorName = (doctor[doctorId - 1] && doctor[doctorId - 1].doctorName);
+
+                    
+                    Swal.fire({
+                        title: '確定要預約' + doctorName + '醫師?',
+                        text: date + ' 的 ' + timePeriod + ' 時段',
+                        icon: "info",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "確定預約",
+                        cancelButtonText: "不登預約",
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // 確定預約，提交表單
+                            form.submit();
+                            Swal.fire("已預約").then(() => {
+                                location.reload(); // 刷新頁面
+                            });
+                        }
+                    });    
+                }             
             }
-        });
+
+             
+        }
     }
 </script>
 

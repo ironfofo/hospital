@@ -37,13 +37,18 @@ class Member extends Model
     }
 
     //用於會用會員清單
-    public function getList()
+    public function getList($search = null)
     {
-        $list = DB::table('member AS a')
+        $query = DB::table('member AS a')
                     ->selectRaw('a.*, b.prmTitle, b.icon,b.text_color')
-                    ->join('prm_list AS b', 'b.prm', 'a.prm')
-                    ->paginate(15);
-        return $list;
+                    ->join('prm_list AS b', 'b.prm', 'a.prm');
+
+        if($search){
+            
+            $query->where('userName', 'like', "%{$search}%")  //%是sql裡的任意字元，{}是php裡的變數
+                    ->orWhere('userId', 'like', "%{$search}%");
+        }
+        return $query->paginate(15);
     }
 
     //用於驗證密碼

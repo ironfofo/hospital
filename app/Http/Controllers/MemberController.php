@@ -31,18 +31,26 @@ class MemberController extends Controller
             //withErrors:回傳錯誤資訊到前一頁
             return back()->withInput()->withErrors(["msg" => "帳戶或密碼錯誤"]);
         } else {
-            //系統站存，在config/session裡有設定
-            // 另外寫在CheckManager
+            if ($member->state == 0) {
+                session()->put("state", $member->state);
+                return back()->withInput()->withErrors(["msg" => "帳戶已停用"]);
+            }else{
+                session()->put("state", $member->state);
 
-            echo '{"message","成功"}';
-            session()->put("userId", $req->userId);
-            //帳密符合，轉址
-            return redirect("/");
+                //系統站存，在config/session裡有設定
+                // 另外寫在CheckManager
+                echo '{"message","成功"}';
+                session()->put("userId", $req->userId);
+                //帳密符合，轉址
+                return redirect("/");
+            }
+
         }
     }
 
     public function logOut()
     {
+        session()->forget("state");
         session()->forget("userId");
         return redirect("/");
     }
@@ -145,9 +153,18 @@ class MemberController extends Controller
         if($member){
             $member->state=$req->state;
             $member->save();
-            return response()->json(['message'=>'ok']);
+            return response()->json(['message'=>'no']);
         }
         return response()->json(['message'=>'error'],404);
         
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $list = (new Member())->getList($search);
+
+    
+        return view('admin.member.search', compact('list'));
     }
 }

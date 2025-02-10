@@ -46,9 +46,17 @@
 
 
 
+<script>
+    $(document).ready(function(){
+        $("#timeend").change(function(){
+            var timestart = $("#timestart").val();
+            var timeend = $(this).val();
 
-
+                if(timeend<timestart){
+                    alert("結束時間不可大於開始時間");
+                    $(this).val("");
+                }
+            });
+    });
 </script>
-
-
 @endsection

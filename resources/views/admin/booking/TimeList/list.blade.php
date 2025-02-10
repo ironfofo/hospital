@@ -8,7 +8,7 @@
                 <div class="card-header ">
                     <div class="row">
                         <div class="col-auto">
-                            <a class="btnC" href="add">新增</a>
+                            <a class="btnC" href="add"><i class="fa-solid fa-plus"></i>新增</a>
                         </div>
                         <div class="col-auto">
                             <a class="btnD" href="javascript:doDelete('list')">刪除</a>

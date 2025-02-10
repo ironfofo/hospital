@@ -25,13 +25,13 @@
                         <div class="form-group row mt-3">
                             <label class="col-2 col-form-label text-end">開始時間</label>
                             <div class="col-10">
-                                <input type="time" class="form-control" name="timestart" value="{{ $TimeList->time_start }}">
+                                <input type="time" class="form-control" name="timestart" id="timestart" value="{{ $TimeList->time_start }}">
                             </div>
                         </div>
                         <div class="form-group row mt-3">
                             <label class="col-2 col-form-label text-end">結束時間</label>
                             <div class="col-10">
-                                <input type="time" class="form-control" name="timeend" value="{{ $TimeList->time_end }}">
+                                <input type="time" class="form-control" name="timeend" id="timeend" value="{{ $TimeList->time_end }}">
                             </div>
                         </div>
 
@@ -46,5 +46,29 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $("#timeend").change(function(){
+            var timestart = $("#timestart").val();
+            var timeend = $(this).val();
+
+                if(timeend<=timestart){
+                    alert("結束時間不可大於開始時間");
+                    $(this).val("");
+                }
+            });
+
+        $("#timestart").change(function(){
+            var timestart = $(this).val();
+            var timeend = $("#timestart").val();
+
+                if(timeend<=timestart){
+                    alert("結束時間不可大於開始時間");
+                    $(this).val("");
+                }
+            });
+    });
+</script>
 
 @endsection
