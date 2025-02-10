@@ -1,52 +1,65 @@
 # 寵物醫院管理系統
 
 <div>
-    <img src="https://github.com/user-attachments/assets/6be205d8-8de7-48a5-933c-eeda719b9e45" style="width:1000px" alt="寵物醫院標誌" />    
+    <img src="https://github.com/user-attachments/assets/f41b686b-4631-4bbe-add8-bd4f1914d0b3" style="width:1000px" alt="寵物醫院標誌" />    
 </div>
 
 
-
-
-本專案是一個專為寵物醫院設計的管理系統，旨在幫助寵物醫院有效地管理預約、客戶資料及醫療記錄，並提供良好的用戶體驗。
+這是一個基於 Laravel 框架開發的醫療預約與管理系統，提供用戶預約醫師、後台管理、數據分析等功能，並具備良好的安全性與資料庫優化設計。
 
 ## 功能特色
 
-- **會員系統**：通過 Laravel 的 Middleware 實現會員登入與權限控管。
-- **預約系統**：用戶登入後可以選擇當週可用的預約時間，系統會自動排除醫師休假日，確保只能選擇有效時段。
-- **醫療記錄管理**：醫生可以方便地記錄並查詢寵物的病歷資料。
-- **圖表展示**：使用 ChartJS 來視覺化展示資料，例如預約狀況或病歷統計。
-- **圖片管理**：使用 Lightbox 提供照片檢視功能。
-- **富文本編輯器**：採用 CKEditor 讓後端可以輕鬆撰寫和編輯醫師基本資料。
+### 用戶預約系統
+- **醫師與科別預約**：用戶可根據不同醫師和科別進行預約。
+- **自動化更新**：系統自動顯示醫師休息時間及預約額滿狀態。
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/user-attachments/assets/7abcf7fc-a801-4f18-8613-cdfb3315c67f" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
+</div>
+
+### 後台管理
+- **會員管理**：使用 Laravel 的 Middleware 進行身份驗證和授權控制，編輯會員資訊、權限。
+- **醫師資訊管理**：編輯醫師資訊、科別介紹、診間時間等。
+- **班表編輯**：支持按日期搜尋並編輯該月份的班表，包括醫師休息時間。
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/user-attachments/assets/ceffea30-d501-43ab-a116-826f85410575" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/7ef3e23e-a416-40d3-9635-642c59ccd8d8" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
+</div>
+
+### 內容編輯
+- **CKEditor**：提供豐富的內文編輯功能。
+- **Lightbox**：方便檢視照片。
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/user-attachments/assets/b830b97e-7b6e-452f-ba82-b8d241347f15" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/81a92df1-d1ac-4ea0-885b-ab2082cec521" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
+</div>
+
+### 數據分析
+- **ChartJS**：將數據視覺化，幫助管理者了解運營狀況。
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/user-attachments/assets/89d5e391-e7c1-4d73-bb22-730d7f7da672" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
+</div>
+
+### 安全性
+- **驗證碼**：防止惡意登錄。
+- **Session 與 CSRF Token**：防止 XSS 與 CSRF 攻擊。
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/user-attachments/assets/3818df21-713d-4a38-a473-3b9be9fd0912" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/0921ba3c-6678-4606-a7b1-290a3f9a42c9" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
+</div>
+
+### 權限控管
+- **Laravel Middleware**：實現會員後台登入與權限管理。
+
+### 資料庫優化
+- **Carbon**：使用 Laravel 內建的 Carbon 庫在前端顯示日期，減少資料庫儲存需求。
 
 ## 技術棧
+- **後端框架**：Laravel
+- **前端工具**：ChartJS、CKEditor、Lightbox、CSS3、bootstrap、sweetAlert、javaScript、jQuery
+- **安全性**：驗證碼、CSRF Token、Session 管理
+- **資料庫**：MySQL（或其他支援的資料庫）
 
-### 前端
 
-- HTML5, CSS3
-- JavaScript, jQuery
-- Lightbox (圖片展示)
-- ChartJS (圖表展示)
-- CKEditor (富文本編輯器)
 
-### 後端
-
-- Laravel (PHP 框架)
-- MySQL (資料庫)
-
-### 會員系統
-
-- 使用 Laravel 的 Middleware 進行身份驗證和授權控制。
-
-## 預約系統開發過程
-
-在開發預約系統的過程中，我們考慮了用戶和管理者的便利性：
-自動更新日期：系統會自動在每天00:00時更新網頁中的第一天日期為當前日期，並生成接下來一週的日期，避免手動更改時間的麻煩。
-後端控制醫生休假：醫生的休假時間由後端管理，並在前端動態排除這些休息時間。用戶只能選擇醫生可用的預約時段，這保證了時間管理的準確性和靈活性。
-
-<div style="display: flex; justify-content: space-between;">
-    <img src="https://github.com/user-attachments/assets/aa89ff67-44e8-4fc6-98ea-b53e734433c9" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
-    <img src="https://github.com/user-attachments/assets/078fac91-11a4-41ff-ba33-0f0f89ec458e" style="width: 300px; margin-right: 30px;" alt="寵物醫院標誌" />
-    <img src="https://github.com/user-attachments/assets/4dcf3e2d-5805-44b5-a7f2-1b3bba65e6d7" style="width: 300px;" alt="寵物醫院標誌" />
-</div>
 
 
