@@ -22,7 +22,7 @@
 - **班表編輯**：支持按日期搜尋並編輯該月份的班表，包括醫師休息時間。
 <div style="display: flex; justify-content: space-between;">
     <img src="https://github.com/user-attachments/assets/f628e748-093c-4184-980c-8a53fbe6660f" style="width: 1000px; margin-right: 30px alt="寵物醫院標誌" />
-    <img src="https://github.com/user-attachments/assets/7ef3e23e-a416-40d3-9635-642c59ccd8d8" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/27423281-7605-43aa-970a-744fd9e66bf1" style="width: 1000px; margin-right: 30px;" alt="休假表編輯" />
 </div>
 
 ### 內容編輯
