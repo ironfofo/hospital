@@ -46,7 +46,6 @@
     <img src="https://github.com/user-attachments/assets/3818df21-713d-4a38-a473-3b9be9fd0912" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
     <img src="https://github.com/user-attachments/assets/0921ba3c-6678-4606-a7b1-290a3f9a42c9" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
 </div>
-
 ### 權限控管
 - **Laravel Middleware**：實現會員後台登入與權限管理。
 
