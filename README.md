@@ -21,30 +21,30 @@
 - **醫師資訊管理**：編輯醫師資訊、科別介紹、診間時間等。
 - **班表編輯**：支持按日期搜尋並編輯該月份的班表，包括醫師休息時間。
 <div style="display: flex; justify-content: space-between;">
-    <img src="https://github.com/user-attachments/assets/f628e748-093c-4184-980c-8a53fbe6660f" style="width: 800px; margin-right: 30px alt="寵物醫院標誌" />
-    <img src="https://github.com/user-attachments/assets/7ef3e23e-a416-40d3-9635-642c59ccd8d8" style="width: 800px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/f628e748-093c-4184-980c-8a53fbe6660f" style="width: 1000px; margin-right: 30px alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/7ef3e23e-a416-40d3-9635-642c59ccd8d8" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
 </div>
 
 ### 內容編輯
 - **CKEditor**：提供豐富的內文編輯功能。
 - **Lightbox**：方便檢視照片。
 <div style="display: flex; justify-content: space-between;">
-    <img src="https://github.com/user-attachments/assets/b830b97e-7b6e-452f-ba82-b8d241347f15" style="width: 800px; margin-right: 30px;" alt="寵物醫院標誌" />
-    <img src="https://github.com/user-attachments/assets/81a92df1-d1ac-4ea0-885b-ab2082cec521" style="width: 800px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/b830b97e-7b6e-452f-ba82-b8d241347f15" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/81a92df1-d1ac-4ea0-885b-ab2082cec521" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
 </div>
 
 ### 數據分析
 - **ChartJS**：將數據視覺化，幫助管理者了解運營狀況。
 <div style="display: flex; justify-content: space-between;">
-    <img src="https://github.com/user-attachments/assets/89d5e391-e7c1-4d73-bb22-730d7f7da672" style="width: 800px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/89d5e391-e7c1-4d73-bb22-730d7f7da672" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
 </div>
 
 ### 安全性
 - **驗證碼**：防止惡意登錄。
 - **Session 與 CSRF Token**：防止 XSS 與 CSRF 攻擊。
 <div style="display: flex; justify-content: space-between;">
-    <img src="https://github.com/user-attachments/assets/3818df21-713d-4a38-a473-3b9be9fd0912" style="width: 800px; margin-right: 30px;" alt="寵物醫院標誌" />
-    <img src="https://github.com/user-attachments/assets/0921ba3c-6678-4606-a7b1-290a3f9a42c9" style="width: 800px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/3818df21-713d-4a38-a473-3b9be9fd0912" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
+    <img src="https://github.com/user-attachments/assets/0921ba3c-6678-4606-a7b1-290a3f9a42c9" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
 </div>
 
 ### 權限控管
