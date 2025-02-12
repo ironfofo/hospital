@@ -9,7 +9,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 <!-- 查詢用 -->
-<div class="container">
+<div class="container-fluid">
     <div class="row mb-1">
         <div class="col text-right ">
             <form action="{{ url('/admin/doctor/doctorrest/list') }}" method="GET">

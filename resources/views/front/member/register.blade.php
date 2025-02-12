@@ -25,9 +25,9 @@
                 success: function(msg) {
                     if (msg == "exist") {
                         $("#userId").focus();
-                        $("#msg").html("<font color='red'>此帳號已經有人使用</font>")
+                        $("#msg").text("<font color='red'>此帳號已經有人使用</font>")
                     } else {
-                        $("#msg").html("");
+                        $("#msg").text("");
                     }
                 }
             });

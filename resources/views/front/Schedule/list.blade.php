@@ -112,11 +112,11 @@
         <h3 class="col-6 mt-2">診間時間</h3>
         <div class="col-6 d-flex justify-content-end">
             @if ($showPrevWeekButton)
-            <a href="{{ route('schedule.list', ['date' => $startDate->copy()->subWeek()->format('Y-m-d')]) }}" class="pages"><=上一周</a>
+            <a href="{{ route('schedule.list', ['date' => $startDate->copy()->subWeek()->format('Y-m-d')]) }}" class="pages"><i class="fa-solid fa-angles-left"></i>上一周</a>
             @endif
 
             @if ($showNextWeekButton)
-            <a href="{{ route('schedule.list', ['date' => $startDate->copy()->addWeek()->format('Y-m-d')]) }}" class="pages">下一周=></a>
+            <a href="{{ route('schedule.list', ['date' => $startDate->copy()->addWeek()->format('Y-m-d')]) }}" class="pages">下一周<i class="fa-solid fa-angles-right"></i></a>
             @endif
         </div>
 
