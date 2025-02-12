@@ -57,12 +57,13 @@
 - **安全性**：驗證碼、CSRF Token、Session 管理
 - **資料庫**：MySQL（或其他支援的資料庫）
 
-安裝使用說明:
+
+## 安裝使用說明
 將pet_hospital.sql放入MySQL資料庫,.env預設port是3307，最低版本php7.4.33、Laravel*8
 
-帳號測試
-前端登入: 帳號fo 密碼123
-後端登入: 網址:localhost/admin  帳號111  密碼11
+## 帳號測試
+**前端登入**: 帳號fo 密碼123
+**後端登入**: 網址:localhost/admin  帳號111  密碼11
 
 
 
