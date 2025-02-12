@@ -62,8 +62,8 @@
 將pet_hospital.sql放入MySQL資料庫,.env預設port是3307，最低版本php7.4.33、Laravel*8
 
 ## 帳號測試
-**前端登入**: 帳號fo 密碼123
-**後端登入**: 網址:localhost/admin  帳號111  密碼11
+- **前端登入**: 帳號fo 密碼123
+- **後端登入**: 網址:localhost/admin  帳號111  密碼11
 
 
 
