@@ -12,6 +12,8 @@
 ### 用戶預約系統
 - **醫師與科別預約**：用戶可根據不同醫師和科別進行預約。
 - **自動化更新**：系統自動顯示醫師休息時間及預約額滿狀態。
+- ### 資料庫優化
+- **Carbon**：使用 Laravel 內建的 Carbon 庫在前端顯示日期，減少資料庫儲存需求。
 <div style="display: flex; justify-content: space-between;">
     <img src="https://github.com/user-attachments/assets/7abcf7fc-a801-4f18-8613-cdfb3315c67f" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
 </div>
@@ -42,16 +44,12 @@
 ### 安全性
 - **驗證碼**：防止惡意登錄。
 - **Session 與 CSRF Token**：防止 XSS 與 CSRF 攻擊。
+- ### 權限控管
+- **Laravel Middleware**：實現會員後台登入與權限管理。
 <div style="display: flex; justify-content: space-between;">
     <img src="https://github.com/user-attachments/assets/3818df21-713d-4a38-a473-3b9be9fd0912" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
     <img src="https://github.com/user-attachments/assets/0921ba3c-6678-4606-a7b1-290a3f9a42c9" style="width: 1000px; margin-right: 30px;" alt="寵物醫院標誌" />
 </div>
-
-### 權限控管
-- **Laravel Middleware**：實現會員後台登入與權限管理。
-
-### 資料庫優化
-- **Carbon**：使用 Laravel 內建的 Carbon 庫在前端顯示日期，減少資料庫儲存需求。
 
 ## 技術棧
 - **後端框架**：Laravel
