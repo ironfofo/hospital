@@ -1,14 +1,12 @@
-version: '3.8'
-
 services:
   app:
-    image: laravel:latest
+    image: laravel:8.0
     container_name: laravel_app
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8000:80"
+      - "8001:80"
     volumes:
       - .:/var/www/html
     environment:
@@ -32,10 +30,10 @@ services:
     ports:
       - "3307:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
-      - MYSQL_DATABASE=${DB_DATABASE}
-      - MYSQL_USER=${DB_USERNAME}
-      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=pet_hospital
+      - MYSQL_USER=
+      - MYSQL_PASSWORD=
     volumes:
       - db_data:/var/lib/mysql
 
@@ -44,6 +42,17 @@ services:
     container_name: mailhog
     ports:
       - "8025:8025"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    depends_on:
+      - db
 
 volumes:
   db_data:

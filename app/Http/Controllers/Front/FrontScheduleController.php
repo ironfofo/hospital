@@ -76,7 +76,7 @@ class FrontScheduleController extends Controller
             $counts[$doc->doctorId] = $this->getCountsForDates([1, 2, 3, 4, 5], $dates, $doc->doctorId);
         }
 
-        return view("front.schedule.list", compact("dates", "doctorSchedule", "counts", "doctor", "doctorName", "startDate", "showPrevWeekButton", "showNextWeekButton", "TimeList"));
+        return view("front.Schedule.list", compact("dates", "doctorSchedule", "counts", "doctor", "doctorName", "startDate", "showPrevWeekButton", "showNextWeekButton", "TimeList"));
     }
 
     // 生成這一週的日期
