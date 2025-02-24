@@ -170,7 +170,11 @@
                                             <input type="hidden" name="dates" value="{{ $date['date'] }}">
                                             <input type="hidden" name="timeId" value="{{ $time->timeId }}">
                                             <input type="hidden" name="doctorId" value="{{ $doc->doctorId }}">
-                                            <button class="btn" type="button" onclick="doBooking(event, this)">
+                                            @if($booked[$doc->doctorId][$time->timeId][$date['date']][session()->get('userId')])
+                                                <button class="btn" disabled type="button">
+                                            @else
+                                                <button class="btn" type="button" onclick="doBooking(event, this)">
+                                            @endif
                                                 {{ $time->time_period }}
                                                 <span id=counts class="people_num text-danger fw-100">
                                                     ({{ $counts[$doc->doctorId][$time->timeId][$date['date']] ?? 0 }}人)
@@ -243,6 +247,7 @@
 <script>
     const timeList = @json($TimeList); // 將 TimeList 和 doctorName 資料以json格式傳遞到 JavaScript 中
     const doctor = @json($doctorName);
+    
 
     function doBooking(event, element) {
         event.preventDefault(); // 防止默認行為
@@ -256,6 +261,8 @@
         const countElement = element.querySelector('.people_num');
         const countText = countElement.textContent.match(/\d+/); // 取得數字,如果數字是(2人),返回數組["2"]
         const count = countText ? parseInt(countText[0]) : 0;
+
+
 
         if("{{session('userId')}}" == ""){ // 如果未登入，提示用戶登入
             Swal.fire({
@@ -309,9 +316,11 @@
                     });    
                 }             
             }
-
+        
              
         }
+
+        
     }
 </script>
 

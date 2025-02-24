@@ -62,11 +62,8 @@
                     <input type="date" class="form-control" name="date" id="date" aria-label="請選擇日期" aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="submit" id="button-addon2">搜尋</button>
                 </div>
-                <div class="input-group">
-
             </form>
         </div>
-
         <div class="row mt-5">
             <div class="col-12">
                 <div class="card shadow-lg">

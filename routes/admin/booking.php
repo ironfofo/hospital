@@ -18,6 +18,7 @@ Route::group(["middleware"=>"manager","prefix" => "/admin/booking"], function ()
     Route::get("edit/{id}", [AdminBookingController::class, "edit"]);
     Route::post("update", [AdminBookingController::class, "update"]);
     Route::post("delete", [AdminBookingController::class, "delete"]);
+    Route::get("search", [AdminBookingController::class, "search"]);
 
     Route::group(["prefix" => "TimeList"], function () {
         Route::get("list", [AdminTimesController::class, "list"]);

@@ -80,4 +80,14 @@ class AdminBookingController extends Controller
         echo("ok");
 
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $date = $request->input('date');
+        $list = (new Booking())->getList($search, $date);
+
+    
+        return view('admin.booking.search', compact('list'));
+    }
 }
