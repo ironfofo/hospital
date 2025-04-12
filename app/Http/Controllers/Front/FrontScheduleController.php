@@ -38,12 +38,11 @@ class FrontScheduleController extends Controller
         $showNextWeekButton = $weekDiff < 3;
 
         $dates = $this->generateWeekDates($startDate);//取得一周時間 generateWeekDates是自建方法
-        $doctorrest = DoctorRest::all();//醫生休息班表
-        $doctor = (new Doctor())->getList();//醫師基本資料
-        $doctorName = Doctor::all(); //sweatlart的doctorName
+        $doctorrest = DoctorRest::select('doctorId','timeId','dates')->get();//醫生休息班表
+        $doctor = (new Doctor())->getDockerIdList();//醫師基本資料
+        $doctorName = (new Doctor())->getDockerIdList(); //sweatlart的doctorName
         $TimeList = TimeList::all();//時段設定
-        $booking=Booking::all();//帳號預約查詢
-
+        $booking=(new Booking())->getList();//帳號預約查詢
 
         $nowTime=Carbon::now(); 
         // dd($nowTime);
@@ -83,8 +82,7 @@ class FrontScheduleController extends Controller
         }
 
         // 計算預約數量
-        $counts = [];
-        global $userId;
+        $counts = [];   
         foreach ($doctor as $doc) {
             $counts[$doc->doctorId] = $this->getCountsForDates([1, 2, 3, 4, 5], $dates, $doc->doctorId);
         }
@@ -120,20 +118,20 @@ class FrontScheduleController extends Controller
         return $counts;
 
     }
-    private function getBooked($timeIds,$dates,$doctorId,$userId)
-    {
-        $booked = [];
-        foreach ($timeIds as $timeId) {
-            foreach ($dates as $date) {
-                if(Session::has("userId")){
-                    $userId=Session::get("userId");
-                    $booked[$timeId][$date['date']][$userId] = (new Booking())->booked($timeId, $date['date'], $doctorId, $userId);
-                }
-            }            
-        }
-        return $booked;
+    // private function getBooked($timeIds,$dates,$doctorId,$userId)
+    // {
+    //     $booked = [];
+    //     foreach ($timeIds as $timeId) {
+    //         foreach ($dates as $date) {
+    //             if(Session::has("userId")){
+    //                 $userId=Session::get("userId");
+    //                 $booked[$timeId][$date['date']][$userId] = (new Booking())->booked($timeId, $date['date'], $doctorId, $userId);
+    //             }
+    //         }            
+    //     }
+    //     return $booked;
   
-    }
+    // }
 
 
     public function doBooking(Request $req)
@@ -167,17 +165,5 @@ class FrontScheduleController extends Controller
 
         return redirect("/schedule/list")->with('message', '預約成功');
     }
-    //根據userId紀錄
-    // public function doBooking(Request $req)
-    // {
-    //     $booking = new Booking();
-    //     $booking->userId = session()->get("userId");
-    //     $booking->dates = $req->dates;
-    //     $booking->timeId = $req->timeId;
-    //     $booking->doctorId = $req->doctorId;
-    //     $booking->save();
 
-    //     // Session::flash("message", "預定成功");
-    //     return redirect("/schedule/list");
-    // }
 }

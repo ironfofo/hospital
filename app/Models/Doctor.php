@@ -32,4 +32,15 @@ class Doctor extends Model
 
         return $list;
     }
+
+    public function getDockerIdList()
+    {
+        
+        $list=DB::table('doctor AS a')
+        ->selectRaw('a.doctorId,a.doctorName,a.photo,b.department,b.lan')
+        ->leftJoin('professional AS b','b.typeId','a.typeId')
+        ->get();
+
+        return $list;
+    }
 }

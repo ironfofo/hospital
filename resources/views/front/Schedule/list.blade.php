@@ -170,7 +170,7 @@
                                             <input type="hidden" name="dates" value="{{ $date['date'] }}">
                                             <input type="hidden" name="timeId" value="{{ $time->timeId }}">
                                             <input type="hidden" name="doctorId" value="{{ $doc->doctorId }}">
-                                            @if($booked[$doc->doctorId][$time->timeId][$date['date']][session()->get('userId')])
+                                            @if($booked[$doc->doctorId][$time->timeId][$date['date']][session()->get('userId')] || ($counts[$doc->doctorId][$time->timeId][$date['date']] ?? 0)>=5)
                                                 <button class="btn" disabled type="button">
                                             @else
                                                 <button class="btn" type="button" onclick="doBooking(event, this)">
@@ -257,10 +257,11 @@
         const timeId = form.querySelector('input[name="timeId"]').value; // 獲取當前時段
         const doctorId = form.querySelector('input[name="doctorId"]').value; // 獲取當前醫生ID
 
-        // 獲取該時段的已預約人數
-        const countElement = element.querySelector('.people_num');
-        const countText = countElement.textContent.match(/\d+/); // 取得數字,如果數字是(2人),返回數組["2"]
-        const count = countText ? parseInt(countText[0]) : 0;
+        // // 獲取該時段的已預約人數
+        // const countElement = element.querySelector('.people_num');
+        // const countText = countElement.textContent.match(/\d+/); // 取得數字,如果數字是(2人),返回數組["2"] 
+
+        // const count = countText ? parseInt(countText[0]) : 0; // 轉換為整數
 
 
 
@@ -280,16 +281,8 @@
                 });
                 return; // 不提交表單
             }else{
-                if (count >= 5) {
-                Swal.fire({
-                    title: "預約額滿",
-                    text: "該時段已無法預約，請選擇其他時間。",
-                    icon: "warning",
-                });
-                return; // 不提交表單    
-                }else{
-                    console.log(timeList);
-                    console.log(doctor);
+                    // console.log(timeList);
+                    // console.log(doctor);
 
 
                     const timePeriod = (timeList[timeId - 1] && timeList[timeId - 1].time_period); // 根據 timeId 從 timeList 中獲取時段名稱
@@ -313,8 +306,7 @@
                                 location.reload(); // 刷新頁面
                             });
                         }
-                    });    
-                }             
+                    });                
             }
         
              

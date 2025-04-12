@@ -135,7 +135,7 @@
     </div>
 </section>
 
-<section id="section04">
+<!-- <section id="section04">
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 mb-3 bg-01 bg-02" style="max-height: 330px;">
@@ -162,7 +162,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 

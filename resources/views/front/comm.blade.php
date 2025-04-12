@@ -51,12 +51,12 @@
       </button>
       <div class="collapse navbar-collapse me-3" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="/about/list">關於SUSU</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/environment/list">環境介紹</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="/doctor/list">醫師介紹</a>
           </li>
