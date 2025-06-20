@@ -16,7 +16,9 @@ services:
       - laravel
 
   laravel_app:
-    image: laravelphp/php-fpm
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: laravel_app
     volumes:
       - .:/var/www/html
