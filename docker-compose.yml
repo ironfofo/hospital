@@ -3,21 +3,19 @@ version: '3.8'
 
 services:
   app:
+    image: laravelphp/php-fpm
+    container_name: laravel_app
     build:
       context: .
       dockerfile: Dockerfile
-    image: laravel_app
-    container_name: laravel_app
     volumes:
       - .:/var/www/html
-    expose:
-      - "9000"
     depends_on:
       - db
 
   nginx:
     image: nginx:latest
-    container_name: nginx_server
+    container_name: nginx
     ports:
       - "80:80"
     volumes:
@@ -32,8 +30,8 @@ services:
     ports:
       - "3307:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: pet_hospital
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=pet_hospital
     volumes:
       - db_data:/var/lib/mysql
 
@@ -50,6 +48,7 @@ services:
 
 volumes:
   db_data:
+
 
 
 # services:
