@@ -20,6 +20,8 @@ services:
     container_name: laravel_app
     volumes:
       - .:/var/www/html
+    expose:
+      - "9000"
     networks:
       - laravel
 
