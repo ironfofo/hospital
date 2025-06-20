@@ -1,3 +1,4 @@
+# nginx:
 version: '3.8'
 
 services:
@@ -5,20 +6,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: laravel_app
     container_name: laravel_app
     volumes:
       - .:/var/www/html
-    environment:
-      - DB_HOST=db
-      - DB_PORT=3306
-      - DB_DATABASE=${DB_DATABASE}
-      - DB_USERNAME=${DB_USERNAME}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - MAIL_HOST=mailhog
-      - MAIL_PORT=1025
+    expose:
+      - "9000"
+    depends_on:
+      - db
 
-  webserver:
-    image: nginx:stable
+  nginx:
+    image: nginx:latest
     container_name: nginx_server
     ports:
       - "80:80"
@@ -34,14 +32,10 @@ services:
     ports:
       - "3307:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
-      - MYSQL_DATABASE=pet_hospital
-
-  mailhog:
-    image: mailhog/mailhog
-    container_name: mailhog
-    ports:
-      - "8025:8025"
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: pet_hospital
+    volumes:
+      - db_data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -51,3 +45,68 @@ services:
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+
+
+# services:
+#   app: 
+#     image: laravel:8.0 # 使用的鏡像
+#     container_name: laravel_app # 容器名稱
+#     build: 
+#       context: .  # 構建上下文路徑
+#       dockerfile: Dockerfile # Dockerfile路徑
+#     ports:
+#       - "8001:80"             # 本機端口:容器端口
+#     volumes:
+#       - .:/var/www/html       # 本機目錄:容器目錄
+#     environment:
+#       - APP_ENV=local         # 環境變量
+#       - APP_DEBUG=true        # 調試模式
+#       - APP_KEY=${APP_KEY}    # Laravel應用程序金鑰
+#       - DB_HOST=db            # This is the name of the service in the docker-compose.yml file
+#       - DB_PORT=3306          # This is the default port of MySQL
+#       - DB_DATABASE=${DB_DATABASE} # The database name
+#       - DB_USERNAME=${DB_USERNAME} # The database username
+#       - DB_PASSWORD=${DB_PASSWORD} # The database password
+#       - MAIL_HOST=mailhog          #信箱主機
+#       - MAIL_PORT=1025             #信箱端口
+#     depends_on:  # 依賴關係
+#       - db          
+#       - mailhog   
+
+#   db: 
+#     image: mysql:5.7 
+#     container_name: mysql_db
+#     ports:
+#       - "3307:3306"    #本機端口:容器端口
+#     environment:
+#       - MYSQL_ROOT_PASSWORD=123456
+#       - MYSQL_DATABASE=pet_hospital
+#       - MYSQL_USER=
+#       - MYSQL_PASSWORD=
+#     volumes:  #數據卷
+#       - db_data:/var/lib/mysql    #容器內路徑
+
+#   mailhog:
+#     image: mailhog/mailhog #
+#     container_name: mailhog
+#     ports:
+#       - "8025:8025"
+
+#   phpmyadmin:
+#     image: phpmyadmin/phpmyadmin
+#     container_name: phpmyadmin
+#     ports:
+#       - "8080:80"
+#     environment:
+#       PMA_HOST: db 
+#       PMA_PORT: 3306 
+#     depends_on:
+#       - db
+
+# volumes:
+#   db_data:
