@@ -52,7 +52,7 @@ class MemberController extends Controller
     {
         session()->forget("state");
         session()->forget("userId");
-        return redirect("/");
+        return response()->json(['message' => '登出成功']);
     }
 
     public function register()
