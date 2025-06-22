@@ -47,26 +47,6 @@
     </div>
 </div>
 
-<script>
-  $("#loginForm").on("submit", function(e) {
-    e.preventDefault();
-    $.ajax({
-      url: "/member/doLogin",
-      type: "post",
-      data: $(this).serialize(),
-      success: function(res) {
-        if(res.status === "ok") {
-          location.reload(); // 登入成功，刷新原畫面
-        } else {
-          Swal.fire(res.message || "登入失敗");
-        }
-      },
-      error: function(xhr) {
-        Swal.fire("登入失敗");
-      }
-    });
-  });
-</script>
 
 
 @endsection

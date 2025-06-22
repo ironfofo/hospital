@@ -42,7 +42,7 @@ class MemberController extends Controller
                 echo '{"message","成功"}';
                 session()->put("userId", $req->userId);
                 //帳密符合，轉址
-                return response()->json(['message' => '登入成功']);
+                return redirect("/");
             }
 
         }
