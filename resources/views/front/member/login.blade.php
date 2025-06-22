@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row mt-5">
         <div class="card">
-            <form action="/member/doLogin" method="post">
+            <form action="/member/doLogin" method="post" id="loginForm">
                 {{csrf_field()}}
                 <div class="row mt-3">
                     <div class="col-2 text-center">帳號</div>
@@ -46,6 +46,27 @@
         </div>
     </div>
 </div>
+
+<script>
+  $("#loginForm").on("submit", function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: "/member/doLogin",
+      type: "post",
+      data: $(this).serialize(),
+      success: function(res) {
+        if(res.status === "ok") {
+          location.reload(); // 登入成功，刷新原畫面
+        } else {
+          Swal.fire(res.message || "登入失敗");
+        }
+      },
+      error: function(xhr) {
+        Swal.fire("登入失敗");
+      }
+    });
+  });
+</script>
 
 
 @endsection
