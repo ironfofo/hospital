@@ -73,7 +73,7 @@ class MemberController extends Controller
         $member->pwd = $req->pwd1;
         $member->save();
         Session::flash("message", "註冊成功");
-        return redirect("front/index");
+        return redirect("/front/index");
     }
 
     public function checkUser(Request $req)
