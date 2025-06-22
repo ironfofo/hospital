@@ -30,7 +30,7 @@ class AdminController extends Controller
         }
         // 儲存項目到session中，以manager為管理者名稱儲存$manager->userId
         session()->put("manager",$manager->userId);
-        return redirect("/admin/home");
+        return redirect("/admin/member/list");
     }
 
     public function home()
