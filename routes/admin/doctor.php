@@ -15,7 +15,7 @@ Route::group(["middleware"=>"manager","prefix" => "/admin/doctor"], function () 
     Route::post("delete", [AdminDoctorController::class, "delete"]);
 
     Route::group(["prefix" => "doctorrest"], function () {
-        Route::post("list", [AdminDoctorRestController::class, "list"]);
+        Route::get("list", [AdminDoctorRestController::class, "list"]);
         Route::get("add", [AdminDoctorRestController::class, "add"]);
         Route::post("insert", [AdminDoctorRestController::class, "insert"]);
         Route::get("edit", [AdminDoctorRestController::class, "edit"]);
