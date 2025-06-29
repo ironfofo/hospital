@@ -12,7 +12,7 @@
 <div class="container-fluid">
     <div class="row mb-1">
         <div class="col text-right ">
-            <form action="{{ url('/admin/doctor/doctorrest/list') }}" method="GET">
+            <form action="{{ url('/admin/doctor/doctorrest/list') }}" method="POST">
                 <input type="date" name="date" class="form-control" value="{{ $startDate->format('Y-m-d') }}">
                 <button type="submit" class="btn btn-primary mt-2">查詢</button>
             </form>
